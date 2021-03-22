@@ -1,0 +1,25 @@
+.Dashboard {
+	display:grid;
+	grid-template-rows: 5rem 50rem 5rem;
+	grid-template-areas:
+	"header"
+	"body"
+	"footer"
+}
+
+.Header {
+	grid-area: header;
+	background-color:#C1E8E0;
+}
+
+
+.Body {
+	grid-area:body;
+	background-color:white;
+}
+
+
+.Footer {
+	grid-area:footer;
+	background-color:#C1E8E0;
+}
