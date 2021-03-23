@@ -1,0 +1,25 @@
+.Nav {
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+}
+
+.logo {
+	justify-self:start;
+	background-color: white;
+
+}
+
+.logo > img {
+	object-fit: cover;
+	max-height: 100%;
+}
+
+
+.menu {
+	display: grid;
+	grid-template-columns: repeat(5, auto);
+	text-align: center;
+
+
+}

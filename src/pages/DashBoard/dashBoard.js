@@ -1,4 +1,5 @@
 import react, {useEffect} from 'react'
+import Navbar from '../../components/Nav/nav.js'
 import './dashBoard.css'
 
 function DashBoard(props) {
@@ -7,7 +8,7 @@ function DashBoard(props) {
 	return (
 		<div className="Dashboard">
 			<div className="Header">
-				this is for the header
+				<Navbar />
 			</div>
 			<div className="Body">
 				this is for body
