@@ -1,7 +1,8 @@
 .Nav {
 	display:grid;
 	grid-template-columns: 15rem 1fr;
-	grid-template-areas: "logo menu"
+	grid-template-areas: "logo menu";
+
 }
 
 .logo {
@@ -15,7 +16,7 @@
 	object-fit: contain;
 	width:100%;
 	max-height: 100%;
-	background: transparent;
+	background: #C1E8E0;
 }
 
 
