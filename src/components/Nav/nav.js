@@ -4,26 +4,23 @@ import './nav.css'
 
 function Navbar(props) {
 
-
-
 	return (
 		<nav id='navbar' className="Nav">
-
-			<div>
-				<img src="unswlogo.png" className="logo" alt=""/>
+			<div className="logo">
+				<img src="unswlogo.png"/>
 			</div>
 			<ul className="menu">
-				<li>
-					<button>
+				<li className="studySpace">
+					<button >
 						study space finder
 					</button>
 				</li>
-				<li>
-					<button>
+				<li className="logout">
+					<button >
 						logout
 					</button>
 				</li>
-				<li>
+				<li className="profile">
 					<button>
 						profile picture
 					</button>

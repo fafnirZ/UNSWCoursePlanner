@@ -1,25 +1,48 @@
 .Nav {
-	display: flex;
-	flex-direction: row;
-	align-items: stretch;
+	display:grid;
+	grid-template-columns: 15rem 1fr;
+	grid-template-areas: "logo menu"
 }
 
 .logo {
+	grid-area: logo;
 	justify-self:start;
 	background-color: white;
 
 }
 
 .logo > img {
-	object-fit: cover;
+	object-fit: contain;
+	width:100%;
 	max-height: 100%;
+	background: transparent;
 }
 
 
 .menu {
+	grid-area: menu;
 	display: grid;
-	grid-template-columns: repeat(5, auto);
-	text-align: center;
+	grid-template-columns: 80% 10% 10%;
+	grid-template-areas: "study logout profile";
+	list-style-type: none;
 
+
+}
+
+.studySpace {
+	grid-area: study;
+	background-color: #FFFFEF;
+	justify-content: center;
+}
+
+
+
+.logout {
+	grid-area: logout;
+	background-color: grey;
+}
+
+.profile {
+	grid-area: profile;
 
 }
