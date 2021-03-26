@@ -23,27 +23,49 @@
 .menu {
 	grid-area: menu;
 	display: grid;
-	grid-template-columns: 80% 10% 10%;
+	grid-template-columns: 70% 15% 15%;
 	grid-template-areas: "study logout profile";
 	list-style-type: none;
+	justify-items:start;
+	align-items: center;
 
 
 }
 
 .studySpace {
 	grid-area: study;
-	background-color: #FFFFEF;
-	justify-content: center;
+}
+.studySpace > button {
+	width:100px;
+	height:50px;
+	border:none;
+	background-color: white;
+	border-radius: 12px;
+
 }
 
 
 
 .logout {
 	grid-area: logout;
-	background-color: grey;
+
+}
+.logout > button {
+	width:100px;
+	height:50px;
+	border: none;
+	border-radius: 12px;
 }
 
 .profile {
 	grid-area: profile;
 
 }
+
+.profile > button {
+	width:100px;
+	height:50px;
+	border-radius: 12px;
+	border:none;
+}
+
