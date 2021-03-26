@@ -1,6 +1,6 @@
 .Dashboard {
 	display:grid;
-	grid-template-rows: 6rem 50rem 6rem;
+	grid-template-rows: 7rem 50rem 7rem;
 	grid-template-areas:
 	"header"
 	"body"

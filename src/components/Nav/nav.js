@@ -21,9 +21,7 @@ function Navbar(props) {
 					</button>
 				</li>
 				<li className="profile">
-					<button>
-						profile picture
-					</button>
+					<img src="profile.png"/>
 				</li>
 
 			</ul>
