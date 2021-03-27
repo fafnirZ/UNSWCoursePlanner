@@ -1,5 +1,5 @@
 import react, {useEffect} from 'react'
-
+import { Link } from 'react-router-dom'
 import './nav.css'
 
 function Navbar(props) {
@@ -45,12 +45,12 @@ function Navbar(props) {
 			</div>
 			<ul className="menu">
 				<li className="studySpace">
-					<button >
+					<button>
 						study space finder
 					</button>
 				</li>
 				<li className="logout">
-					<button >
+					<button>
 						logout
 					</button>
 				</li>
