@@ -1,6 +1,6 @@
 .Dashboard {
 	display:grid;
-	grid-template-rows: 7rem 50rem 7rem;
+	grid-template-rows: 7rem auto 7rem;
 	grid-template-areas:
 	"header"
 	"body"
@@ -38,23 +38,23 @@
 
 .units {
 	grid-area:units;
-	background-color:#fffccc;
+	/*background-color:#fffccc;*/
 }
 
 .search {
 	grid-area:search;
-	background-color:#fffbbb;
+	/*background-color:#fffbbb;*/
 
 }
 
 .tree {
 	grid-area:tree;
-	background-color:#fffaaa;
+	/*background-color:#fffaaa;*/
 }
 
 .table {
 	grid-area:table;
-	background-color:#fff999;
+	/*background-color:#fff999;*/
 }
 
 .years {
