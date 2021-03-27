@@ -1,5 +1,6 @@
 import react, {useEffect} from 'react'
 import Navbar from '../../components/Nav/nav.js'
+import Table from '../../components/Table/table.js'
 import './dashBoard.css'
 
 function DashBoard(props) {
@@ -24,6 +25,7 @@ function DashBoard(props) {
 				</div>
 
 				<div className="table">
+					<Table />
 				</div>
 
 				<div className="years">

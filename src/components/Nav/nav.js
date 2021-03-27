@@ -3,6 +3,13 @@ import react, {useEffect} from 'react'
 import './nav.css'
 
 function Navbar(props) {
+
+	/*
+		navbar becomes sticky after it reaches the offset of 112?
+		-> it will stick to the top of the page
+
+	*/
+
 	const [scrolled, setScrolled] = react.useState(false);
 	const [scrollY, setScrollY] = react.useState(window.scrollY);
 
@@ -19,6 +26,7 @@ function Navbar(props) {
 	}
 
 	//initialise on mount
+	//adds an event listener which handles scrolling and setting scrolled
 	useEffect(() => {
 		window.addEventListener('scroll', handleScroll)
 	})

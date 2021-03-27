@@ -1,6 +1,6 @@
 .Dashboard {
 	display:grid;
-	grid-template-rows: 7rem 50rem 7rem;
+	grid-template-rows: 7rem auto 7rem;
 	grid-template-areas:
 	"header"
 	"body"
@@ -54,7 +54,7 @@
 
 .table {
 	grid-area:table;
-	background-color:#fff999;
+	/*background-color:#fff999;*/
 }
 
 .years {
