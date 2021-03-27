@@ -44,11 +44,10 @@
 .studySpace {
 	grid-area: study;
 }
-.studySpace > button {
+.studySpace > Button {
 	width:100px;
 	height:50px;
 	border:none;
-	background-color: white;
 	border-radius: 12px;
 
 }
@@ -59,7 +58,7 @@
 	grid-area: logout;
 
 }
-.logout > button {
+.logout > Button {
 	width:100px;
 	height:50px;
 	border: none;
