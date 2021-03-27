@@ -11,7 +11,24 @@ function DashBoard(props) {
 				<Navbar />
 			</div>
 			<div className="Body">
-				this is for body
+				<div className="tags">
+				</div>
+
+				<div className="units">
+				</div>
+
+				<div className="search">
+				</div>
+
+				<div className="tree">
+				</div>
+
+				<div className="table">
+				</div>
+
+				<div className="years">
+				</div>
+
 			</div>
 			<div className="Footer">
 				smelly footer
