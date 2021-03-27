@@ -38,18 +38,18 @@
 
 .units {
 	grid-area:units;
-	background-color:#fffccc;
+	/*background-color:#fffccc;*/
 }
 
 .search {
 	grid-area:search;
-	background-color:#fffbbb;
+	/*background-color:#fffbbb;*/
 
 }
 
 .tree {
 	grid-area:tree;
-	background-color:#fffaaa;
+	/*background-color:#fffaaa;*/
 }
 
 .table {

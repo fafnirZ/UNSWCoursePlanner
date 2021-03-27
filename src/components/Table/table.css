@@ -22,11 +22,12 @@
 
 
 
-/*
-.rows > div {
 
+.rows > div {
+	padding-left: 5px;
 }
 
+/*
 .rows > div:nth-child(odd) {
 	background: #EBECF0;
 }

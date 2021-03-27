@@ -1,0 +1,22 @@
+
+.Container {
+	height:100%;
+	display: grid;
+	grid-template-rows: 32% 32% 32%;
+	grid-gap: 2%;
+
+}
+
+
+.Rows {
+	display:grid;
+	grid-template-columns: 30% 68%;
+	grid-gap: 2%;
+
+}
+
+.Rows>div {
+	background: #EBEBEB;
+	padding: 5px;
+}
+
