@@ -1,0 +1,34 @@
+
+
+.Table {
+	width:100%;
+	display:grid;
+
+	grid-template-rows: 2rem repeat(4, 8rem);
+
+}
+
+.Table > li:nth-child(odd) {
+	background: #c1c1c1;
+}
+
+
+.rows {
+	width: 100%;
+	display:grid;
+	grid-template-columns: repeat(4,25%);
+	align-content: center;
+}
+
+
+
+
+.rows > div {
+	padding-left: 5px;
+}
+
+/*
+.rows > div:nth-child(odd) {
+	background: #EBECF0;
+}
+*/
