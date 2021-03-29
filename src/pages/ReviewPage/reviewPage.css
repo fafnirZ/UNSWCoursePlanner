@@ -44,5 +44,6 @@
 
 .review {
   grid-area:review;
-  background-color: #ae4b0a;
+  background-color: rgba(191, 191, 191, 1);
+  box-shadow: 5px 10px rgba(108, 122, 137, 1);
 }

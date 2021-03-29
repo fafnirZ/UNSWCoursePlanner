@@ -1,0 +1,86 @@
+.Title {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 5%;
+}
+
+.Review1 {
+    display: grid;
+    grid-template-rows: 10rem 6rem auto 3rem;
+    grid-template-areas: "userProfile" "detail" "userReview" "reply";
+    margin-left: 5%;
+    width: 60%;
+    height: auto;
+    background-color: #8d8d8d;
+    margin-bottom: 20px;
+    padding: 1rem;
+}
+
+.userProfile {
+    display: grid;
+    height: 5rem;
+    padding: 1rem;
+    grid-template-columns: 20% 40% 40%;
+    grid-template-areas: "userPhoto" "name" "react"
+}
+
+/*
+.userPhoto {
+	object-fit: cover;
+	width:50%;
+	max-height: auto;
+	padding:1rem;
+	border-radius:50%;
+	padding-top:1.5rem;
+}
+*/
+.name {
+    display: grid;
+    grid-template-rows: 2.5rem 2.5rem;
+    grid-template-areas: "userName" "date";
+    font-size: 20px;
+}
+
+.date {
+    font-size: 20px;
+}
+
+.react {
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "like" "dislike";
+}
+
+.detail {
+    display:grid;
+    grid-template-rows: 2rem 2rem 2rem;
+    grid-template-areas: "userRating" "completionDate" "lecturer";
+}
+
+.userReview {
+    height:auto;
+    padding-bottom: 30px;
+}
+
+.reply {
+    width: 100%;
+    height: auto;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+
+.userReply {
+    display: grid;
+    grid-template-rows: 10rem 6rem auto 3rem;
+    grid-template-areas: "userProfile" "userReview" "reply";
+    margin-left: 10%;
+    width: 60%;
+    height: auto;
+    background-color: #8d8d8d;
+    margin-bottom: 20px;
+    padding: 1rem;
+}

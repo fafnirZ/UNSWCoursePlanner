@@ -9,8 +9,8 @@ library.add(faStar);
 
 function Course (props) {
     return (
-    <div className="Template">
-        <div className="name">
+    <div className="Course">
+        <div className="courseName">
             <p>Requirements and Design Workshop</p>
         </div>
         <div className="code">
@@ -18,6 +18,7 @@ function Course (props) {
         </div>
         <span className="rating">
             <FontAwesomeIcon icon="faStar" />
+            <p>*****</p>
         </span>
         <div className="numOfReviews">
             <p> 4.0 average rating based on 200 reviews</p>
