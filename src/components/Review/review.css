@@ -5,39 +5,46 @@
 
 .Review1 {
     display: grid;
-    grid-template-rows: 10rem 6rem auto 3rem;
-    grid-template-areas: "userProfile" "detail" "userReview" "reply";
-    margin-left: 5%;
-    width: 60%;
+    grid-template-rows: 8rem 6rem auto 2rem 3rem;
+    grid-template-areas: "userProfile" "detail" "userReview" "comments" "reply";
+    margin: auto;
+    width: 70%;
     height: auto;
     background-color: #8d8d8d;
     margin-bottom: 20px;
-    padding: 1rem;
+    padding: 10px;
+    box-shadow: 5px 10px rgba(108, 122, 137, 1);
 }
 
 .userProfile {
     display: grid;
-    height: 5rem;
-    padding: 1rem;
-    grid-template-columns: 20% 40% 40%;
+    height: 3rem;
+    padding-top: 1rem;
+    grid-template-columns: 20% 60% 20%;
     grid-template-areas: "userPhoto" "name" "react"
 }
 
-/*
-.userPhoto {
-	object-fit: cover;
-	width:50%;
-	max-height: auto;
-	padding:1rem;
+
+.userPhoto >img {
+    display: grid;
+	height: 90px;
+    width: 90px;
+    align-content: center;
 	border-radius:50%;
-	padding-top:1.5rem;
+    margin-left: auto;
+    margin-right: auto;
 }
-*/
+
 .name {
     display: grid;
-    grid-template-rows: 2.5rem 2.5rem;
+    grid-template-rows: 60% 40%;
     grid-template-areas: "userName" "date";
     font-size: 20px;
+}
+
+.userName {
+    font-size: 30px;
+    vertical-align: 50%;
 }
 
 .date {
@@ -47,7 +54,8 @@
 .react {
     display:grid;
     grid-template-columns: 50% 50%;
-    grid-template-areas: "like" "dislike";
+    grid-template-rows: 60% 40%;
+    /*grid-template-areas: "like" "dislike" "likeCounter" "dislikeCounter";*/
 }
 
 .detail {
@@ -61,6 +69,7 @@
     padding-bottom: 30px;
 }
 
+
 .reply {
     width: 100%;
     height: auto;
@@ -73,14 +82,48 @@
     resize: none;
 }
 
+
+/*
 .userReply {
     display: grid;
     grid-template-rows: 10rem 6rem auto 3rem;
     grid-template-areas: "userProfile" "userReview" "reply";
-    margin-left: 10%;
-    width: 60%;
+    width: 1100;
     height: auto;
     background-color: #8d8d8d;
+    margin-top: 10px;
     margin-bottom: 20px;
+}
+*/
+/*
+.comments {
+    height:0.5rem;
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
     padding: 1rem;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+}
+*/
+.like {
+    display:block;
+    margin: auto;
+    color: green;
+}
+
+.dislike {
+    display:block;
+    margin: auto;
+    color: red;
+}
+
+.likeCounter {
+    text-align: center;
+}
+
+.dislikeCounter {
+    text-align: center;
 }
