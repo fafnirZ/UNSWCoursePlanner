@@ -1,0 +1,9 @@
+.ProfilePage {
+    display:grid;
+    grid-template-rows: 7rem auto 7rem;
+    grid-template-areas:
+    "header"
+    "body"
+    "footer";
+}
+

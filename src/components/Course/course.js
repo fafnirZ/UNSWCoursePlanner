@@ -1,14 +1,16 @@
-import react, {useEffect} from 'react';
+import react, {useState} from 'react';
+import Modal from 'react-modal'
 import './course.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 function Course (props) {
+    const [modalIsOpen, setModalIsOpen] = useState(false)
     return (
     <div className="Course">
         <div className="text">
             <div className="courseName">
-                <p>Requirements and Design Workshop</p>
+                <strong>Requirements and Design Workshop</strong>
             </div>
             <div className="code">
                 <p>SENG2021 | 6 Units of Credit</p>
@@ -25,7 +27,27 @@ function Course (props) {
         </div>
         <div className="buttons">
             <button className="addTimetable">Add to Timetable</button>
-            <button className="addReview">Add a Review</button>
+            <button className="addReview" onClick={() => setModalIsOpen(true)}>
+                Add a Review
+            </button>
+            <Modal isOpen={modalIsOpen}>
+                <div className="reviewHeader">
+                    <button className="close" onClick={() => setModalIsOpen(false)}>
+                        <FontAwesomeIcon icon = "times"/>
+                    </button>
+                    <div className="titleHeader">
+                        Create a Review
+                    </div>
+                </div>
+                <div className="modalBody">
+                    <div className="formRating">
+                        <div className="ratingPrompt">
+                            Course Rating:
+                        </div>
+                    </div>
+                </div>
+                <h2>hi</h2>
+            </Modal>
         </div>
 
     </div>
@@ -33,3 +55,4 @@ function Course (props) {
 }
 
 export default Course;
+

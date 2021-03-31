@@ -22,12 +22,12 @@ function Review (props) {
                         </div>
                     </div>
                     <div className="react">
-                        <div className="like">
+                        <button className="like">
                             <FontAwesomeIcon icon = "thumbs-up"/>
-                        </div>
-                        <div className="dislike">
+                        </button>
+                        <button className="dislike">
                         <FontAwesomeIcon icon = "thumbs-down"/>
-                        </div>
+                        </button>
                         <div className="likeCounter">
                             426
                         </div>

@@ -10,7 +10,7 @@
     margin: auto;
     width: 70%;
     height: auto;
-    background-color: #8d8d8d;
+    background-color: #C1E8E0;
     margin-bottom: 20px;
     padding: 10px;
     box-shadow: 5px 10px rgba(108, 122, 137, 1);
@@ -98,7 +98,7 @@
 /*
 .comments {
     height:0.5rem;
-    background-color: #eee;
+    background-color: #C1E8E0;
     color: #444;
     cursor: pointer;
     padding: 1rem;
@@ -112,12 +112,16 @@
     display:block;
     margin: auto;
     color: green;
+    border: #C1E8E0;
+    background-color: #C1E8E0;
 }
 
 .dislike {
     display:block;
     margin: auto;
     color: red;
+    border: #C1E8E0;
+    background-color: #C1E8E0;
 }
 
 .likeCounter {
