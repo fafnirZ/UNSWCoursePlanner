@@ -46,12 +46,12 @@ function Navbar(props) {
 			<ul className="menu">
 				<li className="studySpace">
 					<button>
-						study space finder
+						Study space finder
 					</button>
 				</li>
 				<li className="logout">
 					<button>
-						logout
+						Logout
 					</button>
 				</li>
 				<li className="profile">
