@@ -11,7 +11,6 @@ import ReactDOM from 'react-dom'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsDown, faThumbsUp, faStar, faStarHalfAlt, faTimes } from '@fortawesome/free-solid-svg-icons'
-//import { faStar } from '@fortawesome/free-regular-svg-icons'
 
 library.add(faThumbsUp, faThumbsDown, faStar, faStarHalfAlt, faTimes)
 

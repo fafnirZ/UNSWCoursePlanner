@@ -46,51 +46,14 @@
 }
 
 .addTimetable {
-     display:block;
      margin: auto;
      width: 60%;
-     height: 50%
 }
 
 .addReview {
-     display:block;
      margin: auto;
      width: 60%;
-     height: 50%;
 }
-
-.form {
-     display: grid;
-     grid-template-rows: 15% 25% auto 10%;
-     grid-template-areas: "reviewHeader" "modalBody" "modalReview" "modalSubmit"
-}
-
-.reviewHeader {
-     display: grid;
-     grid-template-columns: 10% 80% 10%;
-     grid-template-areas: "close" "titleHeader";
-}
-
-.close {
-     display:block;
-     margin: auto;
-     cursor: pointer;
-}
-.titleHeader {
-     font-size: 40px;
-     text-align: center;
-     font-weight: bold;
-}
-
-.modalBody {
-     display: grid;
-     grid-template-areas: "formRating" "formCompletion" "formLecturer";
-     grid-template-rows: 32% 32% 32%;
-     grid-gap: 2%
-}
-
-.formRating {
-     display: grid;
-     grid-template-columns: 40% 60%;
-     grid-template-areas: "ratingPrompt" "ratingStar";
+.addTimetableButton {
+     width: 165px;
 }
