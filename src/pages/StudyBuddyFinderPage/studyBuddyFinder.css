@@ -17,36 +17,26 @@
 	padding: 2rem;
 	padding-left:5%;
 	padding-right:5%;
-	background-color:white;
 	display:grid;
-	grid-template-rows: 20rem;
+	grid-template-rows: 5rem 30rem 1rem;
 	grid-template-columns: 100%;
 	grid-template-areas:
 	"textbox"
 	"overview"
 	"review";
-	grid-gap: 3rem;
-	background-color:#fffddd;
+	grid-gap: 1px;
 }
 
 .textbox {
 	grid-template-columns: 100%;
 	grid-area:textbox;
-	background-color:grey;
+	text-indent: 10px;
 }
 
-.overview {
+.StudyBuddyFinder {
 	grid-template-columns: 100%;
-
 	grid-area:overview;
-	background-color:white;
-}
-
-.review {
-	grid-template-columns: 100%;
-
-	grid-area:review;
-	background-color:black;
+	background-color:#d3d3d3;
 }
 
 .Footer {

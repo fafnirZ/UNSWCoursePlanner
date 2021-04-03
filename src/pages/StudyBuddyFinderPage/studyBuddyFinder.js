@@ -1,9 +1,12 @@
 import react from 'react'
 import Navbar from '../../components/Nav/nav.js'
+import StudyBuddy from '../../components/StudyBuddy/studyBuddy.js'
 import './studyBuddyFinder.css'
 
 
+
 function StudyBuddyFinder() {
+
     return (
         <div className="studyBuddyFinder">
             <div className="Header">
@@ -12,13 +15,10 @@ function StudyBuddyFinder() {
         
             <div className="Body">
                 <div className="textbox">
-                    <h1>Textbox</h1>
+                    <h1>Programming Fundamentals | COMP1511</h1>
                 </div>
-                <div className="Overview">
-                    <h1>Overview</h1>
-                </div>
-                <div className="Review">
-                    <h1>Review</h1>
+                <div className="StudyBuddyFinder">
+                    <StudyBuddy />
                 </div>
             </div>
 
@@ -29,6 +29,5 @@ function StudyBuddyFinder() {
         </div>
 
     );    
-    // More to be done
 }
 export default StudyBuddyFinder;
