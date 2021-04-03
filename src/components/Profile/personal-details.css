@@ -1,0 +1,28 @@
+.details {
+    grid-area:personal-details;
+    display: grid;
+    grid-template-rows: 20% 20% 20% 20%;
+    height:auto;
+    grid-template-areas: 
+    "details-gender-area"
+    "details-year-area"
+    "details-degree-area"
+    "details-email-area";
+    padding: 2rem;
+    row-gap:1rem;
+    background-color: rgba(191, 191, 191, 1);
+    box-shadow: 5px 10px rgba(108, 122, 137, 1);
+}
+
+.details-gender{
+    grid-area:details-gender-area;
+}
+.details-year {
+    grid-area: details-year-area;
+}
+.details-degree {
+    grid-area: details-degree-area;
+}
+.details-email {
+    grid-area: details-email-area;
+}

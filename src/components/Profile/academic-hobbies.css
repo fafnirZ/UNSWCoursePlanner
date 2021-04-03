@@ -1,0 +1,17 @@
+.academic-hobbies {
+    grid-area:academic-hobbies;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    padding:1%;
+    display:grid;
+    grid-template-rows: 20% 80%;
+    height: auto;
+    row-gap:2rem;
+    box-shadow: 5px 10px rgba(108, 122, 137, 1);
+    background-color: rgba(191, 191, 191, 1);
+}
+
+.user-hobbies-title {
+    font-size: 30px;
+}
