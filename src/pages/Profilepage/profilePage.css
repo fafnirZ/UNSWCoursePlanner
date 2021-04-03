@@ -31,7 +31,7 @@
 
 .AcademicArea {
     display: grid;
-    padding: 2rem;
+    padding: 5rem;
     height: auto;
     grid-column:2/2;
     grid-template-rows: 30% 40% 30%;

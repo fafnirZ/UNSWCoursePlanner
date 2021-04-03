@@ -6,6 +6,7 @@
 }
 
 .current-course {
+    padding: 1%;
     box-shadow: 5px 10px rgba(108, 122, 137, 1);
     margin-top: auto;
     margin-bottom: auto;
@@ -23,6 +24,7 @@
 }
 
 .completed-course {
+    padding: 1%;
     box-shadow: 5px 10px rgba(108, 122, 137, 1);
     margin-top: auto;
     margin-bottom: auto;

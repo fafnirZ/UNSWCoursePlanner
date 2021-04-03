@@ -24,6 +24,9 @@ function ProfilePage(props) {
                     <AcademicHobbies />
                 </div>
             </div>
+            <div className="Footer">
+                test
+            </div>
         </div>
     );
 }
