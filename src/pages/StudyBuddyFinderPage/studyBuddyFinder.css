@@ -13,8 +13,40 @@
 }
 
 .Body {
-    grid-area: body;
-    background-color: green;
+	grid-area:body;
+	padding: 2rem;
+	padding-left:5%;
+	padding-right:5%;
+	background-color:white;
+	display:grid;
+	grid-template-rows: 20rem;
+	grid-template-columns: 100%;
+	grid-template-areas:
+	"textbox"
+	"overview"
+	"review";
+	grid-gap: 3rem;
+	background-color:#fffddd;
+}
+
+.textbox {
+	grid-template-columns: 100%;
+	grid-area:textbox;
+	background-color:grey;
+}
+
+.overview {
+	grid-template-columns: 100%;
+
+	grid-area:overview;
+	background-color:white;
+}
+
+.review {
+	grid-template-columns: 100%;
+
+	grid-area:review;
+	background-color:black;
 }
 
 .Footer {
