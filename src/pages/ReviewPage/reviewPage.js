@@ -11,7 +11,7 @@ function ReviewPage(props) {
             <div className="Header">
                 <Navbar />
             </div>
-            <div className="Body">
+            <div className="ReviewBody">
                 <div className="course">
                     <Course />
                 </div>

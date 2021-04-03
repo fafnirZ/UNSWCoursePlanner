@@ -8,13 +8,26 @@ function ProfilePage(props) {
             <div className="Header">
                 <Navbar />
             </div>
-            <div className="Body">
-                <div className="profilePic"></div>
-                <div className="genInfo"></div>
-                <div className="bio"></div>
-                <div className="currentCourses"></div>
-                <div className="completedCourses"></div>
-                <div className="hobbies"></div>
+            <div className="profileBody">
+                <div className="PersonalArea">
+                    <div className="photoName">
+                        <div className="profilePic"></div>
+                        <div className="profileName">
+                            Martin Le
+                        </div>
+                    </div>
+                    <div className="genInfo">
+                        <div className="infoName">
+                            Name: Martin Le
+                        </div>
+                    </div>
+                </div>
+                <div className="AcademicArea">
+                    <div className="bio"></div>
+                    <div className="currentCourses"></div>
+                    <div className="completedCourses"></div>
+                    <div className="hobbies"></div>
+                </div>
             </div>
             <div className="Footer">
                 test

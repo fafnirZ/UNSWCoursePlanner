@@ -42,18 +42,34 @@
 .buttons {
      display: grid;
      grid-template-rows: 50% 50%;
-     grid-template-areas: "addTimetable" "addReview"
+     grid-template-areas: "addTimetable" "createReview"
 }
 
-.addTimetable {
+.addTimetable{
+     display:flex;
+     margin-right: auto;
+     margin-top: 20px;
+     height: 70%;
+     vertical-align: top;
+     width: 100%;
+     
+}
+
+.createReview {
+     display:flex;
      margin: auto;
-     width: 60%;
+     margin-top: 10px;
+     height: 70%;
 }
 
 .addReview {
-     margin: auto;
+     display: flexbox;
      width: 60%;
+     justify-content: center;
 }
+
 .addTimetableButton {
-     width: 165px;
+     display: flexbox;
+     width: 36%;
+     justify-content: center;
 }

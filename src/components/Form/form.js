@@ -20,10 +20,10 @@ function Form () {
       };
 
     return(
-        <div>
-        <Button variant="outlined" color="inherit" onClick={handleClickOpen}>
+        <div className="createReview">
+        <button onClick={handleClickOpen} className="addReview">
           Create a Review
-        </Button>
+        </button>
         <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
             <DialogTitle id="form-dialog-title">
                 <strong>Create a Review</strong>

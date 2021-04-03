@@ -2,7 +2,6 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './course.css';
 import Form from '../../components/Form/form.js';
-import Button from '@material-ui/core/Button'
 
 function Course (props) {
 
@@ -27,9 +26,9 @@ function Course (props) {
             </div>
             <div className="buttons" >
                 <div className="addTimetable">
-                    <Button className="addTimetableButton" variant="outlined" color="inherit">
+                    <button className="addTimetableButton">
                         Add to Timetable
-                    </Button>
+                    </button>
                 </div>
                 <div className="addReview">
                     <Form />    

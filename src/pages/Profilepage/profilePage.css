@@ -5,5 +5,63 @@
     "header"
     "body"
     "footer";
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }
+
+.profileBody {
+    display:grid;
+    grid-area:body;
+    padding: 2rem;
+    padding-left:5%;
+    padding-right:5%;
+    background-color:white;
+    grid-template-columns: 30% 70%;
+    grid-template-areas:"personal" "academic";
+}
+
+.PersonalArea {
+    grid-area:personal;
+    display: grid;
+    grid-template-rows: 40% 60%;
+    row-gap: 5rem;
+    border: 1px solid black;
+    grid-template-areas: "personal-pic" "personal-info";
+}
+
+.AcademicArea {
+    grid-area:academic;
+    display: grid;
+    background-color: bisque;
+    grid-template-rows: 30% 40% 30%;
+    grid-template-areas: "acadBio" "acadCourses" "acadHobbies";
+}
+
+.photoName {
+    grid-area:personal-pic;
+    display: grid;
+    grid-template-rows: 80% 20%;
+    grid-template-areas: "userPic" "userName";
+}
+
+.profilePic {
+    grid-area:userPic;
+    background-color: #c6398d;
+}
+
+.profileName {
+    grid-area:userName;
+    font-size: 30px;
+    text-align: center;
+    vertical-align: center;
+}
+
+.genInfo {
+    display: grid;
+    grid-area:personal-info;
+    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-areas: "info-gender" "info-year" "info-degree" "info-email";
+    background-color: #ac35ca;
+}
+
 
