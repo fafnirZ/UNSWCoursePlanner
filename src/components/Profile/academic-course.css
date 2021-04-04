@@ -1,0 +1,50 @@
+.academic-course {
+    height: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-area: "academic-course";
+}
+
+.current-course {
+    padding: 1%;
+    box-shadow: 5px 10px rgba(108, 122, 137, 1);
+    margin-top: auto;
+    margin-bottom: auto;
+    grid-column: 1/2;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(191, 191, 191, 1);
+}
+
+.current-course-list {
+    display: list-item;
+    list-style-type: none;
+    padding:2rem;
+}
+
+.completed-course {
+    padding: 1%;
+    box-shadow: 5px 10px rgba(108, 122, 137, 1);
+    margin-top: auto;
+    margin-bottom: auto;
+    grid-column: 2/2;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(191, 191, 191, 1);
+}
+
+.completed-course-list {
+    height: min-content;
+    text-align: center;
+    display:list-item;
+    list-style-type:none;
+    columns: 2;
+    padding:2rem;
+    
+}
+
+.course-title {
+    font-size: 30px;
+}
