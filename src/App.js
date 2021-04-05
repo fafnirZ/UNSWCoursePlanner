@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import HomePage from './pages/HomePage/homePage.js';
 import DashBoard from './pages/DashBoard/dashBoard.js';
-import StudySpaceFinder from './pages/StudySpaceFinderPage/studyFinder.js'
+import StudySpaceFinder from './pages/StudySpaceFinderPage/studySpaceFinder.js'
 import ReviewPage from './pages/ReviewPage/reviewPage.js'
 import ProfilePage from './pages/Profilepage/profilePage.js'
 import './App.css';
