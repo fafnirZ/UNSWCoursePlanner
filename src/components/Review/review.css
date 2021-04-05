@@ -1,0 +1,133 @@
+.Title {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 5%;
+}
+
+.Review1 {
+    display: grid;
+    grid-template-rows: 8rem 6rem auto 2rem 3rem;
+    grid-template-areas: "userProfile" "detail" "userReview" "comments" "reply";
+    margin: auto;
+    width: 70%;
+    height: auto;
+    background-color: #C1E8E0;
+    margin-bottom: 20px;
+    padding: 10px;
+    box-shadow: 5px 10px rgba(108, 122, 137, 1);
+}
+
+.userProfile {
+    display: grid;
+    height: 3rem;
+    padding-top: 1rem;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-areas: "userPhoto" "name" "react"
+}
+
+
+.userPhoto >img {
+    display: grid;
+	height: 90px;
+    width: 90px;
+    align-content: center;
+	border-radius:50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.name {
+    display: grid;
+    grid-template-rows: 60% 40%;
+    grid-template-areas: "userName" "date";
+    font-size: 20px;
+}
+
+.userName {
+    font-size: 30px;
+    vertical-align: 50%;
+}
+
+.date {
+    font-size: 20px;
+}
+
+.react {
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 60% 40%;
+    /*grid-template-areas: "like" "dislike" "likeCounter" "dislikeCounter";*/
+}
+
+.detail {
+    display:grid;
+    grid-template-rows: 2rem 2rem 2rem;
+    grid-template-areas: "userRating" "completionDate" "lecturer";
+}
+
+.userReview {
+    height:auto;
+    padding-bottom: 30px;
+}
+
+
+.reply {
+    width: 100%;
+    height: auto;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+
+
+/*
+.userReply {
+    display: grid;
+    grid-template-rows: 10rem 6rem auto 3rem;
+    grid-template-areas: "userProfile" "userReview" "reply";
+    width: 1100;
+    height: auto;
+    background-color: #8d8d8d;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+*/
+/*
+.comments {
+    height:0.5rem;
+    background-color: #C1E8E0;
+    color: #444;
+    cursor: pointer;
+    padding: 1rem;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+}
+*/
+.like {
+    display:block;
+    margin: auto;
+    color: green;
+    border: #C1E8E0;
+    background-color: #C1E8E0;
+}
+
+.dislike {
+    display:block;
+    margin: auto;
+    color: red;
+    border: #C1E8E0;
+    background-color: #C1E8E0;
+}
+
+.likeCounter {
+    text-align: center;
+}
+
+.dislikeCounter {
+    text-align: center;
+}
