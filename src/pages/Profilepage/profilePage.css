@@ -3,65 +3,75 @@
     grid-template-rows: 7rem auto 7rem;
     grid-template-areas:
     "header"
-    "body"
+    "profilebody"
     "footer";
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
 }
 
-.profileBody {
+.ProfileBody {
     display:grid;
-    grid-area:body;
+    grid-area:profilebody;
     padding: 2rem;
     padding-left:5%;
     padding-right:5%;
     background-color:white;
     grid-template-columns: 30% 70%;
+    column-gap:3rem;
     grid-template-areas:"personal" "academic";
 }
 
 .PersonalArea {
-    grid-area:personal;
-    display: grid;
+    display:grid;
     grid-template-rows: 40% 60%;
+    grid-template-areas: "personal-pic" "personal-details";
+    grid-area:personal;
     row-gap: 5rem;
-    border: 1px solid black;
-    grid-template-areas: "personal-pic" "personal-info";
+    height:auto;
 }
 
 .AcademicArea {
-    grid-area:academic;
     display: grid;
-    background-color: bisque;
+    padding: 5rem;
+    height: auto;
+    grid-column:2/2;
     grid-template-rows: 30% 40% 30%;
-    grid-template-areas: "acadBio" "acadCourses" "acadHobbies";
+    grid-template-areas: "academic-bio" "academic-course" "academic-hobbies";
+    row-gap:2rem;
+    
 }
 
-.photoName {
-    grid-area:personal-pic;
+.NamePic {
+    height: auto;
     display: grid;
+    grid-area: personal-pic;
     grid-template-rows: 80% 20%;
-    grid-template-areas: "userPic" "userName";
+    grid-template-areas: "npPic" "npName";
+
 }
 
-.profilePic {
-    grid-area:userPic;
-    background-color: #c6398d;
+.profilePic >img {
+    grid-area:npPic;
+    display: block;
+    margin: auto;
+    object-fit: cover;
+	width:50%;
+	padding:2rem;
+	border-radius:50%;
+	padding-top:1.5rem;
 }
 
 .profileName {
-    grid-area:userName;
-    font-size: 30px;
+    grid-area: npName;
     text-align: center;
-    vertical-align: center;
+    font-size: 30px;
 }
 
-.genInfo {
-    display: grid;
-    grid-area:personal-info;
-    grid-template-rows: 25% 25% 25% 25%;
-    grid-template-areas: "info-gender" "info-year" "info-degree" "info-email";
-    background-color: #ac35ca;
+.Header {
+	grid-area: header;
+	background-color:#C1E8E0;
 }
 
-
+.Footer {
+	grid-area:footer;
+	background-color:#C1E8E0;
+}

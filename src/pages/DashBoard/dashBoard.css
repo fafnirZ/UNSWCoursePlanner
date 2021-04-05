@@ -44,6 +44,12 @@
 .search {
 	grid-area:search;
 	/*background-color:#fffbbb;*/
+	display:grid;
+	grid-template-rows: 30% auto;
+	grid-template-areas:
+	"searchbox"
+	"dropbox"
+	;
 
 }
 

@@ -1,15 +1,80 @@
-import react from 'react'
+import react, {useEffect}from 'react'
+import Input from '@material-ui/core/Input';
+import { makeStyles } from '@material-ui/core/styles';
 import './search.css'
 
 
-function Search() {
+function DropBox(props) {
+
+	//console.log(props.visibility)
+	const info = ['COMP1511', 'COMP2521', 'COMP6841', 'COMP9318']
 
 	return (
-		<div className="SearchContainer">
-			<i>
-				Type here
-			</i>
+		<div className={props.visibility ? "drop_visible" : "drop_invisible"}>
+			{
+				info.map((item) => {
+				return (
+					<div>{item}</div>
+				)})
+			}
 		</div>
+	);
+}
+
+const useStyles = makeStyles({
+  searchContainer: {
+    padding: '0.5rem',
+    display: 'flex',
+  },
+});
+
+
+function Search() {
+	const [clicked, setClicked] = react.useState(false);
+	const [searchTerm , setSearchTerm] = react.useState("");
+
+	const styles= useStyles();
+
+	const handleClick = (event) => {
+		event.target.id == 'search' ? setClicked(true): setClicked(false);
+	}
+	
+	const updateSearch = (event) => {
+		setSearchTerm(event.target.value);
+	}
+
+	useEffect(()=> {
+		document.addEventListener('click', handleClick);
+		//unmount
+		return () => {
+			document.removeEventListener('click', handleClick);
+		}
+	})
+
+
+	useEffect(()=> {
+		if (!clicked) {
+			setSearchTerm("");
+		}
+		console.log(searchTerm);
+	}, [searchTerm, clicked]);
+
+
+
+	return (
+		[
+			<div id="searchbox" className="SearchContainer" >
+				<Input className={styles.searchContainer}
+				id='search'
+				value={searchTerm}
+				onChange={updateSearch} 
+				disableUnderline="true"
+				placeholder="search here" 
+				fullWidth="true" 
+				/>
+			</div>,
+			<DropBox visibility={clicked} />
+		]
 	);
 };
 
