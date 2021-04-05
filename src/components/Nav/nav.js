@@ -1,5 +1,6 @@
 import react, {useEffect} from 'react'
 import { Link } from 'react-router-dom'
+import Button from '@material-ui/core/Button'
 import './nav.css'
 
 function Navbar(props) {
@@ -25,6 +26,11 @@ function Navbar(props) {
 		}
 	}
 
+
+
+
+
+
 	//initialise on mount
 	//adds an event listener which handles scrolling and setting scrolled
 	useEffect(() => {
@@ -45,14 +51,14 @@ function Navbar(props) {
 			</div>
 			<ul className="menu">
 				<li className="studySpace">
-					<button>
+					<Button href="/studyspacefinder" variant="contained">
 						Study space finder
-					</button>
+					</Button>
 				</li>
 				<li className="logout">
-					<button>
+					<Button href="/" variant="contained">
 						Logout
-					</button>
+					</Button>
 				</li>
 				<li className="profile">
 					<img src="profile.png"/>
