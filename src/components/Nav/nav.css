@@ -39,6 +39,7 @@
 	align-items: center;
 
 }
+
 .buttonsContainer {
 	grid-area:buttons;
 	display: flex;
