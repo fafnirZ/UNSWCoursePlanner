@@ -18,7 +18,6 @@ function StudyBuddyFinder() {
             </div>
             
             <div className="Footer">
-                <h1>Smelly Footer</h1>
             </div>
         </div>
 

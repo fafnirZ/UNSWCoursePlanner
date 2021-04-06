@@ -15,7 +15,6 @@ function StudySpaceFinder(props) {
 			</div>
 
 			<div className="Footer">
-				smelly footer
 			</div>
 		</div>
 	);

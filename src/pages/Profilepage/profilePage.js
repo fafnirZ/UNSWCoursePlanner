@@ -25,7 +25,6 @@ function ProfilePage(props) {
                 </div>
             </div>
             <div className="Footer">
-                test
             </div>
         </div>
     );
