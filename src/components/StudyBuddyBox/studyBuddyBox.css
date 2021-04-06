@@ -6,7 +6,7 @@
     padding-right: 4%;
     grid-template-rows: 15% 85%;
     grid-template-areas: 
-    "StudyBuddy-Heading"
+    "StudyBuddy-Heading "
     "StudyBuddy-Box"
 }
 
@@ -29,30 +29,54 @@
     padding: 1rem;
 
     box-shadow: 8px 4px 10px grey;
-    text-indent: 20px;
+    /* text-indent: 20px; */
     text-align: start;
 
-
-    grid-template-rows: 10% 80% 10%;
+    grid-gap: 1rem;
+    grid-template-rows: 8% 74% 10%;
+    /* grid-template-columns: 95% 5%; */
     grid-template-areas: 
     "StudyBuddyBox-Heading"
-    "StudyBuddyBox-Comments"
+    "StudyBuddyBox-CommentBox"
     "StudyBuddyBox-NewCommentBox";
 }
 .StudyBuddyBox-Heading {
     font-weight: bold;
     color: #202020;
+    column-width: 100%;
+    /* width: 100%; */
     font-size: 22px;
     text-indent: 15px;
 
 }
 
+.StudyBuddyBox-CommentBox {
+    display:grid;
+    grid-template-columns: 88% 5% 5% 2%;
+    grid-template-rows: auto;
+    /* width: 95%; */
+    grid-template-areas:
+    "studyBuddyBox-Comments StudyBuddyBox-Like StudyBuddyBox-Reply";
+}
+
 .StudyBuddyBox-Comments {
     color: black;
-    text-indent: 30px;
-    /* grid-template-rows: 20% 70% 10%; */
+    grid-area: StudyBuddyBox-Comments;
     background:#d3d3d3;
     display:flex;
+}
+.StudyBuddyBox-Like {
+    /* display: flex;
+    grid-area: StudyBuddyBox-Like;
+    justify-content: right; */
+    background-color: white; 
+}
+
+.StudyBuddyBox-Reply {
+    /* display: flex;
+    grid-area: StudyBuddyBox-Reply;
+    justify-content: right; */
+    background-color: green;
 }
 
 .StudybuddyBox-NewCommentBox {
@@ -62,26 +86,14 @@
     display:flex;
     justify-content: left;
     align-items: center;
+    text-indent: 5px;
     /* text-size-adjust: 20px; */
     /* justify-content: center; */
     /* padding: 5%; */
 }
-/* 
-.StudyBuddy-reply {
+
+.StudyBuddyBox-CommentReply {
     color: black;
-    text-indent: 60px;
-} */
-
-
-
-.item-like .Button-label {
-	display: none;
+    text-indent: 30px;
 }
-.item-like .Button:before {
-	font-family: 'Font Awesome 5 Free';
-	font-weight: 600;
-	font-size: 17px;
-	content: '\f164';
-	margin-right: 4px;
-	vertical-align: -1px;
-}
+
