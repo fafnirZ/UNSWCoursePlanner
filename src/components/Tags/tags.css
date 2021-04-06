@@ -1,15 +1,13 @@
 .Container {
 	height:100%;
-	display: grid;
-	grid-template-rows: 32% 32% 32%;
+	display: flex;
 	grid-gap: 2%;
 
 }
  
 .Tags {
-	display:grid;
-	grid-template-columns: 4% 7% 6% 4%;
-    grid-gap: 1%;
+	display:flex;
+    grid-gap: 1rem;
 
 }
 
