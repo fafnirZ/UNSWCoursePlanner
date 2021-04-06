@@ -34,16 +34,18 @@
 	display: grid;
 	grid-template-columns: 70% 15% 15%;
 	grid-template-rows: 100%;
-	grid-template-areas: "study logout profile";
+	grid-template-areas: "buttons logout profile";
 	list-style-type: none;
-	justify-items:start;
 	align-items: center;
 
 }
-
-.studySpace {
-	grid-area: study;
+.buttonsContainer {
+	grid-area:buttons;
+	display: flex;
+	justify-content: start;
+	grid-gap:1rem;
 }
+
 .studySpace > Button {
 	width:100px;
 	height:50px;
