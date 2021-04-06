@@ -49,8 +49,8 @@ function DashBoard(props) {
 				</div>
 
 			</div>
+    
 			<div className="dFooter">
-				smelly footer
 			</div>
 		</div>
 	);
