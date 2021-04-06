@@ -1,4 +1,4 @@
-.Container {
+.yContainer {
 	height:100%;
 	display: grid;
 	grid-template-rows: 32% 32% 32%;
@@ -8,7 +8,7 @@
  
 .Years {
 	display:grid;
-	grid-template-columns: 4% 68%;
+	grid-template-columns: 4% 10%;
 
 }
 
