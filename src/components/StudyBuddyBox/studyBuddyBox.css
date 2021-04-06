@@ -1,0 +1,40 @@
+.StudyBuddyBox {
+    background-color: #d3d3d3;
+    text-decoration: lightpink;
+    color:#303030;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    box-shadow: 10px 8px 5px grey;
+    text-indent: 20px;
+    text-align: start;
+
+    display:grid;
+    grid-template-rows: 10% 70% 10%;
+    grid-template-areas: 
+    "StudyBuddyBox-Heading"
+    "StudyBuddyBox-Comments"
+    "StudybuddyBox-NewCommentBox";
+}
+
+.StudyBuddyBox-heading {
+    text-indent: 1rem;
+    background:  #d3d3d3;
+}
+
+.StudyBuddyBox-Comments {
+    color: black;
+    text-indent: 30px;
+    /* grid-template-rows: 20% 70% 10%; */
+    background:#d3d3d3;
+}
+
+.StudybuddyBox-NewCommentBox {
+    background: white;
+}
+
+.StudyBuddy-reply {
+    color: black;
+    text-indent: 60px;
+}
+
