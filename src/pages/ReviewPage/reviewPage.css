@@ -10,6 +10,7 @@
 .Header {
 	grid-area: header;
 	background-color:#C1E8E0;
+  display:flex;
 }
 
 .ReviewBody {

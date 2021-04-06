@@ -1,0 +1,34 @@
+.studyBuddyFinder {
+	display:grid;
+	/* width:100%; */
+	grid-template-rows: 7rem 30rem 7rem;
+	grid-template-columns: 100%;
+	grid-template-areas:
+	"header"
+	"sbody"
+	"footer"
+}
+
+.sHeader {
+	grid-area: header;
+	background-color:#C1E8E0;
+	display:flex;
+}
+
+.sBody {
+	display:grid;
+	grid-area:sbody;
+	/* width:100%; */
+	grid-template-columns: 100%;
+	height:100%;
+	background-color: white;
+	padding-left:5%;
+	padding-right:5%;
+	grid-gap: 1rem;
+}
+
+.Footer {
+	display: grid;
+    grid-area: footer;
+    background-color: #C1E8E0;
+}

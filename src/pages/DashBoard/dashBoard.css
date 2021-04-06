@@ -7,13 +7,13 @@
 	"footer"
 }
 
-.Header {
+.dHeader {
 	grid-area: header;
 	background-color:#C1E8E0;
 }
 
 
-.Body {
+.dBody {
 	grid-area:body;
 	padding: 2rem;
 	padding-left:5%;
@@ -40,6 +40,7 @@
 	grid-area:units;
 	/*background-color:#fffccc;*/
 }
+
 
 .search {
 	grid-area:search;
@@ -69,7 +70,7 @@
 }
 
 
-.Footer {
+.dFooter {
 	grid-area:footer;
 	background-color:#C1E8E0;
 }
