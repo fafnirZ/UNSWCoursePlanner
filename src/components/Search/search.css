@@ -17,7 +17,7 @@
 	grid-area: dropbox;
 	display:grid;
 	box-shadow: 5px 5px rgba(108, 122, 137, 1);
-	justify-content: center;
+	text-align: center;
 }
 .drop_visible {
 	padding: 0.5rem;
@@ -27,4 +27,14 @@
 .drop_invisible {
 
 	display:none;
+}
+
+
+.results {
+	text-decoration: none;
+	color:black;
+}
+
+.results:hover {
+	background: #EBEBEB
 }

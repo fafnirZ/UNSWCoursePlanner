@@ -15,13 +15,13 @@ function Table (props) {
 			<li className="rows">
 				<div />
 				<div>
-					sem1
+					Semester 1
 				</div>
 				<div>
-					sem2
+					Semester 2
 				</div>
 				<div>
-					sem3
+					Semester 3
 				</div>
 			</li>
 
@@ -32,17 +32,17 @@ function Table (props) {
 						<li className="rows">
 							{/*empty div*/}
 							<div>
-								year {index+1}
+								Year {index+1}
 							</div>
 
 							<div>
-								1
+								
 							</div>
 							<div>
-								2
+								
 							</div>
 							<div>
-								3
+								
 							</div>
 						</li>
 					)

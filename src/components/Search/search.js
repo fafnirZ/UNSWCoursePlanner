@@ -7,14 +7,14 @@ import './search.css'
 function DropBox(props) {
 
 	//console.log(props.visibility)
-	const info = ['COMP1511', 'COMP2521', 'COMP6841', 'COMP9318']
+	const info = ['SENG2021', 'SENGAH', 'SENG3031']
 
 	return (
 		<div className={props.visibility ? "drop_visible" : "drop_invisible"}>
 			{
 				info.map((item) => {
 				return (
-					<div>{item}</div>
+					<a className="results" href="/reviewpage">{item}</a>
 				)})
 			}
 		</div>
@@ -51,14 +51,12 @@ function Search() {
 		}
 	})
 
-
 	useEffect(()=> {
 		if (!clicked) {
 			setSearchTerm("");
 		}
 		console.log(searchTerm);
 	}, [searchTerm, clicked]);
-
 
 
 	return (
