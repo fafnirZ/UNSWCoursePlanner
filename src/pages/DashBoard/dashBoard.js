@@ -3,6 +3,7 @@ import Navbar from '../../components/Nav/nav.js'
 import Table from '../../components/Table/table.js'
 import Units from '../../components/Units/units.js'
 import Tree from '../../components/Tree/tree.js'
+import OurButton from '../../components/Button/button.js'
 import SearchBar from '../../components/Search/search.js'
 import Years from '../../components/Years/years.js'
 import Tags from '../../components/Tags/tags.js'
@@ -10,13 +11,19 @@ import './dashBoard.css'
 
 function DashBoard(props) {
 
+	const buttons = () => {
+		return [
+			<OurButton name="Study Space Finder"href="/studyspacefinder"/>,
+		]
+	}
+
 
 	return (
 		<div className="Dashboard">
-			<div className="Header">
-				<Navbar />
+			<div className="dHeader">
+				<Navbar contains={buttons}/>
 			</div>
-			<div className="Body">
+			<div className="dBody">
 				<div className="tags">
 					<Tags />
 				</div>
@@ -42,7 +49,8 @@ function DashBoard(props) {
 				</div>
 
 			</div>
-			<div className="Footer">
+    
+			<div className="dFooter">
 			</div>
 		</div>
 	);

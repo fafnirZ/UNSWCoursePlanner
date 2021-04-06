@@ -51,14 +51,12 @@ function Search() {
 		}
 	})
 
-
 	useEffect(()=> {
 		if (!clicked) {
 			setSearchTerm("");
 		}
 		console.log(searchTerm);
 	}, [searchTerm, clicked]);
-
 
 
 	return (
