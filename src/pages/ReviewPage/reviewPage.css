@@ -1,0 +1,49 @@
+.ReviewPage {
+    display:grid;
+    grid-template-rows: 7rem auto 7rem;
+    grid-template-areas:
+    "header"
+    "reviewBody"
+    "footer";
+}
+
+.Header {
+	grid-area: header;
+	background-color:#C1E8E0;
+}
+
+.ReviewBody {
+    grid-area:reviewBody;
+    padding: 2rem;
+    padding-left:5%;
+    padding-right:5%;
+    background-color:white;
+    display:grid;
+    grid-template-rows: 12rem auto auto;
+    grid-template-columns: 100%;
+
+    grid-template-areas:
+    "course"
+    "overview"
+    "review";
+    grid-gap: 2rem;
+
+  }
+  
+.course {
+    grid-area:course;
+    background-color: rgba(191, 191, 191, 1);
+    box-shadow: 5px 10px rgba(108, 122, 137, 1);
+}
+
+.overview {
+  grid-area:overview;
+  background-color: rgba(191, 191, 191, 1);
+  box-shadow: 5px 10px rgba(108, 122, 137, 1);
+}
+
+.review {
+  grid-area:review;
+  background-color: rgba(191, 191, 191, 1);
+  box-shadow: 5px 10px rgba(108, 122, 137, 1);
+}

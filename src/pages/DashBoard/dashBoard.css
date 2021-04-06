@@ -33,7 +33,7 @@
 
 .tags {
 	grid-area:tags;
-	background-color:#fffddd;
+	background-color:#ffffff;
 }
 
 .units {
@@ -44,6 +44,12 @@
 .search {
 	grid-area:search;
 	/*background-color:#fffbbb;*/
+	display:grid;
+	grid-template-rows: 30% auto;
+	grid-template-areas:
+	"searchbox"
+	"dropbox"
+	;
 
 }
 
@@ -59,7 +65,7 @@
 
 .years {
 	grid-area:years;
-	background-color:#fff888;
+	background-color:#ffffff;
 }
 
 

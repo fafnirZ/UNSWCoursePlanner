@@ -1,0 +1,77 @@
+.ProfilePage {
+    display:grid;
+    grid-template-rows: 7rem auto 7rem;
+    grid-template-areas:
+    "header"
+    "profilebody"
+    "footer";
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.ProfileBody {
+    display:grid;
+    grid-area:profilebody;
+    padding: 2rem;
+    padding-left:5%;
+    padding-right:5%;
+    background-color:white;
+    grid-template-columns: 30% 70%;
+    column-gap:3rem;
+    grid-template-areas:"personal" "academic";
+}
+
+.PersonalArea {
+    display:grid;
+    grid-template-rows: 40% 60%;
+    grid-template-areas: "personal-pic" "personal-details";
+    grid-area:personal;
+    row-gap: 5rem;
+    height:auto;
+}
+
+.AcademicArea {
+    display: grid;
+    padding: 5rem;
+    height: auto;
+    grid-column:2/2;
+    grid-template-rows: 30% 40% 30%;
+    grid-template-areas: "academic-bio" "academic-course" "academic-hobbies";
+    row-gap:2rem;
+    
+}
+
+.NamePic {
+    height: auto;
+    display: grid;
+    grid-area: personal-pic;
+    grid-template-rows: 80% 20%;
+    grid-template-areas: "npPic" "npName";
+
+}
+
+.profilePic >img {
+    grid-area:npPic;
+    display: block;
+    margin: auto;
+    object-fit: cover;
+	width:50%;
+	padding:2rem;
+	border-radius:50%;
+	padding-top:1.5rem;
+}
+
+.profileName {
+    grid-area: npName;
+    text-align: center;
+    font-size: 30px;
+}
+
+.Header {
+	grid-area: header;
+	background-color:#C1E8E0;
+}
+
+.Footer {
+	grid-area:footer;
+	background-color:#C1E8E0;
+}
