@@ -12,22 +12,22 @@ function LoginForm (props) {
                 </div>
             </div>
             <div className="login-buttons">
-                <button className="login-buttons-fb">
+                <a className="login-buttons-fb" href="/dashboard">
                     <div className="login-buttons-fb-logo">
                         <img src="facebook.png"/>
                     </div>
                     <div className="login-buttons-fb-name">
                         Login with Facebook
                     </div>
-                </button>
-                <button className="login-buttons-google">
+                </a>
+                <a className="login-buttons-google" href="/dashboard">
                     <div className="login-buttons-google-logo">
                         <img src="google.png"/>
                     </div>
                     <div className="login-buttons-google-name">
                         Login with Google
                     </div>
-                </button>
+                </a>
             </div>
         </div>
     );

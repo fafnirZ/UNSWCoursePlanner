@@ -65,9 +65,9 @@ function Navbar(props) {
 				<li className="logout">
 					<OurButton name="Logout" href="/"/>
 				</li>
-				<li className="profile">
-					<img src="profile.png"/>
-				</li>
+				<a className="profile" href="/profile">
+					<img src="profile.png" />
+				</a>
 
 			</ul>
 		</nav>

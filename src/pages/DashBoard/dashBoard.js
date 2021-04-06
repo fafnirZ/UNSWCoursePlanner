@@ -10,11 +10,7 @@ import Tags from '../../components/Tags/tags.js'
 import './dashBoard.css'
 
 function DashBoard(props) {
-	/*
-	const study_space_button = OurButton();
-	study_space_button.href="/studyspacefinder";
-	study_space_button.name="Study Space Finder";
-	*/
+
 	const buttons = () => {
 		return [
 			<OurButton name="Study Space Finder"href="/studyspacefinder"/>,
