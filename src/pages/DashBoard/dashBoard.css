@@ -33,7 +33,7 @@
 
 .tags {
 	grid-area:tags;
-	background-color:#fffddd;
+	background-color:#ffffff;
 }
 
 .units {
@@ -65,7 +65,7 @@
 
 .years {
 	grid-area:years;
-	background-color:#fff888;
+	background-color:#ffffff;
 }
 
 
