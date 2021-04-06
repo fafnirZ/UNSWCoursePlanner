@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage/homePage.js';
 import LoginPage from './pages/LoginPage/loginPage.js'
 import DashBoard from './pages/DashBoard/dashBoard.js';
 import StudySpaceFinder from './pages/StudySpaceFinderPage/studySpaceFinder.js'
+import StudyBuddyFinder from './pages/StudyBuddyFinderPage/studyBuddyFinder.js'
 import ReviewPage from './pages/ReviewPage/reviewPage.js'
 import ProfilePage from './pages/Profilepage/profilePage.js'
 import './App.css';
