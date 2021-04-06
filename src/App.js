@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import HomePage from './pages/HomePage/homePage.js';
+import LoginPage from './pages/LoginPage/loginPage.js'
 import DashBoard from './pages/DashBoard/dashBoard.js';
 import StudySpaceFinder from './pages/StudySpaceFinderPage/studySpaceFinder.js'
 import ReviewPage from './pages/ReviewPage/reviewPage.js'
@@ -20,6 +21,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/loginpage" component={LoginPage} />
         <Route exact path="/dashboard" component={DashBoard} />
         <Route exact path="/studyspacefinder" component={StudySpaceFinder}/>
         <Route exact path="/reviewpage" component={ReviewPage} />
