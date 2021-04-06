@@ -4,7 +4,7 @@ import './tags.css'
 function Tags(props) {
 
 	return (
-		<div className="Container">
+		<div className="tContainer">
 			<li className="Tags">
 				<div>3707</div>
                 <div>Discplinary</div>
