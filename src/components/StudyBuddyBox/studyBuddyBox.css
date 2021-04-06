@@ -1,25 +1,50 @@
-.StudyBuddyBox {
-    background-color: #d3d3d3;
-    text-decoration: lightpink;
-    color:#303030;
+
+.StudyBuddy-Frame {
+    display:grid;
+    padding-bottom: 5%;
+    padding-top: 2%;
+    padding-right: 4%;
+    grid-template-rows: 15% 85%;
+    grid-template-areas: 
+    "StudyBuddy-Heading"
+    "StudyBuddy-Box"
+}
+
+.StudyBuddy-Heading {
     padding-left: 1rem;
-    padding-right: 1rem;
+    padding-top: 1rem;
+    text-indent: 1rem;
+    color: black;
+    /* background:  #d3d3d3; */
+    font-weight: bold;
+    display:flex;
+    font-size: 28px;
+}
+
+.StudyBuddy-Box {
+    background-color: #d3d3d3;
+    color:#303030;
+    display: grid;
     width: 100%;
-    box-shadow: 10px 8px 5px grey;
+    padding: 1rem;
+
+    box-shadow: 8px 4px 10px grey;
     text-indent: 20px;
     text-align: start;
 
-    display:grid;
-    grid-template-rows: 10% 70% 10%;
+
+    grid-template-rows: 10% 80% 10%;
     grid-template-areas: 
     "StudyBuddyBox-Heading"
     "StudyBuddyBox-Comments"
-    "StudybuddyBox-NewCommentBox";
+    "StudyBuddyBox-NewCommentBox";
 }
+.StudyBuddyBox-Heading {
+    font-weight: bold;
+    color: #202020;
+    font-size: 22px;
+    text-indent: 15px;
 
-.StudyBuddyBox-heading {
-    text-indent: 1rem;
-    background:  #d3d3d3;
 }
 
 .StudyBuddyBox-Comments {
@@ -27,14 +52,36 @@
     text-indent: 30px;
     /* grid-template-rows: 20% 70% 10%; */
     background:#d3d3d3;
+    display:flex;
 }
 
 .StudybuddyBox-NewCommentBox {
-    background: white;
+    /* background: #d3d3d3; */
+    color: #909090;
+    background-color: white;
+    display:flex;
+    justify-content: left;
+    align-items: center;
+    /* text-size-adjust: 20px; */
+    /* justify-content: center; */
+    /* padding: 5%; */
 }
-
+/* 
 .StudyBuddy-reply {
     color: black;
     text-indent: 60px;
-}
+} */
 
+
+
+.item-like .Button-label {
+	display: none;
+}
+.item-like .Button:before {
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 600;
+	font-size: 17px;
+	content: '\f164';
+	margin-right: 4px;
+	vertical-align: -1px;
+}
