@@ -14,12 +14,12 @@
 
 .studyspaceBody {
 	grid-area:body;
-	padding: 2rem;
-	padding-left:17%;
+	padding: 6rem;
+	padding-left:21%;
 	padding-right:5%;
 	background-color:white;
 	display:grid;
-	grid-template-rows: 38rem 10rem auto 2rem;
+	grid-template-rows: 23rem 10rem auto 2rem;
 	grid-template-columns: 30% 70%;
 
 }
