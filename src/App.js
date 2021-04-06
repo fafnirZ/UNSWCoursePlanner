@@ -26,6 +26,7 @@ function App() {
         <Route exact path="/studyspacefinder" component={StudySpaceFinder}/>
         <Route exact path="/reviewpage" component={ReviewPage} />
         <Route exact path="/profile" component={ProfilePage}/>
+        <Route exact path="/login" component={LoginPage}/>
       </Switch>
     </Router>
   );
