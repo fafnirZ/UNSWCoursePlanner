@@ -7,13 +7,13 @@
 	"footer"
 }
 
-.Header {
+.dHeader {
 	grid-area: header;
 	background-color:#C1E8E0;
 }
 
 
-.Body {
+.dBody {
 	grid-area:body;
 	padding: 2rem;
 	padding-left:5%;
@@ -69,7 +69,7 @@
 }
 
 
-.Footer {
+.dFooter {
 	grid-area:footer;
 	background-color:#C1E8E0;
 }

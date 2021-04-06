@@ -11,10 +11,10 @@ function DashBoard(props) {
 
 	return (
 		<div className="Dashboard">
-			<div className="Header">
+			<div className="dHeader">
 				<Navbar />
 			</div>
-			<div className="Body">
+			<div className="dBody">
 				<div className="tags">
 				</div>
 
@@ -38,7 +38,7 @@ function DashBoard(props) {
 				</div>
 
 			</div>
-			<div className="Footer">
+			<div className="dFooter">
 				smelly footer
 			</div>
 		</div>
