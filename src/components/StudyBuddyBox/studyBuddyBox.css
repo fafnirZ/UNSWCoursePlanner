@@ -1,30 +1,32 @@
 
 .StudyBuddy-Frame {
     display:grid;
+    /* grid-area: studyBuddy-Frame; */
     padding-bottom: 5%;
     padding-top: 2%;
     padding-right: 4%;
     grid-template-rows: 15% 85%;
     grid-template-areas: 
-    "StudyBuddy-Heading "
+    "StudyBuddy-Heading"
     "StudyBuddy-Box"
 }
 
 .StudyBuddy-Heading {
+    grid-area: StudyBuddy-Heading;
     padding-left: 1rem;
     padding-top: 1rem;
     text-indent: 1rem;
     color: black;
-    /* background:  #d3d3d3; */
     font-weight: bold;
     display:flex;
     font-size: 28px;
 }
 
 .StudyBuddy-Box {
+    display: grid;
+    grid-area: StudyBuddy-Box;
     background-color: #d3d3d3;
     color:#303030;
-    display: grid;
     width: 100%;
     padding: 1rem;
 
@@ -41,10 +43,12 @@
     "StudyBuddyBox-NewCommentBox";
 }
 .StudyBuddyBox-Heading {
+
+    display: flex;
+    grid-area: StudyBuddyBox-Heading;
     font-weight: bold;
     color: #202020;
     column-width: 100%;
-    /* width: 100%; */
     font-size: 22px;
     text-indent: 15px;
 
@@ -52,48 +56,65 @@
 
 .StudyBuddyBox-CommentBox {
     display:grid;
-    grid-template-columns: 88% 5% 5% 2%;
+    grid-area: StudyBuddyBox-CommentBox;
+    grid-template-columns: 88% 5% 5%;
     grid-template-rows: auto;
-    /* width: 95%; */
+    /* width: 100%; */
     grid-template-areas:
-    "studyBuddyBox-Comments StudyBuddyBox-Like StudyBuddyBox-Reply";
+    "StudyBuddyBox-Comment StudyBuddyBox-Like StudyBuddyBox-Reply";
 }
 
-.StudyBuddyBox-Comments {
-    color: black;
-    grid-area: StudyBuddyBox-Comments;
+.StudyBuddyBox-Comment {
+    display:grid;
+    grid-area: StudyBuddyBox-Comment;
     background:#d3d3d3;
-    display:flex;
+    grid-template-rows: 2rem 5rem;
+    grid-template-areas: 
+    "StudyBuddyBox-CommentMessage"
+    "StudyBuddyBox-CommentReply";
 }
+
+.StudyBuddyBox-CommentMessage {
+    display: flex;
+    grid-area: studyBuddyBox-CommentMessage;
+    /* width: 100%; */
+    color: black;
+} 
+
+.StudyBuddyBox-CommentReply {
+    display: flex;
+    padding-top: 5px;
+    padding-left: 2rem;
+    grid-area: studyBuddyBox-CommentReply;
+    /* width: 100%; */
+    color: #303030;
+} 
+
+
 .StudyBuddyBox-Like {
-    /* display: flex;
+    display: flex;
     grid-area: StudyBuddyBox-Like;
-    justify-content: right; */
-    background-color: white; 
+    /* justify-content: right; */
 }
 
 .StudyBuddyBox-Reply {
-    /* display: flex;
+    display: flex;
     grid-area: StudyBuddyBox-Reply;
-    justify-content: right; */
-    background-color: green;
+    /* justify-content: right; */
 }
 
 .StudybuddyBox-NewCommentBox {
-    /* background: #d3d3d3; */
+    grid-area: StudyBuddyBox-NewCommentBox;
+    display:flex;
     color: #909090;
     background-color: white;
-    display:flex;
     justify-content: left;
     align-items: center;
     text-indent: 5px;
-    /* text-size-adjust: 20px; */
-    /* justify-content: center; */
-    /* padding: 5%; */
 }
 
-.StudyBuddyBox-CommentReply {
+/* .StudyBuddyBox-CommentReply {
     color: black;
     text-indent: 30px;
-}
+} */
 
