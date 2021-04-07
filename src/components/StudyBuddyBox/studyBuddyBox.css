@@ -64,6 +64,7 @@
     "StudyBuddyBox-Comment StudyBuddyBox-Like StudyBuddyBox-Reply";
 }
 
+/*
 .StudyBuddyBox-Comment {
     display:grid;
     grid-area: StudyBuddyBox-Comment;
@@ -73,6 +74,7 @@
     "StudyBuddyBox-CommentMessage"
     "StudyBuddyBox-CommentReply";
 }
+*/
 
 .StudyBuddyBox-CommentMessage {
     display: flex;
