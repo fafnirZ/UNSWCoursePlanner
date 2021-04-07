@@ -4,22 +4,22 @@
 	grid-template-areas:
 	"header"
 	"body"
-	"footer"
-
+	"footer";
 }
 
-.Header {
+.hHeader {
 	grid-area: header;
 	background-color:#C1E8E0;
 
 	display:grid;
 	grid-template-columns: 15rem 1fr 15rem;
-	grid-template-areas: "logo . login"
+	grid-template-areas: "logo . login";
 
 }
 
 .logo {
 	grid-area: logo;
+	display:flex;
 	justify-self:start;
 	background-color: #C1E8E0;
 
