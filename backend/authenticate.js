@@ -9,8 +9,8 @@ async function getAccessTokenFromCode(code) {
     url: 'https://graph.facebook.com/v4.0/oauth/access_token',
     method: 'get',
     params: {
-      client_id: process.env.APP_ID_GOES_HERE,
-      client_secret: process.env.APP_SECRET_GOES_HERE,
+      client_id: process.env.facebook_client_id,
+      client_secret: process.env.facebook_client_secret,
       redirect_uri: '/authenticate/facebook/',
       code,
     },
@@ -33,6 +33,9 @@ async function getFacebookUserData(access_token) {
   return data;
 };
 
+/*
+this function is sent to the front end as a link for href
+*/
 
 function FacebookRedirect() {
   const stringifiedParams = queryString.stringify({
@@ -47,4 +50,21 @@ function FacebookRedirect() {
   return `https://www.facebook.com/v4.0/dialog/oauth?${stringifiedParams}`; 
 }
 
+
+function FacebookSuccess() {
+  const urlParams = queryString.parse(window.location.search);
+  const code = urlParams.code;
+  access_token = await getAccessTokenFromCode(code);
+  data = await getFacebookUserData(access_token);
+
+  return data;
+
+}
+
+
+
+
+
+
 exports.FacebookRedirect = FacebookRedirect;
+exports.FacebookSuccess = FacebookSuccess;
