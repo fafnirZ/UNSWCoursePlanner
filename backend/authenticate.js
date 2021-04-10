@@ -37,15 +37,14 @@ async function getFacebookUserData(access_token) {
 function FacebookRedirect() {
   const stringifiedParams = queryString.stringify({
   client_id: process.env.facebook_client_id,
-  redirect_uri: '/authenticate/facebook/',
+  redirect_uri: 'http://localhost:8080/authenticate/facebook/success',
   scope: ['email', 'user_friends'].join(','), // comma seperated string
   response_type: 'code',
   auth_type: 'rerequest',
   display: 'popup',
   });
 
-
-
   return `https://www.facebook.com/v4.0/dialog/oauth?${stringifiedParams}`; 
 }
+
 exports.FacebookRedirect = FacebookRedirect;

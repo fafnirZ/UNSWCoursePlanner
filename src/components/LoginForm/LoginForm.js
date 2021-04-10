@@ -12,7 +12,6 @@ function LoginForm (props) {
             setfbLoginURL(response.data);
         })
     })
-    
 
     return(
         <div className="LoginForm">

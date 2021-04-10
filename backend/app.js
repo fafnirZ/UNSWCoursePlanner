@@ -13,16 +13,15 @@ app.get('/', (req, res) => {
 	//mongoClient();
 })
 
-
+//send facebook oauth url
 app.get('/authenticate/facebook/', (req, res) => {
 	res.send(authenticate.FacebookRedirect());
 })
 
 
-
-
-
-
+app.get('/authenticate/facebook/success', (req, res) => {
+	res.send({})
+})
 
 
 app.listen(port, () => {
