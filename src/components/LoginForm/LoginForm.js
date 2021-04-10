@@ -1,7 +1,19 @@
 import './LoginForm.css'
-import { facebookLoginUrl } from '../Auth/auth.js';
+import env from "react-dotenv";
+import react from 'react';
+import axios from 'axios';
 
 function LoginForm (props) {
+
+    const [fbLoginURL, setfbLoginURL] = react.useState("");
+
+    react.useEffect(()=> {
+        axios.get('/authenticate/facebook/').then(response => {
+            setfbLoginURL(response.data);
+        })
+    })
+    
+
     return(
         <div className="LoginForm">
             <div className="login-logo">
@@ -13,7 +25,7 @@ function LoginForm (props) {
                 </div>
             </div>
             <div className="login-buttons">
-                <a className="login-buttons-fb" href={facebookLoginUrl}>
+                <a className="login-buttons-fb" href={fbLoginURL}>
                     <div className="login-buttons-fb-logo">
                         <img src="facebook.png"/>
                     </div>
@@ -21,7 +33,7 @@ function LoginForm (props) {
                         Login with Facebook
                     </div>
                 </a>
-                <a className="login-buttons-google" href="/dashboard">
+                <a className="login-buttons-google">
                     <div className="login-buttons-google-logo">
                         <img src="google.png"/>
                     </div>

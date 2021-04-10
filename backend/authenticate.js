@@ -1,20 +1,7 @@
+//import * as queryString from 'query-string';
+//import axios from 'axios';
 
-import * as queryString from 'query-string';
-import axios from 'axios';
-
-
-const stringifiedParams = queryString.stringify({
-  client_id: process.env.facebook_client_id,
-  redirect_uri: '/authenticate/facebook/',
-  scope: ['email', 'user_friends'].join(','), // comma seperated string
-  response_type: 'code',
-  auth_type: 'rerequest',
-  display: 'popup',
-});
-
-const facebookLoginUrl = `https://www.facebook.com/v4.0/dialog/oauth?${stringifiedParams}`;
-
-
+const queryString = require('query-string');
 
 
 async function getAccessTokenFromCode(code) {
@@ -24,7 +11,7 @@ async function getAccessTokenFromCode(code) {
     params: {
       client_id: process.env.APP_ID_GOES_HERE,
       client_secret: process.env.APP_SECRET_GOES_HERE,
-      redirect_uri: 'https://www.example.com/authenticate/facebook/',
+      redirect_uri: '/authenticate/facebook/',
       code,
     },
   });
@@ -45,3 +32,20 @@ async function getFacebookUserData(access_token) {
   console.log(data); // { id, email, first_name, last_name }
   return data;
 };
+
+
+function FacebookRedirect() {
+  const stringifiedParams = queryString.stringify({
+  client_id: process.env.facebook_client_id,
+  redirect_uri: '/authenticate/facebook/',
+  scope: ['email', 'user_friends'].join(','), // comma seperated string
+  response_type: 'code',
+  auth_type: 'rerequest',
+  display: 'popup',
+  });
+
+
+
+  return `https://www.facebook.com/v4.0/dialog/oauth?${stringifiedParams}`; 
+}
+exports.FacebookRedirect = FacebookRedirect;
