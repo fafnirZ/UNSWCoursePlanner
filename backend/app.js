@@ -21,11 +21,19 @@ app.get('/authenticate/facebook/', (req, res) => {
 
 app.get('/authenticate/facebook/success', (req, res) => {
 
-	
-	res.send(()=>{
-		
-	});
+	authenticate.getAccessTokenFromCode(req.query.code)
+		.then(response => {
+			res.send(response);
+		})
+		.catch(err => {
+			console.log(err);
+		})
 
+
+})
+
+app.get('/dashboard', (req, res) => {
+	res.send({});
 })
 
 

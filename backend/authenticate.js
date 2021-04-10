@@ -1,5 +1,5 @@
 //import * as queryString from 'query-string';
-//import axios from 'axios';
+const axios = require('axios');
 
 const queryString = require('query-string');
 
@@ -11,7 +11,7 @@ async function getAccessTokenFromCode(code) {
     params: {
       client_id: process.env.facebook_client_id,
       client_secret: process.env.facebook_client_secret,
-      redirect_uri: '/authenticate/facebook/',
+      redirect_uri: 'http://localhost:8080/authenticate/facebook/success',
       code,
     },
   });
@@ -51,20 +51,11 @@ function FacebookRedirect() {
 }
 
 
-function FacebookSuccess() {
-  const urlParams = queryString.parse(window.location.search);
-  const code = urlParams.code;
-  access_token = await getAccessTokenFromCode(code);
-  data = await getFacebookUserData(access_token);
-
-  return data;
-
-}
-
 
 
 
 
 
 exports.FacebookRedirect = FacebookRedirect;
-exports.FacebookSuccess = FacebookSuccess;
+exports.getAccessTokenFromCode = getAccessTokenFromCode;
+exports.getFacebookUserData = getFacebookUserData;
