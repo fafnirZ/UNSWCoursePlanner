@@ -1,4 +1,5 @@
 import './LoginForm.css'
+import { facebookLoginUrl } from '../Auth/auth.js';
 
 function LoginForm (props) {
     return(
@@ -12,7 +13,7 @@ function LoginForm (props) {
                 </div>
             </div>
             <div className="login-buttons">
-                <a className="login-buttons-fb" href="/dashboard">
+                <a className="login-buttons-fb" href={facebookLoginUrl}>
                     <div className="login-buttons-fb-logo">
                         <img src="facebook.png"/>
                     </div>
