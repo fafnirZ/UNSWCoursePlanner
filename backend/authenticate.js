@@ -52,10 +52,6 @@ function FacebookRedirect() {
 
 
 
-
-
-
-
 exports.FacebookRedirect = FacebookRedirect;
 exports.getAccessTokenFromCode = getAccessTokenFromCode;
 exports.getFacebookUserData = getFacebookUserData;

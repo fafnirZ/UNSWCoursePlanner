@@ -2,6 +2,7 @@ import './LoginForm.css'
 import env from "react-dotenv";
 import react from 'react';
 import axios from 'axios';
+import FacebookAuthorise from '../Auth/facebook.js'
 
 function LoginForm (props) {
 
@@ -26,7 +27,7 @@ function LoginForm (props) {
             <div className="login-buttons">
                 <a className="login-buttons-fb" href={fbLoginURL}>
                     <div className="login-buttons-fb-logo">
-                        <img src="facebook.png"/>
+                        <FacebookAuthorise />
                     </div>
                     <div className="login-buttons-fb-name">
                         Login with Facebook

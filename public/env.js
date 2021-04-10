@@ -7,7 +7,7 @@ window.env = {
   "npm_config_only": "",
   "npm_config_commit_hooks": "true",
   "npm_config_browser": "",
-  "npm_package_gitHead": "4fbc82808732d573a2bb7517e7682b3c8e68f4a9",
+  "npm_package_gitHead": "2145c021f1ea5499b9663a9c0816ef65497fd7fa",
   "npm_config_also": "",
   "npm_config_sign_git_commit": "",
   "npm_config_rollback": "true",
@@ -59,6 +59,7 @@ window.env = {
   "npm_package_dependencies__testing_library_user_event": "^12.8.3",
   "npm_config_globalconfig": "/usr/local/etc/npmrc",
   "npm_package_browserslist_development_1": "last 1 firefox version",
+  "npm_package_scripts_nodemon": "nodemon backend/app.js",
   "npm_config_prefer_online": "",
   "npm_config_logs_max": "10",
   "npm_config_always_auth": "",
@@ -161,6 +162,7 @@ window.env = {
   "npm_config_color": "true",
   "npm_config_proxy": "",
   "npm_config_package_lock": "true",
+  "npm_package_dependencies_nodemon": "^2.0.7",
   "npm_config_package_lock_only": "",
   "npm_config_fund": "true",
   "npm_package_eslintConfig_extends_1": "react-app/jest",
@@ -190,5 +192,6 @@ window.env = {
   "npm_config_prefix": "/usr/local",
   "npm_config_link": "",
   "npm_config_format_package_lock": "true",
-  "facebook_client_id": "5330495613659449"
+  "facebook_client_id": "5330495613659449",
+  "facebook_client_secret": "992378532edc301c5abb3ca3c2969335"
 };
