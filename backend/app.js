@@ -10,10 +10,6 @@ app.get('/', (req, res) => {
   //mongoClient();
 })
 
-app.get('/APP_ID', (req, res) => {
-	res.send('5330495613659449');
-})
-
 app.get('/authenticate/facebook/', (req, res) => {
 
 
