@@ -16,16 +16,16 @@ def getInfo(code):
         obj = json.loads(courseData)        
         for i in obj['contentlets']:
             try:
-                print(i['code'], i['creditPoints'], i['teachingPeriod'], removeTags(i['description']))
+                print(i['code'], i['title'], i ['creditPoints'], i['teachingPeriod'], removeTags(i['description']))
             except KeyError:
                 if KeyError == 'teachingPeriod':
-                    print(i['code'], i['creditPoints'], removeTags(i['description']))
+                    print(i['code'], i['title'], i['creditPoints'], removeTags(i['description']))
                     pass
                 elif KeyError == 'creditPoints':
-                    print(i['code'], i['teachingPeriod'], removeTags(i['description']))
+                    print(i['code'], i['title'], i['teachingPeriod'], removeTags(i['description']))
                     pass
                 elif KeyError == 'description':
-                    print(i['code'], i['creditPoints'], i['teachingPeriod'])
+                    print(i['code'], i['title'], i['creditPoints'], i['teachingPeriod'])
                     pass
             except UnicodeEncodeError:
                 pass
