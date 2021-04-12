@@ -23,10 +23,10 @@ async function login() {
     const { authResponse } = await new Promise(window.FB.login);
     if (!authResponse) return;
 
-    await apiAuthenticate(authResponse.accessToken);
+    await apiAuthenticate(authResponse.accessToken).then(response=> console.log(response));
 
     // get return url from location state or default to home page
-    const { from } = history.location.state || { from: { pathname: "/" } };
+    const { from } = history.location.state || { from: { pathname: "/dashboard" } };
     history.push(from);
 }
 

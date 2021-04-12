@@ -2,18 +2,18 @@ import './LoginForm.css'
 import env from "react-dotenv";
 import react from 'react';
 import axios from 'axios';
+import { accountService } from '../../services/account_services.js'
+import { history } from '../../helpers/history.js'
 
 function LoginForm (props) {
 
-    const [fbLoginURL, setfbLoginURL] = react.useState("");
-
-    /*
+ 
     react.useEffect(()=> {
-        axios.get('/authenticate/facebook/').then(response => {
-            setfbLoginURL(response.data);
-        })
-    })
-    */
+        // redirect to home if already logged in
+        if (accountService.accountValue) {
+            history.push('/dashboard');
+        }    
+    }, [history])
 
     return(
         <div className="LoginForm">
@@ -26,13 +26,10 @@ function LoginForm (props) {
                 </div>
             </div>
             <div className="login-buttons">
-                <a className="login-buttons-fb">
-                    <div className="login-buttons-fb-logo">
-                    </div>
-                    <div className="login-buttons-fb-name">
+                <button className="btn btn-facebook" onClick={accountService.login}>
+                        <i className="fa fa-facebook mr-1"></i>
                         Login with Facebook
-                    </div>
-                </a>
+                    </button>
                 <a className="login-buttons-google">
                     <div className="login-buttons-google-logo">
                         <img src="google.png"/>
