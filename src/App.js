@@ -1,5 +1,6 @@
 import logo from './logo.svg';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {Router, Route, Switch} from 'react-router-dom';
+import { history } from './helpers/history.js'
 import HomePage from './pages/HomePage/homePage.js';
 import LoginPage from './pages/LoginPage/loginPage.js'
 import DashBoard from './pages/DashBoard/dashBoard.js';
@@ -19,7 +20,7 @@ library.add(faThumbsUp, faThumbsDown, faStar, faStarHalfAlt, faTimes)
 
 function App() {
   return (
-    <Router>
+    <Router history={history}>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/loginpage" component={LoginPage} />
