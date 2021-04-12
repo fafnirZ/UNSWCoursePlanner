@@ -1,6 +1,6 @@
 //import * as queryString from 'query-string';
 const axios = require('axios');
-
+/*
 const queryString = require('query-string');
 
 
@@ -33,9 +33,9 @@ async function getFacebookUserData(access_token) {
   return data;
 };
 
-/*
-this function is sent to the front end as a link for href
-*/
+
+//this function is sent to the front end as a link for href
+
 
 function FacebookRedirect() {
   const stringifiedParams = queryString.stringify({
@@ -55,3 +55,4 @@ function FacebookRedirect() {
 exports.FacebookRedirect = FacebookRedirect;
 exports.getAccessTokenFromCode = getAccessTokenFromCode;
 exports.getFacebookUserData = getFacebookUserData;
+*/

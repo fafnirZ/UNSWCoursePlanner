@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { initFacebookSdk } from './helpers/init-facebook-sdk.js'
-import { history } from './helpers/history.js'
+
 import { fakeBackend } from './helpers/fake_backend.js'
 
 fakeBackend();
@@ -14,9 +14,7 @@ initFacebookSdk().then(startApp);
 
 function startApp() { 
     render(
-        <Router history={history}>
-            <App />
-        </Router>,
+        <App />,
         document.getElementById('root')
     );
 }

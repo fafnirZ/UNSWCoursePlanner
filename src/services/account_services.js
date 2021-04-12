@@ -26,8 +26,12 @@ async function login() {
     await apiAuthenticate(authResponse.accessToken).then(response=> console.log(response));
 
     // get return url from location state or default to home page
-    const { from } = history.location.state || { from: { pathname: "/dashboard" } };
-    history.push(from);
+
+    //const { from } = history.location.state || { from: { pathname: "/" } };
+    //console.log(from);
+    //history.push(from);
+
+    history.push('/dashboard');
 }
 
 async function apiAuthenticate(accessToken) {
