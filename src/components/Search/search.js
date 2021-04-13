@@ -22,7 +22,7 @@ function DropBox(props) {
 					onDragStart={
 						(e)=> {
 							e.dataTransfer.setData('text/plain', e.target.id)
-							console.log(e.dataTransfer.getData('text'))
+							//console.log(e.dataTransfer.getData('text'))
 							//console.log(e.target.firstChild)
 						}
 					}

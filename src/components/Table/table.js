@@ -59,13 +59,14 @@ class Table extends Component {
 	}
 
 	componentDidMount() {
+		/*
 		this.add_course(1,2,'hello');
 		this.add_course(1,2, 'COMP1511');
 		this.add_course(1,2, 'comp1521');
 		this.add_course(1,2,'hel')
 		this.remove_course(1,2, 'COMP1511');
 		this.add_course(1,2, 'OCOMP1511');
-
+		*/
 		
 		const elements = document.querySelectorAll('.squares')
 		elements.forEach((item, index)=> {
@@ -99,8 +100,11 @@ class Table extends Component {
 		//var data = event.dataTransfer.getData("text");
 	}
 	onDrop(event){
-		var data= event.dataTransfer.getData('text');
-		console.log(event.target)
+		const course= event.dataTransfer.getData('text');
+		const year = event.currentTarget.getAttribute('year');
+		const sem = event.currentTarget.getAttribute('sem');
+		//adds course
+		this.add_course(year,sem, course);
 	}
 
 	//add course
@@ -168,6 +172,7 @@ class Table extends Component {
 									/*
 										cannot use arrow function
 										because cannot pass in arguments, i.e. is lexically bound
+										pass in year and onDragOver function
 									*/
 									item.sems.map(function(item, index){
 										return (
