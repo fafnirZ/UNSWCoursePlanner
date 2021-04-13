@@ -26,10 +26,16 @@ function LoginForm (props) {
                 </div>
             </div>
             <div className="login-buttons">
-                <button className="btn btn-facebook" onClick={accountService.login}>
-                        <i className="fa fa-facebook mr-1"></i>
+
+                <a className="login-buttons-fb" onClick={accountService.login}>
+                    <div className="login-buttons-fb-logo">
+                        <img src="facebook.png"/>
+                    </div>
+                    <div className="login-buttons-fb-name">
                         Login with Facebook
-                    </button>
+                    </div>
+                </a>
+
                 <a className="login-buttons-google">
                     <div className="login-buttons-google-logo">
                         <img src="google.png"/>
