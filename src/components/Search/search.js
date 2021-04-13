@@ -21,7 +21,8 @@ function DropBox(props) {
 					draggable
 					onDragStart={
 						(e)=> {
-							e.dataTransfer.setData('text/plain', e.target.id)
+							//e.dataTransfer.setData('text/plain', e.target.id)
+							e.data = 'hi'
 						}
 					}
 					>

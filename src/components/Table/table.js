@@ -40,6 +40,7 @@ class Table extends Component {
 
 
 	}
+
 	componentDidMount() {
 		this.add_course(1,2,'hello');
 		this.add_course(1,2, 'COMP1511');
@@ -48,18 +49,24 @@ class Table extends Component {
 		this.remove_course(1,2, 'COMP1511');
 		this.add_course(1,2, 'OCOMP1511');
 
-
+		/*
 		var element = document.getElementById('squares')
-		element.addEventListener('onDragOver', (e)=> {
+		element.addEventListener('onDragover', (e)=> {
+			this.onDragOver(e);
+		})
+		*/
+		window.addEventListener('onDragover', (e) => {
 			this.onDragOver(e);
 		})
 
+
 	}
-	
+
 	onDragOver(event) {
 		event.preventDefault();
-		var data = event.dataTransfer.getData("text");
-		console.log(data);
+		//var data = event.dataTransfer.getData("text");
+		console.log(event.data);
+		//console.log(event.target);
 	}
 
 	//add course
@@ -129,7 +136,7 @@ class Table extends Component {
 								{
 									item.sems.map((item, index) => {
 										return (
-												<div className="squares" id="squares">
+												<div className="squares" id="squares" onDragOver={(e)=>{this.onDragOver(e)}}>
 													{
 														item.courses.map((item, index) => {
 
