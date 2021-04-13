@@ -2,18 +2,7 @@ import react, { Component } from 'react'
 import './table.css'
 
 class Table extends Component {
-	/*
-		data = {
-			years: [
-				{year: 1,
-				sem: 1,
-				courses: [
-					
-				]
-				}
-			]
-		}
-	*/
+
 
 	constructor(props) {
 		super(props);
@@ -39,9 +28,7 @@ class Table extends Component {
 									courses : 
 										default_course.map((item, index)=> {
 											return ({
-													index: item+1,
 													course: ""
-													
 												})
 										})
 							
@@ -54,14 +41,36 @@ class Table extends Component {
 
 	}
 	componentDidMount() {
+		this.add_course(1,2,'hello');
+		this.add_course(1,2, 'COMP1511');
+		this.add_course(1,2, 'comp1521');
+		this.add_course(1,2,'hel')
 
+	}
+
+	//add course
+	add_course(year, sem, course) {
+		this.setState(state => {
+			const prev = state.data.years[year-1].sems[sem-1].courses;
+			const neww = state.data.years[year-1].sems[sem-1].courses;
+			//only if there is space, add
+			for(let i = 0; i< 3; i++) {
+				if (prev[i].course === "") {
+					neww[i].course = course
+					return neww;
+				}
+
+			}
+			//else return old state
+			return prev;
+		})
 
 	}
 
 
 
 	render() {
-	return (
+		return (
 			<table className="Table">
 				<li className="rows">
 					<div />
@@ -101,6 +110,7 @@ class Table extends Component {
 												</div>
 											)
 									})
+
 								}
 							</li>
 						)
@@ -112,8 +122,9 @@ class Table extends Component {
 
 
 
+
 			</table>
-		);
+			);
 
 
 
