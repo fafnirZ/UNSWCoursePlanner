@@ -37,6 +37,9 @@
     row-gap: 5%;
     grid-template-areas: "buttons-fb" "buttons-google";
 }
+.login-buttons:hover {
+    cursor:pointer;
+}
 
 .login-buttons-fb {
     display: grid;

@@ -27,6 +27,16 @@
 	padding-left: 5px;
 }
 
+.squares {
+	display:flex;
+	flex-direction: column;
+	grid-gap: 1rem;
+}
+
+.items:hover {
+	background: #444444;
+}
+
 /*
 .rows > div:nth-child(odd) {
 	background: #EBECF0;
