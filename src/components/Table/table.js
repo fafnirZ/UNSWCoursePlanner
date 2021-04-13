@@ -48,6 +48,14 @@ class Table extends Component {
 		this.remove_course(1,2, 'COMP1511');
 		this.add_course(1,2, 'OCOMP1511');
 
+
+		var element = document.getElementById('squares')
+		element.addEventListener('onDragOver', (e)=> {
+			console.log(e);
+		})
+
+		console.log(element);
+
 	}
 
 	//add course
@@ -87,7 +95,11 @@ class Table extends Component {
 		})
 	}
 
-
+	onDragOver(event) {
+		event.preventDefault();
+		var data = event.dataTransfer.getData("text");
+		console.log(data);
+	}
 
 	render() {
 		return (
@@ -116,10 +128,7 @@ class Table extends Component {
 								{
 									item.sems.map((item, index) => {
 										return (
-												<div className="squares" onDragOver = {(e) => {
-														e.preventDefault();
-													}}>
-
+												<div className="squares" id="squares">
 													{
 														item.courses.map((item, index) => {
 

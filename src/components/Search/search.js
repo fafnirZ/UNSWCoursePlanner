@@ -10,9 +10,6 @@ function DropBox(props) {
 	const info = ['SENG2021', 'SENGAH', 'SENG3031']
 	const [draggedItem, setdraggedItem] = react.useState({});
 
-
-
-
 	return (
 		<div className={props.visibility ? "drop_visible" : "drop_invisible"}>
 			{
@@ -24,7 +21,7 @@ function DropBox(props) {
 					draggable
 					onDragStart={
 						(e)=> {
-							e.dataTransfer.setData('id', e.target.id)
+							e.dataTransfer.setData('text/plain', e.target.id)
 						}
 					}
 					>
