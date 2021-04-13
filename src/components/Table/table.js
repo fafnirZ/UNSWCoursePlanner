@@ -51,11 +51,15 @@ class Table extends Component {
 
 		var element = document.getElementById('squares')
 		element.addEventListener('onDragOver', (e)=> {
-			console.log(e);
+			this.onDragOver(e);
 		})
 
-		console.log(element);
-
+	}
+	
+	onDragOver(event) {
+		event.preventDefault();
+		var data = event.dataTransfer.getData("text");
+		console.log(data);
 	}
 
 	//add course
@@ -95,11 +99,8 @@ class Table extends Component {
 		})
 	}
 
-	onDragOver(event) {
-		event.preventDefault();
-		var data = event.dataTransfer.getData("text");
-		console.log(data);
-	}
+
+
 
 	render() {
 		return (
