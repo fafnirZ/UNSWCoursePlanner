@@ -49,24 +49,41 @@ class Table extends Component {
 		this.remove_course(1,2, 'COMP1511');
 		this.add_course(1,2, 'OCOMP1511');
 
-		/*
+		
 		var element = document.getElementById('squares')
-		element.addEventListener('onDragover', (e)=> {
+		element.addEventListener('dragover', (e)=> {
 			this.onDragOver(e);
 		})
-		*/
-		window.addEventListener('onDragover', (e) => {
-			this.onDragOver(e);
+
+		element.addEventListener('drop', (e) => {
+			this.onDrop(e);
 		})
 
 
 	}
 
+	componentWillUnmount() {
+		var element = document.getElementById('squares')
+		element.removeEventListener('dragover', (e)=> {
+			this.onDragOver(e);
+		})
+
+		element.removeEventListener('drop', (e) => {
+			this.onDrop(e);
+		})
+
+	}
+
+
 	onDragOver(event) {
 		event.preventDefault();
 		//var data = event.dataTransfer.getData("text");
-		console.log(event.data);
+		//console.log(event.target.firstchild);
 		//console.log(event.target);
+	}
+	onDrop(event){
+		var data= event.dataTransfer.getData('text');
+		console.log(event.target)
 	}
 
 	//add course
@@ -106,9 +123,6 @@ class Table extends Component {
 		})
 	}
 
-
-
-
 	render() {
 		return (
 			<table className="Table">
@@ -134,9 +148,10 @@ class Table extends Component {
 									Year {index+1}
 								</div>
 								{
+									
 									item.sems.map((item, index) => {
 										return (
-												<div className="squares" id="squares" onDragOver={(e)=>{this.onDragOver(e)}}>
+												<div className="squares" id="squares" onDragOver={(e)=>{this.onDragOver(e)}} sem={index+1}>
 													{
 														item.courses.map((item, index) => {
 
