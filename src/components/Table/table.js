@@ -45,6 +45,8 @@ class Table extends Component {
 		this.add_course(1,2, 'COMP1511');
 		this.add_course(1,2, 'comp1521');
 		this.add_course(1,2,'hel')
+		this.remove_course(1,2, 'COMP1511');
+		this.add_course(1,2, 'OCOMP1511');
 
 	}
 
@@ -65,6 +67,24 @@ class Table extends Component {
 			return prev;
 		})
 
+	}
+
+	remove_course(year, sem, course) {
+		this.setState(state => {
+			//const prev = state.data.years[year-1].sems[sem-1].courses;
+			const neww = state.data.years[year-1].sems[sem-1].courses;
+
+			for(let i = 0; i< 3; i++) {
+				if (neww[i].course === course) {
+					neww[i].course = ""
+				}
+
+			}
+
+
+			//else return old state
+			return neww;
+		})
 	}
 
 
@@ -96,7 +116,10 @@ class Table extends Component {
 								{
 									item.sems.map((item, index) => {
 										return (
-												<div className="squares">
+												<div className="squares" onDragOver = {(e) => {
+														e.preventDefault();
+													}}>
+
 													{
 														item.courses.map((item, index) => {
 
@@ -118,10 +141,6 @@ class Table extends Component {
 					})
 
 				}
-
-
-
-
 
 			</table>
 			);
