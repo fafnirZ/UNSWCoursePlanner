@@ -3,6 +3,23 @@ import './table.css'
 
 class Table extends Component {
 
+	/*
+	data: {
+		years: [
+			{year: 1
+			 sems: [
+				{sem: 1
+					courses:[{
+						course: 'COMP1511'
+					}]
+				}	
+			]}
+		]}
+
+
+	*/
+
+
 
 	constructor(props) {
 		super(props);
@@ -50,36 +67,36 @@ class Table extends Component {
 		this.add_course(1,2, 'OCOMP1511');
 
 		
-		var element = document.getElementById('squares')
-		element.addEventListener('dragover', (e)=> {
+		const elements = document.querySelectorAll('.squares')
+		elements.forEach((item, index)=> {
+			item.addEventListener('dragover', (e)=> {
 			this.onDragOver(e);
+			});
+			item.addEventListener('drop', (e) => {
+			this.onDrop(e);
+			});
 		})
 
-		element.addEventListener('drop', (e) => {
-			this.onDrop(e);
-		})
 
 
 	}
 
 	componentWillUnmount() {
-		var element = document.getElementById('squares')
-		element.removeEventListener('dragover', (e)=> {
+		const elements = document.querySelectorAll('.squares')
+		elements.forEach((item, index)=> {
+			item.removeEventListener('dragover', (e)=> {
 			this.onDragOver(e);
-		})
-
-		element.removeEventListener('drop', (e) => {
+			});
+			item.removeEventListener('drop', (e) => {
 			this.onDrop(e);
+			});
 		})
-
 	}
 
 
 	onDragOver(event) {
 		event.preventDefault();
 		//var data = event.dataTransfer.getData("text");
-		//console.log(event.target.firstchild);
-		//console.log(event.target);
 	}
 	onDrop(event){
 		var data= event.dataTransfer.getData('text');
@@ -148,10 +165,13 @@ class Table extends Component {
 									Year {index+1}
 								</div>
 								{
-									
-									item.sems.map((item, index) => {
+									/*
+										cannot use arrow function
+										because cannot pass in arguments, i.e. is lexically bound
+									*/
+									item.sems.map(function(item, index){
 										return (
-												<div className="squares" id="squares" onDragOver={(e)=>{this.onDragOver(e)}} sem={index+1}>
+												<div className="squares" onDragOver={(e)=>{this.onDragOver(e)}} sem={index+1} year={this.yr}>
 													{
 														item.courses.map((item, index) => {
 
@@ -164,7 +184,7 @@ class Table extends Component {
 													}
 												</div>
 											)
-									})
+									}, {yr: index+1, onDragOver: this.onDragOver})
 
 								}
 							</li>
