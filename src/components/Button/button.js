@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button'
 function OurButton(props) {
 
 	return (
-		<Button href={props.href} variant="contained">
+		<Button href={props.href} onClick = {props.onClick} variant="contained">
 			{props.name}
 		</Button>
 	);

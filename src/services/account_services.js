@@ -46,10 +46,12 @@ async function apiAuthenticate(accessToken) {
 
 function logout() {
     // revoke app permissions to logout completely because FB.logout() doesn't remove FB cookie
+    console.log('logging out');   
     window.FB.api('/me/permissions', 'delete', null, () => window.FB.logout());
     stopAuthenticateTimer();
     accountSubject.next(null);
-    history.push('/login');
+
+    history.push('/loginpage');
 }
 
 function getAll() {
