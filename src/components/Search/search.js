@@ -8,13 +8,27 @@ function DropBox(props) {
 
 	//console.log(props.visibility)
 	const info = ['SENG2021', 'SENGAH', 'SENG3031']
+	const [draggedItem, setdraggedItem] = react.useState({});
 
 	return (
 		<div className={props.visibility ? "drop_visible" : "drop_invisible"}>
 			{
 				info.map((item) => {
 				return (
-					<a className="results" href="/reviewpage">{item}</a>
+					<a className="results" 
+					href="/reviewpage" 
+					id={item}
+					draggable
+					onDragStart={
+						(e)=> {
+							e.dataTransfer.setData('text/plain', e.target.id)
+							//console.log(e.dataTransfer.getData('text'))
+							//console.log(e.target.firstChild)
+						}
+					}
+					>
+					{item}
+					</a>
 				)})
 			}
 		</div>
@@ -55,7 +69,7 @@ function Search() {
 		if (!clicked) {
 			setSearchTerm("");
 		}
-		console.log(searchTerm);
+		//console.log(searchTerm);
 	}, [searchTerm, clicked]);
 
 
