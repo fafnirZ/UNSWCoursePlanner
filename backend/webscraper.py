@@ -17,44 +17,40 @@ def getInfo(code):
 
         for i in obj['contentlets']:
             try:
-                newCourse = {
-                    "c_code": i['code'],
+                newEntry = {i['code']: {
                     "c_title": i['title'],
                     "c_uoc": i['creditPoints'],
                     "c_term": i['teachingPeriod'],
                     'c_description': i['description']
-                 }
-                courses.append(newCourse)
+                 }}
+                courses.append(newEntry)
             except KeyError:
                 if KeyError == 'teachingPeriod':
-                    newCourse = {
-                        "c_code": i['code'],
+                    newEntry = {i['code']: {
                         "c_title": i['title'],
                         "c_uoc": i['creditPoints'],
                         "c_term": None,
                         'c_description': i['description']
-                    }  
-                    courses.append(newCourse)
+                    }} 
+                    courses.append(newEntry)
                     pass
                 elif KeyError == 'creditPoints':
-                    newCourse = {
-                        "c_code": i['code'],
+                    newEntry = {i['code']: {
                         "c_title": i['title'],
                         "c_uoc": None,
                         "c_term": i['teachingPeriod'],
                         'c_description': i['description']
-                    }
-                    courses.append(newCourse)
+                    }}
+                    courses.append(newEntry)
                     pass
                 elif KeyError == 'description':
-                    newCourse = {
-                        "c_code": i['code'],
+                    newEnry = {i['code']: {
                         "c_title": i['title'],
                         "c_uoc": i['creditPoints'],
                         "c_term": i['teachingPeriod'],
                         'c_description': None
-                    }
-                    courses.append(newCourse)
+                    }}
+                    courses.append(newEntry)
                     pass
             except UnicodeEncodeError:
                 pass
