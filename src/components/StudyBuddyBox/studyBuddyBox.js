@@ -1,88 +1,199 @@
 import react from 'react'
 import './studyBuddyBox.css'
-// import Toggle from '../Toggle/toggle.js'
+
 
 function StudyBuddy() {
+
+    document.addEventListener(
+        "click",
+        function(event) {
+            var target = event.target;
+            var replyForm;
+            if (target.matches("[data-toggle='reply-form']")) {
+                replyForm = document.getElementById(target.getAttribute("data-target"));
+                replyForm.classList.toggle("d-none");
+            }
+        },
+        false
+    );
+
     return (
         <div className="StudyBuddy-Frame">
-            <div className="StudyBuddy-Heading">
-                Programming Fundamentals | COMP1511
-            </div>
-        
-            <div className="StudyBuddy-Box">
-                <div className="StudyBuddyBox-Heading">
+            <div class="comment-thread">
+
+                <div className="heading">
                     Study Buddy Finder
-                </div>
+                </div> 
 
-                <div className="StudyBuddyBox-CommentBox">
-                    <div className="StudyBuddyBox-Comment">
-                        <div className="StudyBuddyBox-CommentMessage">
-                            @akaratas commented: Looking for a study buddy who is free on tuesday afternoons.
-                            <br></br>
-                            Contact me via email on z5311022@ad.unsw.edu.au
+                <div className="box">
+                    <div className="box-heading">
+                        Programming Fundamentals | COMP1511
+                    </div>
+                    <details open class="comment" id="comment-1">
+                        <a href="#comment-1" class="comment-border-link">
+                            <span class="sr-only">Jump to comment-1</span>
+                        </a>
+                        <summary>
+                            <div class="comment-heading">
+                                <div class="comment-info">
+                                
+                                    <a href="#" class="comment-author">ilovecarrots</a>
+                                    <p class="m-0">
+                                        &bull; 4 days ago
+                                    </p>
+                                </div>
+                            </div>
+                        </summary>
+
+                        <div class="comment-body">
+                            <p>
+                            Looking for a study buddy who is free on tuesday afternoons. Contact me via email on z5311022@ad.unsw.edu.au
+                            </p>
+                            <button type="button" data-toggle="reply-form" data-target="comment-1-reply-form">Reply</button>
+                            {/* Reply form start */}
+                            <form method="POST" className="reply-form d-none" id="comment-1-reply-form">
+                                <textarea placeholder="Reply to comment" rows="4"></textarea>
+                                <button type="submit">Submit</button>
+                                <button type="button" data-toggle="reply-form" data-target="comment-1-reply-form">Cancel</button>
+                            </form>
+                            {/* Reply form end */}
                         </div>
 
-                        <div className="StudyBuddyBox-CommentReply">
-                            &#8627; @jxie replied: I sent you an email!
-                            <br></br>
-                            &#8627; @mlee replied: What times are you free on Tuesdays?
+                        <div class="replies">
+                            <details open class="comment" id="comment-2">
+                                <a href="#comment-2" class="comment-border-link">
+                                    <span class="sr-only">Jump to comment-2</span>
+                                </a>
+
+                                <summary>
+                                    <div class="comment-heading">
+                                        <div class="comment-info">
+                                            <a href="#" class="comment-author">fishyyyy</a>
+                                            <p class="m-0">
+                                                &bull; 3 days ago
+                                            </p>
+                                        </div>
+                                    </div>
+                                </summary>
+
+                                <div class="comment-body">
+                                    <p>
+                                        Count me in! I am only free from 3pm-5pm though.
+                                    </p>
+                                    <button type="button" data-toggle="reply-form" data-target="comment-2-reply-form">Reply</button>
+                                    {/* Reply form start */}
+                                    <form method="POST" className="reply-form d-none" id="comment-2-reply-form">
+                                        <textarea placeholder="Reply to comment" rows="4"></textarea>
+                                        <button type="submit">Submit</button>
+                                        <button type="button" data-toggle="reply-form" data-target="comment-2-reply-form">Cancel</button>
+                                    </form>
+                                    {/* Reply form end */}
+                                </div>
+                            </details>
+                            <details open class="comment" id="comment-3">
+                                <a href="#comment-3" class="comment-border-link">
+                                    <span class="sr-only">Jump to comment-3</span>
+                                </a>
+
+                                <summary>
+                                    <div class="comment-heading">
+                                        <div class="comment-info">
+                                            <a href="#" class="comment-author">tryhard</a>
+                                            <p class="m-0">
+                                                &bull; 3 days ago
+                                            </p>
+                                        </div>
+                                    </div>
+                                </summary>
+
+                                <div class="comment-body">
+                                    <p>
+                                        Who needs study buddies? Just do the exercises the lecturer tells you to do.
+                                    </p>
+                                    <button type="button" data-toggle="reply-form" data-target="comment-3-reply-form">Reply</button>
+                                    {/* Reply form start */}
+                                    <form method="POST" className="reply-form d-none" id="comment-3-reply-form">
+                                        <textarea placeholder="Reply to comment" rows="4"></textarea>
+                                        <button type="submit">Submit</button>
+                                        <button type="button" data-toggle="reply-form" data-target="comment-3-reply-form">Cancel</button>
+                                    </form>
+                                    {/* Reply form end */}
+                                </div>
+                            </details>
+                            <a href="#load-more">Load more replies</a>
                         </div>
 
-                    </div>
-                    <div className="StudyBuddyBox-Like">
-                        Like
-                    </div>
-                    <div className="StudyBuddyBox-Reply">
-                        Reply
-                    </div>
+                    </details>
 
 
-                    <div className="StudyBuddyBox-Comment">
-                        <div className="StudyBuddyBox-CommentMessage">
-                            @akaratas commented: SECOND COMMENT.
+                    <details class="comment" id="comment-4">
+                        <a href="#comment-4" class="comment-border-link">
+                            <span class="sr-only">Jump to comment-4</span>
+                        </a>
+                        <summary>
+                            <div class="comment-heading">
+                                <div class="comment-info">
+                                    <a href="#" class="comment-author">pleasehelpme</a>
+                                    <p class="m-0">
+                                        &bull; 4 days ago
+                                    </p>
+                                </div>
+                            </div>
+                        </summary>
+
+                        <div class="comment-body">
+                            <p>
+                                hey guys I'm struggling with this course so really need some help. If you're at uni on monday evenings, send me an email on z5231452@ad.unsw.edu.au
+                            </p>
+                            <button type="button" data-toggle="reply-form" data-target="comment-4-reply-form">Reply</button>
+                            {/* Reply form start */}
+                            <form method="POST" className="reply-form d-none" id="comment-4-reply-form">
+                                <textarea placeholder="Reply to comment" rows="4"></textarea>
+                                <button type="submit">Submit</button>
+                                <button type="button" data-toggle="reply-form" data-target="comment-4-reply-form">Cancel</button>
+                            </form>
+                            {/* Reply form end */}
                         </div>
 
-                        <div className="StudyBuddyBox-CommentReply">
-                            &#8627; HELLO HELLO
+                        <div class="replies">
+                            <details class="comment" id="comment-5">
+                                <a href="#comment-5" class="comment-border-link">
+                                    <span class="sr-only">Jump to comment-5</span>
+                                </a>
+
+                                <summary>
+                                    <div class="comment-heading">
+                                        <div class="comment-info">
+                                            <a href="#" class="comment-author">compStateRanker</a>
+                                            <p class="m-0">
+                                                &bull; 3 days ago
+                                            </p>
+                                        </div>
+                                    </div>
+                                </summary>
+
+                                <div class="comment-body">
+                                    <p>
+                                        Sure, I'm free at around 3pm on Mondays so can help around then. I've sent you an email :)
+                                    </p>
+                                    <button type="button" data-toggle="reply-form" data-target="comment-5-reply-form">Reply</button>
+                                    {/* Reply form start */}
+                                    <form method="POST" className="reply-form d-none" id="comment-5-reply-form">
+                                        <textarea placeholder="Reply to comment" rows="4"></textarea>
+                                        <button type="submit">Submit</button>
+                                        <button type="button" data-toggle="reply-form" data-target="comment-5-reply-form">Cancel</button>
+                                    </form>
+                                    {/* Reply form end */}
+                                </div>
+                            </details>
+                            <a href="#load-more">Load more replies</a>
                         </div>
-
-                    </div>
-                    <div className="StudyBuddyBox-Like">
-                        Like
-                    </div>
-                    <div className="StudyBuddyBox-Reply">
-                        Reply
-                    </div>
-
-                    
-                </div>
-
-                <div className="StudybuddyBox-NewCommentBox">
-                    Type a new comment here...
+                    </details>
                 </div>
             </div>
-        </div>
 
+
+        </div>
     )
 }
-
 export default StudyBuddy;
-
-
-{/* <div>
-    @hsaeed commented: Looking to some study buddies to work on homework questions with. My email is z5311025@ad.unsw.edu.au
-    <Toggle render={({on, toggle}) => (
-        <div>
-            <div className="StudyBuddyBox-Comments" onClick={toggle}>View Replies</div>
-            {on && 
-            <div className="StudyBuddyBox-CommentReply">&#8627; @douyang replied: I would love to work on homework questions. Sent you an email!</div>
-        }
-        </div> 
-    )} />
-    <div className="StudyBuddyBox-Like">
-        Like
-    </div>
-    <div className="StudyBuddyBox-Reply">
-        Reply
-    </div>
-</div> */}
