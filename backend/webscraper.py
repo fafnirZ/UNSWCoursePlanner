@@ -33,7 +33,6 @@ def getInfo(code):
                         'c_description': i['description']
                     }} 
                     courses.append(newEntry)
-                    pass
                 elif KeyError == 'creditPoints':
                     newEntry = {i['code']: {
                         "c_title": i['title'],
@@ -42,16 +41,14 @@ def getInfo(code):
                         'c_description': i['description']
                     }}
                     courses.append(newEntry)
-                    pass
                 elif KeyError == 'description':
-                    newEnry = {i['code']: {
+                    newEntry = {i['code']: {
                         "c_title": i['title'],
                         "c_uoc": i['creditPoints'],
                         "c_term": i['teachingPeriod'],
                         'c_description': None
                     }}
                     courses.append(newEntry)
-                    pass
             except UnicodeEncodeError:
                 pass
     return courses
