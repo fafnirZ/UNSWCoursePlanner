@@ -149,13 +149,13 @@ class Table extends Component {
 			<table className="Table">
 				<li className="rows">
 					<div />
-					<div>
+					<div className="title">
 						Semester 1
 					</div>
-					<div>
+					<div className="title">
 						Semester 2
 					</div>
-					<div>
+					<div className="title">
 						Semester 3
 					</div>
 				</li>
