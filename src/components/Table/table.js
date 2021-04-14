@@ -107,10 +107,39 @@ class Table extends Component {
 		this.add_course(year,sem, course);
 	}
 
+
+	check_course_alr_added(course) {
+		//return 1 if alr added
+		//return 0 if not added
+		//yes this is a cubic complexity algo 
+
+		for(let i = 0; i< this.state.num_years; i++) {
+			for(let j = 0; j < this.state.data.years[i].sems.length; j++) {
+				for(let k = 0; k < this.state.data.years[i].sems[j].courses.length; k++) {
+					if(this.state.data.years[i].sems[j].courses[k].course == course) {
+						return 1;
+					}
+
+				}
+			}
+
+		}
+		return 0;
+	}
+
+
+
+
 	//add course
 	add_course(year, sem, course) {
 		this.setState(state => {
 			const prev = state.data.years[year-1].sems[sem-1].courses;
+
+			if(this.check_course_alr_added(course)) {
+				alert(`${course} is already added`);
+				return prev;
+			}
+
 			const neww = state.data.years[year-1].sems[sem-1].courses;
 			//only if there is space, add
 			for(let i = 0; i< 3; i++) {
