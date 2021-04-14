@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import './search.css'
 
 //dummy variable to test functionality
-const courses = ['COMP1511', 'COMP2521', 'COMP3311', 'SENG2021', 'SENGAH', 'SENG3031', 'PSYC1101', 'ECON1101'];
+const courses = ['COMP1511', 'COMP2521', 'COMP3311', 'SENG2021', 'SENGAH', 'SENG3031', 'PSYC1101', 'ECON1101', 'ECON1203', 'COMP2011', 'COMP2511'];
 
 
 
@@ -13,18 +13,22 @@ const courses = ['COMP1511', 'COMP2521', 'COMP3311', 'SENG2021', 'SENGAH', 'SENG
 
 function DropBox(props) {
 
-	//console.log(props.visibility)
+
 	//props.searchterm
+	//props.courses <-- the list of courses (can just query backend here) --> axios.get(/courses)
+
 	const [draggedItem, setdraggedItem] = react.useState({});
 	const [info, setInfo] = react.useState([]);
 
 	useEffect(()=>{
 		props.searchterm === "" ? setInfo([]) : setInfo(props.courses.filter(course => {
-			return course.toUpperCase().includes(props.searchterm);
+			return course.toUpperCase().includes(props.searchterm.toUpperCase());
 		}))
-	},[props.searchterm])
 
-	console.log(info);
+		return (()=> {
+			setInfo([]);
+		})
+	},[props.searchterm])
 
 	return (
 		<div className={props.visibility ? "drop_visible" : "drop_invisible"}>
