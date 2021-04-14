@@ -22,7 +22,7 @@ function DropBox(props) {
 
 	useEffect(()=>{
 		props.searchterm === "" ? setInfo([]) : setInfo(props.courses.filter(course => {
-			return course.toUpperCase().includes(props.searchterm.toUpperCase());
+			return course.toUpperCase().startsWith(props.searchterm.toUpperCase());
 		}))
 
 		return (()=> {
