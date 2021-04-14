@@ -18,14 +18,13 @@
 	display:grid;
 	box-shadow: 5px 5px rgba(108, 122, 137, 1);
 	text-align: center;
+	overflow-y: scroll;
+	padding:0.5rem;
 }
-.drop_visible {
-	padding: 0.5rem;
-}
+
 
 
 .drop_invisible {
-
 	display:none;
 }
 
@@ -33,6 +32,10 @@
 .results {
 	text-decoration: none;
 	color:black;
+	display:flex;
+	justify-content:center;
+	padding:0.3rem;
+
 }
 
 .results:hover {

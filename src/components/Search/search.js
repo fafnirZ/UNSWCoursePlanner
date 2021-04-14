@@ -3,12 +3,32 @@ import Input from '@material-ui/core/Input';
 import { makeStyles } from '@material-ui/core/styles';
 import './search.css'
 
+//dummy variable to test functionality
+const courses = ['COMP1511', 'COMP2521', 'COMP3311', 'SENG2021', 'SENGAH', 'SENG3031', 'PSYC1101', 'ECON1101', 'ECON1203', 'COMP2011', 'COMP2511'];
+
+
+
+
+
 
 function DropBox(props) {
 
-	//console.log(props.visibility)
-	const info = ['SENG2021', 'SENGAH', 'SENG3031']
+
+	//props.searchterm
+	//props.courses <-- the list of courses (can just query backend here) --> axios.get(/courses)
+
 	const [draggedItem, setdraggedItem] = react.useState({});
+	const [info, setInfo] = react.useState([]);
+
+	useEffect(()=>{
+		props.searchterm === "" ? setInfo([]) : setInfo(props.courses.filter(course => {
+			return course.toUpperCase().startsWith(props.searchterm.toUpperCase());
+		}))
+
+		return (()=> {
+			setInfo([]);
+		})
+	},[props.searchterm])
 
 	return (
 		<div className={props.visibility ? "drop_visible" : "drop_invisible"}>
@@ -65,6 +85,7 @@ function Search() {
 		}
 	})
 
+	//clears search term
 	useEffect(()=> {
 		if (!clicked) {
 			setSearchTerm("");
@@ -85,7 +106,10 @@ function Search() {
 				fullWidth="true" 
 				/>
 			</div>,
-			<DropBox visibility={clicked} />
+			<DropBox visibility={clicked}
+				searchterm={searchTerm}
+				courses={courses} 
+			/>
 		]
 	);
 };
