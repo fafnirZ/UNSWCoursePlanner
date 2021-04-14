@@ -5,11 +5,12 @@ import re
 global courses
 courses = []
 
+'''
 def removeTags(text):
     formatted = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});')
     clean = re.sub(formatted, '', text)
     return clean
-
+'''
 
 def getInfo(code):
     url = request.Request((f"https://www.handbook.unsw.edu.au/api/content/render/false/query/+unsw_psubject.implementationYear:2021%20+unsw_psubject.studyLevel:undergraduate%20+unsw_psubject.educationalArea:{code}*%20+unsw_psubject.active:1%20+unsw_psubject.studyLevelValue:ugrd%20+deleted:false%20+working:true%20+live:true/orderby/unsw_psubject.code%20asc/limit/10000/offset/0"))
@@ -60,6 +61,7 @@ def getInfo(code):
                     pass
             except UnicodeEncodeError:
                 pass
+    return courses
 
 
 courseCodes = ['ACCT', 'ACTL', 'AERO', 'ANAT', 'ARCH', 'ARTS', 'ASIA', 'ATSI', 'AUST', 'AVIF', 'BABS', 'BEES', 'BEIL', 'BENV', 'BINF', 'BIOC', 'BIOM', 'BIOS', 'BIOT', 'BLDG', 'CDEV',
@@ -70,13 +72,12 @@ courseCodes = ['ACCT', 'ACTL', 'AERO', 'ANAT', 'ARCH', 'ARTS', 'ASIA', 'ATSI', '
                 'PHYS', 'PLAN', 'PLTX', 'POLS', 'POLY', 'PPEC', 'PSCY', 'PSYC', 'PTRL', 'REGZ', 'REST', 'RISK', 'SCIF', 'SENG', 'SLSP', 'SOCA', 'SOCF', 'SOCW', 'SOLA', 'SOMS', 'SOSS',
                 'SPRC', 'SRAP', 'STAM', 'SURG', 'SUSD', 'SWCH', 'TABL', 'TELE', 'UDES', 'VISN', 'WOMS', 'YENG', 'YMED', 'ZZBU', 'ZZEN', 'ZZSC']
 
-print(len(courses))
 for i in range(len(courseCodes)):
     getInfo(courseCodes[i])
-print(len(courses))
 
 for j in range(len(courses)):
     try:
-        print(courses[j])
+        print(json.dumps(courses[j]))
     except UnicodeEncodeError:
         pass
+
