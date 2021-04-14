@@ -181,7 +181,7 @@ class Table extends Component {
 														item.courses.map((item, index) => {
 
 															return (
-																<div className="items">
+																<div className="items" >
 																{item.course}
 																</div>
 															)
