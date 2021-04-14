@@ -2,15 +2,12 @@ from urllib import request
 import json
 import re
 
-global courses
 courses = []
 
-'''
-def removeTags(text):
-    formatted = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});')
-    clean = re.sub(formatted, '', text)
-    return clean
-'''
+#def removeTags(text):
+#    formatted = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});')
+#    clean = re.sub(formatted, '', text)
+#    return clean
 
 def getInfo(code):
     url = request.Request((f"https://www.handbook.unsw.edu.au/api/content/render/false/query/+unsw_psubject.implementationYear:2021%20+unsw_psubject.studyLevel:undergraduate%20+unsw_psubject.educationalArea:{code}*%20+unsw_psubject.active:1%20+unsw_psubject.studyLevelValue:ugrd%20+deleted:false%20+working:true%20+live:true/orderby/unsw_psubject.code%20asc/limit/10000/offset/0"))
