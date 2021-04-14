@@ -1,7 +1,7 @@
-import react, {useEffect} from 'react'
 import './overview.css'
 
 function Overview (props) {
+
     return (
         <div className="content">
             <h1>Overview </h1>
@@ -18,5 +18,7 @@ function Overview (props) {
         </div>
     );
 }
+
+
 
 export default Overview;
