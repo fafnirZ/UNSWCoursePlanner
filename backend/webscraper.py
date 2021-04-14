@@ -18,6 +18,7 @@ def getInfo(code):
         for i in obj['contentlets']:
             try:
                 newEntry = {i['code']: {
+                    "c_code": i['code'],
                     "c_title": i['title'],
                     "c_uoc": i['creditPoints'],
                     "c_term": i['teachingPeriod'],
@@ -27,6 +28,7 @@ def getInfo(code):
             except KeyError:
                 if KeyError == 'teachingPeriod':
                     newEntry = {i['code']: {
+                        "c_code": i['code'],
                         "c_title": i['title'],
                         "c_uoc": i['creditPoints'],
                         "c_term": None,
@@ -35,6 +37,7 @@ def getInfo(code):
                     courses.append(newEntry)
                 elif KeyError == 'creditPoints':
                     newEntry = {i['code']: {
+                        "c_code": i['code'],
                         "c_title": i['title'],
                         "c_uoc": None,
                         "c_term": i['teachingPeriod'],
@@ -43,6 +46,7 @@ def getInfo(code):
                     courses.append(newEntry)
                 elif KeyError == 'description':
                     newEntry = {i['code']: {
+                        "c_code": i['code'],
                         "c_title": i['title'],
                         "c_uoc": i['creditPoints'],
                         "c_term": i['teachingPeriod'],
