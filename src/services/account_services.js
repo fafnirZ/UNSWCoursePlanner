@@ -23,7 +23,11 @@ async function login() {
     const { authResponse } = await new Promise(window.FB.login);
     if (!authResponse) return;
 
-    await apiAuthenticate(authResponse.accessToken).then(response=> console.log(response));
+    await apiAuthenticate(authResponse.accessToken).then(response=> {
+        //store cookie in localstorage
+        window.localStorage.setItem('token', response.token);
+        //TODO: send post request to backend to store token to backend char store
+    });
 
     // get return url from location state or default to home page
 
@@ -50,7 +54,8 @@ function logout() {
     window.FB.api('/me/permissions', 'delete', null, () => window.FB.logout());
     stopAuthenticateTimer();
     accountSubject.next(null);
-
+    
+    window.localStorage.removeItem('token');
     history.push('/loginpage');
 }
 
