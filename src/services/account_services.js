@@ -20,20 +20,49 @@ export const accountService = {
 
 async function login() {
     // login with facebook then authenticate with the API to get a JWT auth token
-    const { authResponse } = await new Promise(window.FB.login);
-    if (!authResponse) return;
+    //check if has token
+    const token = window.localStorage.getItem('token');
+    if (!token) {
+        const { authResponse } = await new Promise(window.FB.login);
+        if (!authResponse) return;
 
-    await apiAuthenticate(authResponse.accessToken).then(response=> {
-        //store cookie in localstorage
-        window.localStorage.setItem('token', response.token);
-        //TODO: send post request to backend to store token to backend char store
-    });
+        await apiAuthenticate(authResponse.accessToken)
+        .then(response=> {
+            //store cookie in localstorage
+            window.localStorage.setItem('token', response.token);
+            //TODO: send post request to backend to store token to backend char store
+            //send facebookid, name, token
+            //console.log(response)
+            return response;
+        })
+        //send token to backend
+        .then(response=> {
 
-    // get return url from location state or default to home page
+            axios.headers = {
+                "Access-Control-Allow-Origin": "*",
+                "Content-Type" : "application/json"
+            }
+            axios.post('http://localhost:8080/login/', {
+                data: {
+                    token : response.token
+                }
+            })
+            .then (response => {
+                console.log(response)
+            })
 
-    //const { from } = history.location.state || { from: { pathname: "/" } };
-    //console.log(from);
-    //history.push(from);
+        })
+        .catch(err => {
+            console.log(`outer login err ${err}`);
+        })
+
+        // get return url from location state or default to home page
+
+        //const { from } = history.location.state || { from: { pathname: "/" } };
+        //console.log(from);
+        //history.push(from);
+
+    }
 
     history.push('/dashboard');
 }
@@ -55,7 +84,7 @@ function logout() {
     stopAuthenticateTimer();
     accountSubject.next(null);
     
-    window.localStorage.removeItem('token');
+    //window.localStorage.removeItem('token');
     history.push('/loginpage');
 }
 
