@@ -63,6 +63,24 @@ async function login() {
         //history.push(from);
 
     }
+    else {
+        //debugging purposes
+        axios.headers = {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type" : "application/json"
+        }
+        axios.post('http://localhost:8080/login/', {
+            data: {
+                'token' : token
+            }
+        })
+        .then (response => {
+            console.log(response);
+        })
+ 
+    }
+
+
 
     history.push('/dashboard');
 }
