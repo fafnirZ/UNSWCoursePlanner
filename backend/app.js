@@ -9,6 +9,8 @@ const UserFunctions = require('./user.js')
 const app = express()
 const port = 8080
 
+const user = require('./user.js');
+
 app.use(cors());
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -16,13 +18,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-/*
-app.use(function (req, res) {
-  res.setHeader('Content-Type', 'text/plain')
-  //res.write('you posted:\n')
-  res.end(JSON.stringify(req.body, null, 2))
-})
-*/
 
 app.get('/', (req, res) => {
 	res.send('Hello World!')
@@ -32,37 +27,14 @@ app.get('/', (req, res) => {
 
 app.post('/login', (req, res) => {
 
-	console.log(req.body.data);
+	//console.log(req.body.data);
+	user.store_user_data(req.body.data);
+	user.get_all_user_data();
 	res.send({})
 })
 
 
 
-/*
-//send facebook oauth url
-app.get('/authenticate/facebook/', (req, res) => {
-	res.send(authenticate.FacebookRedirect());
-})
-
-
-
-app.get('/authenticate/facebook/success', (req, res) => {
-
-	authenticate.getAccessTokenFromCode(req.query.code)
-		.then(response => {
-			res.send(response);
-		})
-		.catch(err => {
-			console.log(err);
-		})
-
-
-})
-
-app.get('/dashboard', (req, res) => {
-	res.send({});
-})
-*/
 
 
 app.listen(port, () => {
