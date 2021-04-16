@@ -1,3 +1,5 @@
+// example of how to access the json course file
+
 var fs=require('fs');
 var data=fs.readFileSync('courseList.json', 'utf8');
 var courses=JSON.parse(data);
