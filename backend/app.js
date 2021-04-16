@@ -1,17 +1,42 @@
 const express = require('express')
 //const mongoClient = require('./db_client.js')
 require('dotenv').config();
-const authenticate = require('./authenticate.js')
+
+const bodyParser = require("body-parser");
+const cors = require('cors')
+const UserFunctions = require('./user.js')
 
 const app = express()
 const port = 8080
 
+app.use(cors());
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
 
+// parse application/json
+app.use(bodyParser.json())
+
+/*
+app.use(function (req, res) {
+  res.setHeader('Content-Type', 'text/plain')
+  //res.write('you posted:\n')
+  res.end(JSON.stringify(req.body, null, 2))
+})
+*/
 
 app.get('/', (req, res) => {
 	res.send('Hello World!')
 	//mongoClient();
 })
+
+
+app.post('/login', (req, res) => {
+
+	console.log(req.body.data);
+	res.send({})
+})
+
+
 
 /*
 //send facebook oauth url
