@@ -3,7 +3,7 @@ import './overview.css'
 function Overview (props) {
 
     return (
-        <div className="content">
+        <div className="overview_content">
             <h1>Overview </h1>
             <p>This course is part the series of software engineering workshops designed to teach students to work in teams and apply 
                 their knowledge to solve real-life problems. This workshop will offer students the opportunity to concentrate on software requirements analysis 
