@@ -40,7 +40,6 @@ app.get('/getCourses', (req, res) => {
 	//res.send({'data': user.get_user_course_data(req.query.facebookId)});
 	user.get_user_course_data(req.query.facebookId)
 	.then(response=>{
-		console.log(response)
 		res.send({'data': response})
 	})
 })

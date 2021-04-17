@@ -95,6 +95,12 @@ class Table extends Component {
 		})
 
 	}
+	shouldComponentUpdate(nextState) {
+		const diffState = this.state.data !== nextState.data
+		return diffState;
+	}
+
+
 	/*
 	componentDidUpdate(prevState) {
 		if(this.state.data != prevState.data) {
