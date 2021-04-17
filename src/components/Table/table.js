@@ -1,4 +1,5 @@
 import react, { Component } from 'react'
+import axios from 'axios'
 import './table.css'
 
 class Table extends Component {
@@ -34,6 +35,7 @@ class Table extends Component {
 		const sems = Array.from(Array(this.state.num_sems).keys());
 		const default_course = Array.from(Array(3).keys());
 
+
 		this.state.data = {
 				years : yrs.map((item, index) => {
 					return ({
@@ -53,7 +55,10 @@ class Table extends Component {
 							})
 					})
 				})
-			};
+		};
+
+
+
 
 
 	}
@@ -67,6 +72,17 @@ class Table extends Component {
 		this.remove_course(1,2, 'COMP1511');
 		this.add_course(1,2, 'OCOMP1511');
 		*/
+		const facebookID = window.localStorage.getItem('facebookId');
+		axios.get(`http://localhost:8080/getCourses?facebookId=${facebookID}`, )
+		.then(response => {
+			console.log(response)
+			if(response.data.data != null) {
+				console.log('not null');
+				this.state.data = response.data.data;
+				console.log(this.state.data)
+			}
+		})
+
 		
 		const elements = document.querySelectorAll('.squares')
 		elements.forEach((item, index)=> {
@@ -78,9 +94,34 @@ class Table extends Component {
 			});
 		})
 
+	}
+	shouldComponentUpdate(nextState) {
+		const diffState = this.state.data !== nextState.data
+		return diffState;
+	}
 
+
+	/*
+	componentDidUpdate(prevState) {
+		if(this.state.data != prevState.data) {
+			axios.headers = {
+	            "Access-Control-Allow-Origin": "*",
+	            "Content-Type" : "application/json"
+	        }
+	        axios.post('http://localhost:8080/postCourses', {
+	            data: {
+	            	facebookId: window.localStorage.getItem('facebookId'),
+	                courseData : this.state.data
+	            }
+	        })
+	        .then (response => {
+	            console.log(response);
+	        })
+		}
 
 	}
+	*/
+	
 
 	componentWillUnmount() {
 		const elements = document.querySelectorAll('.squares')
@@ -152,6 +193,21 @@ class Table extends Component {
 			//else return old state
 			return prev;
 		})
+		axios.headers = {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type" : "application/json"
+        }
+        axios.post('http://localhost:8080/postCourses', {
+            data: {
+            	facebookId: window.localStorage.getItem('facebookId'),
+                courseData : this.state.data
+            }
+        })
+        .then (response => {
+            console.log(response);
+        })
+
+
 
 	}
 
