@@ -6,11 +6,6 @@ import './search.css'
 //dummy variable to test functionality
 const courses = ['COMP1511', 'COMP2521', 'COMP3311', 'SENG2021', 'SENGAH', 'SENG3031', 'PSYC1101', 'ECON1101', 'ECON1203', 'COMP2011', 'COMP2511'];
 
-
-
-
-
-
 function DropBox(props) {
 
 
