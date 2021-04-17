@@ -30,18 +30,25 @@ function store_user_data(data) {
 }
 
 function get_user_course_data(facebookId) {
-	console.log('getcd')
-	userData.read_data().then(response=> {
-		//console.log('userdat=', response);
-		try {
-			console.log(response)
-			console.log(response[facebookId])
-			return response[facebookId].courseData;
-		}
-		catch(err) {
-			console.log(err);
-			return null;
-		}
+	return new Promise((resolve,reject)=>{
+
+
+
+		userData.read_data().then(response=> {
+			//console.log('userdat=', response);
+			try {
+				/*
+				console.log(facebookId)
+				console.log(response)
+				*/
+				resolve(response[facebookId].courseData);
+			}
+			catch(err) {
+				console.log(err);
+				resolve(null);
+			}
+		})
+
 	})
 
 

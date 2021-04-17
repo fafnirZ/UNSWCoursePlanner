@@ -3,6 +3,8 @@ const express = require('express')
 require('dotenv').config();
 
 const bodyParser = require("body-parser");
+
+
 const cors = require('cors')
 
 const app = express()
@@ -34,12 +36,18 @@ app.post('/login', (req, res) => {
 })
 
 app.get('/getCourses', (req, res) => {
-	console.log('getcroute')
-	res.send({'data': user.get_user_course_data(req.params.facebookId)});
+
+	//res.send({'data': user.get_user_course_data(req.query.facebookId)});
+	user.get_user_course_data(req.query.facebookId)
+	.then(response=>{
+		console.log(response)
+		res.send({'data': response})
+	})
 })
 
 
 app.post('/postCourses', (req, res)=> {
+
 	user.add_user_course_data(req.body.data.facebookId, req.body.data.courseData);
 	//user.get_all_user_data();
 	res.send({});

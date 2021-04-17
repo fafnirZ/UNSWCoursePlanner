@@ -56,11 +56,13 @@ class Table extends Component {
 				})
 		};
 
-
-		axios.get('http://localhost:8080/getCourses', { params: { facebookId : window.localStorage.getItem('facebookId')}})
+		const facebookID = window.localStorage.getItem('facebookId');
+		axios.get(`http://localhost:8080/getCourses?facebookId=${facebookID}`, )
 		.then(response => {
+			console.log(response)
 			if(response.data.data != null) {
 				console.log('not null');
+
 				this.setState(state=> {
 					return response.data.data;
 				})
@@ -92,7 +94,7 @@ class Table extends Component {
 		})
 
 	}
-	
+	/*
 	componentDidUpdate(prevState) {
 		if(this.state.data != prevState.data) {
 			axios.headers = {
@@ -111,6 +113,7 @@ class Table extends Component {
 		}
 
 	}
+	*/
 	
 
 	componentWillUnmount() {
@@ -183,6 +186,21 @@ class Table extends Component {
 			//else return old state
 			return prev;
 		})
+		axios.headers = {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type" : "application/json"
+        }
+        axios.post('http://localhost:8080/postCourses', {
+            data: {
+            	facebookId: window.localStorage.getItem('facebookId'),
+                courseData : this.state.data
+            }
+        })
+        .then (response => {
+            console.log(response);
+        })
+
+
 
 	}
 
