@@ -35,6 +35,7 @@ class Table extends Component {
 		const sems = Array.from(Array(this.state.num_sems).keys());
 		const default_course = Array.from(Array(3).keys());
 
+
 		this.state.data = {
 				years : yrs.map((item, index) => {
 					return ({
@@ -56,18 +57,7 @@ class Table extends Component {
 				})
 		};
 
-		const facebookID = window.localStorage.getItem('facebookId');
-		axios.get(`http://localhost:8080/getCourses?facebookId=${facebookID}`, )
-		.then(response => {
-			console.log(response)
-			if(response.data.data != null) {
-				console.log('not null');
 
-				this.setState(state=> {
-					return response.data.data;
-				})
-			}
-		})
 
 
 
@@ -82,6 +72,17 @@ class Table extends Component {
 		this.remove_course(1,2, 'COMP1511');
 		this.add_course(1,2, 'OCOMP1511');
 		*/
+		const facebookID = window.localStorage.getItem('facebookId');
+		axios.get(`http://localhost:8080/getCourses?facebookId=${facebookID}`, )
+		.then(response => {
+			console.log(response)
+			if(response.data.data != null) {
+				console.log('not null');
+				this.state.data = response.data.data;
+				console.log(this.state.data)
+			}
+		})
+
 		
 		const elements = document.querySelectorAll('.squares')
 		elements.forEach((item, index)=> {
