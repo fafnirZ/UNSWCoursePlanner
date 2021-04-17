@@ -30,6 +30,7 @@ async function login() {
         .then(response=> {
             //store cookie in localstorage
             window.localStorage.setItem('token', response.token);
+            window.localStorage.setItem('facebookId', response.facebookId);
             //TODO: send post request to backend to store token to backend char store
             //send facebookid, name, token
             //console.log(response)
@@ -84,6 +85,7 @@ async function login() {
         .then (response => {
             console.log(response);
         })
+        window.localStorage.setItem('facebookId', facebookId);
  
     }
 

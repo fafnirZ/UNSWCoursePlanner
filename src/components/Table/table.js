@@ -1,4 +1,5 @@
 import react, { Component } from 'react'
+import axios from 'axios'
 import './table.css'
 
 class Table extends Component {
@@ -53,7 +54,19 @@ class Table extends Component {
 							})
 					})
 				})
-			};
+		};
+
+
+		axios.get('http://localhost:8080/getCourses', { params: { facebookId : window.localStorage.getItem('facebookId')}})
+		.then(response => {
+			if(response.data.data != null) {
+				console.log('not null');
+				this.setState(state=> {
+					return response.data.data;
+				})
+			}
+		})
+
 
 
 	}
@@ -78,9 +91,27 @@ class Table extends Component {
 			});
 		})
 
-
+	}
+	
+	componentDidUpdate(prevState) {
+		if(this.state.data != prevState.data) {
+			axios.headers = {
+	            "Access-Control-Allow-Origin": "*",
+	            "Content-Type" : "application/json"
+	        }
+	        axios.post('http://localhost:8080/postCourses', {
+	            data: {
+	            	facebookId: window.localStorage.getItem('facebookId'),
+	                courseData : this.state.data
+	            }
+	        })
+	        .then (response => {
+	            console.log(response);
+	        })
+		}
 
 	}
+	
 
 	componentWillUnmount() {
 		const elements = document.querySelectorAll('.squares')
