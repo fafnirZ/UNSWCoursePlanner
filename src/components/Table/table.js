@@ -78,8 +78,9 @@ class Table extends Component {
 			console.log(response)
 			if(response.data.data != null) {
 				console.log('not null');
-				this.state.data = response.data.data;
-				console.log(this.state.data)
+				//this.state.data = response.data.data;
+				//console.log(this.state.data)
+				this.setState({data: response.data.data})
 			}
 		})
 
@@ -193,6 +194,7 @@ class Table extends Component {
 			//else return old state
 			return prev;
 		})
+
 		axios.headers = {
             "Access-Control-Allow-Origin": "*",
             "Content-Type" : "application/json"
@@ -203,10 +205,6 @@ class Table extends Component {
                 courseData : this.state.data
             }
         })
-        .then (response => {
-            console.log(response);
-        })
-
 
 
 	}
