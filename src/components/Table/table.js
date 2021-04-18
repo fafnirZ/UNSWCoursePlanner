@@ -201,6 +201,19 @@ class Table extends Component {
 					return state.data.years.pop();
 				})
 			}
+
+			axios.headers = {
+		        "Access-Control-Allow-Origin": "*",
+		        "Content-Type" : "application/json"
+		    }
+		    axios.post('http://localhost:8080/postCourses', {
+		        data: {
+		        	facebookId: window.localStorage.getItem('facebookId'),
+		            courseData : this.state.data
+		        }
+		    })
+
+
 			
 		}
 	}
