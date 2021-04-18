@@ -210,15 +210,20 @@ class Table extends Component {
 
 	}
 
-	onMouseClick(event) {
+	onMouseClick = (event) => {
+
 		if(event.target.className="cross_visible") {
-			console.log(event.target);
+			event.preventDefault();
+			//console.log(event.target.year)
+			console.log(event.target, event.target.props)
+			/*
 			try{
 				this.remove_course(event.target.year, event.target.sem, event.target.course)
 			}
 			catch(err) {
 				console.log(err);
 			}
+			*/
 		}
 
 	}
@@ -295,6 +300,7 @@ class Table extends Component {
 	}
 
 	remove_course(year, sem, course) {
+		console.log(year, sem, course)
 		this.setState(state => {
 			//const prev = state.data.years[year-1].sems[sem-1].courses;
 			const neww = state.data.years[year-1].sems[sem-1].courses;
