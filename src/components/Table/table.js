@@ -194,17 +194,21 @@ class Table extends Component {
 			console.log(event.target.lastChild.className);
 			if(event.target.lastChild.className === "cross_invisible") {
 				event.target.lastChild.className = "cross_visible";
-				this.setState({last_item : event.target.lastChild});
+				this.state.last_item= event.target.lastChild
 			}
+		}
+		else if(event.target.className==="texts") {
+			//currentTarget bubbles up and points to the div that is calling the event
+			event.currentTarget.lastChild.className = "cross_visible";
+			this.state.last_item=event.target.lastChild;
 		}
 		else if(event.target.className==="cross_invisible") {
 			event.target.className ="cross_visible";
-			this.setState({last_item : event.target.lastChild})
+			this.state.last_item=event.target.lastChild
 		}
 		else {
 			try {
 				this.state.last_item.className = "cross_invisible";
-				this.setState({last_item : event.target.lastChild})
 			}
 			catch(err) {
 				console.log(err);
@@ -291,7 +295,9 @@ class Table extends Component {
 	show_cross(course,sem, year) {
 		if (course !== "") {
 			return(
-				<img src="cross.png" sem={sem} year={year} course={course} />
+
+					<img src="cross.png" sem={sem} year={year} course={course} />
+
 			)
 
 		}
@@ -371,7 +377,7 @@ class Table extends Component {
 																		{item.course}
 																	</div>
 																
-																	<div className="cross_invisible" >
+																	<div className="cross_invisible">
 																		{this.show_cross(item.course,this.sem,this.year)}
 																	</div>
 								
