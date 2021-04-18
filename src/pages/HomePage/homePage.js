@@ -5,6 +5,7 @@ import './homePage.css'
 
 
 
+
 export default function HomePage() {
 
     return (
@@ -36,3 +37,4 @@ export default function HomePage() {
 
     );    
 }
+export default HomePage()
