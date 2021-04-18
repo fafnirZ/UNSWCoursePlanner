@@ -17,7 +17,7 @@
 	width: 100%;
 	display:grid;
 	grid-template-columns: repeat(4,25%);
-	align-content: center;
+	align-items: center;
 }
 
 .title {
@@ -32,8 +32,8 @@
 }
 
 .squares {
-	display:flex;
-	flex-direction: column;
+	display:grid;
+	grid-template-rows: repeat(3, 33%);
 	padding:1rem;
 	grid-gap:1rem;
 
@@ -45,10 +45,33 @@
 	justify-content: center;
 }
 
+.texts{
+	grid-area:text;
+	display:flex;
+}
+
 .items:hover {
 	background: #888888;
-
 }
+
+
+.cross_invisible {
+	grid-area: cross;
+	display:none;
+}
+.cross_visible {
+	display:flex;
+}
+
+.
+.cross > img {
+	object-fit: cover;
+	max-height: 100%;
+	display:none;
+}
+
+
+
 
 /*
 .rows > div:nth-child(odd) {
