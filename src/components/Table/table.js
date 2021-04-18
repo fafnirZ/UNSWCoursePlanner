@@ -28,7 +28,8 @@ class Table extends Component {
 		this.state = {
 			num_years : 4,
 			num_sems : 3,
-			last_item: null
+			last_item: null,
+			hover:true
 
 		};
 
@@ -57,8 +58,6 @@ class Table extends Component {
 					})
 				})
 		};
-
-
 
 
 
@@ -103,7 +102,7 @@ class Table extends Component {
 			})
 
 		})
-
+		
 		const clicks = document.querySelectorAll('.cross_invisible')
 		clicks.forEach((item, index)=> {
 			item.addEventListener('click', (e)=> {
@@ -111,16 +110,16 @@ class Table extends Component {
 			})
 		})
 		
+		
 
 
 	}
+	/*
 	shouldComponentUpdate(nextState) {
 		const diffState = this.state.data !== nextState.data
 		return diffState;
 	}
 
-
-	/*
 	componentDidUpdate(prevState) {
 		if(this.state.data != prevState.data) {
 			axios.headers = {
@@ -167,12 +166,14 @@ class Table extends Component {
 
 		})
 
-		const clicks = document.querySelectorAll('.cross_invisible')
+		
+		const clicks = document.querySelectorAll('.incross_visible')
 		clicks.forEach((item, index)=> {
 			item.removeEventListener('click', (e)=> {
 			this.onMouseClick(e);
 			})
 		})
+		
 	}
 
 
@@ -193,15 +194,17 @@ class Table extends Component {
 			console.log(event.target.lastChild.className);
 			if(event.target.lastChild.className === "cross_invisible") {
 				event.target.lastChild.className = "cross_visible";
-				this.state.last_item = event.target.lastChild;
+				this.setState({last_item : event.target.lastChild});
 			}
 		}
 		else if(event.target.className==="cross_invisible") {
 			event.target.className ="cross_visible";
+			this.setState({last_item : event.target.lastChild})
 		}
 		else {
 			try {
 				this.state.last_item.className = "cross_invisible";
+				this.setState({last_item : event.target.lastChild})
 			}
 			catch(err) {
 				console.log(err);
@@ -210,21 +213,16 @@ class Table extends Component {
 
 	}
 
-	onMouseClick = (event) => {
+	onMouseClick = (event) => {	
 
-		if(event.target.className="cross_visible") {
-			event.preventDefault();
-			//console.log(event.target.year)
-			console.log(event.target, event.target.props)
-			/*
-			try{
-				this.remove_course(event.target.year, event.target.sem, event.target.course)
-			}
-			catch(err) {
-				console.log(err);
-			}
-			*/
-		}
+		//console.log(event)
+		//console.log(event.target.year)
+		//console.log(event.target.attributes.year.nodeValue)
+		const year = event.target.attributes.year.nodeValue
+		const sem = event.target.attributes.sem.nodeValue
+		const course = event.target.attributes.course.nodeValue
+
+		this.remove_course(year, sem, course)
 
 	}
 
@@ -293,7 +291,7 @@ class Table extends Component {
 	show_cross(course,sem, year) {
 		if (course !== "") {
 			return(
-				<img src="cross.png" sem={sem} year={year} course={course}/>
+				<img src="cross.png" sem={sem} year={year} course={course} />
 			)
 
 		}
