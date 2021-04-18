@@ -93,15 +93,34 @@ class Table extends Component {
 			item.addEventListener('drop', (e) => {
 			this.onDrop(e);
 			});
-
-		})
-		const items = document.querySelectorAll('.items')
-		items.forEach((item, index)=> {
 			item.addEventListener('mouseover', (e)=>{
-			this.onMouseOver(e);
+			this.removeMouseOver(e);
 			})
 
 		})
+
+
+		//adds to window
+
+
+		const items = document.querySelectorAll('.items')
+		items.forEach((item, index)=>{
+			item.addEventListener('mouseover', (e)=>{
+				this.onMouseOver(e);
+			})
+		})
+
+
+		const texts = document.querySelectorAll('.texts')
+		texts.forEach((item,index)=> {
+			item.addEventListener('click', (e)=> {
+				document.location="/reviewpage"
+			})
+		})
+
+
+
+
 		
 		const clicks = document.querySelectorAll('.cross_invisible')
 		clicks.forEach((item, index)=> {
@@ -150,21 +169,28 @@ class Table extends Component {
 			item.removeEventListener('drop', (e) => {
 			this.onDrop(e);
 			});
-			item.removeEventListener('mouseover', (e)=>{
-			this.onMouseOver(e);
-			})
+			//item.removeEventListener('mouseover', (e)=>{
+			//this.removeMouseOver(e);
+			//})
 
 
 		})
-
 
 		const items = document.querySelectorAll('.items')
-		items.forEach((item, index)=> {
+		items.forEach((item, index)=>{
 			item.removeEventListener('mouseover', (e)=>{
-			this.onMouseOver(e);
+				this.onMouseOver(e);
 			})
-
 		})
+
+		const texts = document.querySelectorAll('.texts')
+		texts.forEach((item,index)=> {
+			item.removeEventListener('click', (e)=> {
+				document.location="/reviewpage"
+			})
+		})
+
+
 
 		
 		const clicks = document.querySelectorAll('.incross_visible')
@@ -190,6 +216,7 @@ class Table extends Component {
 	}
 
 	onMouseOver(event) {
+		/*
 		if(event.target.className==="items")  {
 			console.log(event.target.lastChild.className);
 			if(event.target.lastChild.className === "cross_invisible") {
@@ -199,6 +226,7 @@ class Table extends Component {
 		}
 		else if(event.target.className==="texts") {
 			//currentTarget bubbles up and points to the div that is calling the event
+			console.log('texts')
 			event.currentTarget.lastChild.className = "cross_visible";
 			this.state.last_item=event.target.lastChild;
 		}
@@ -214,7 +242,33 @@ class Table extends Component {
 				console.log(err);
 			}
 		}
+		*/
 
+		if(event.currentTarget.attributes.class.nodeValue=="items") {
+
+			event.currentTarget.lastChild.className="cross_visible";
+			this.state.last_item = event.currentTarget.lastChild;
+
+		}
+
+
+	}
+
+	removeMouseOver(event) {
+		try{
+			console.log(event.target)
+			if(event.target.attributes.class.nodeValue !== "items" &&
+				event.target.attributes.class.nodeValue !== "texts" &&
+				 event.target.attributes.class.nodeValue !== "cross_visible")
+			{
+				event.currentTarget.childNodes.forEach((item, index)=>{
+					item.lastChild.attributes.class.nodeValue = "cross_invisible";
+				});
+			}
+		}
+		catch(err) {
+			console.log(err)
+		}
 	}
 
 	onMouseClick = (event) => {	
