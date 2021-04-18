@@ -27,7 +27,8 @@ class Table extends Component {
 
 		this.state = {
 			num_years : 4,
-			num_sems : 3,	
+			num_sems : 3,
+			last_item: null
 
 		};
 
@@ -93,7 +94,24 @@ class Table extends Component {
 			item.addEventListener('drop', (e) => {
 			this.onDrop(e);
 			});
+
 		})
+		const items = document.querySelectorAll('.items')
+		items.forEach((item, index)=> {
+			item.addEventListener('mouseover', (e)=>{
+			this.onMouseOver(e);
+			})
+
+		})
+
+		const clicks = document.querySelectorAll('.cross_invisible')
+		clicks.forEach((item, index)=> {
+			item.addEventListener('click', (e)=> {
+			this.onMouseClick(e);
+			})
+		})
+		
+
 
 	}
 	shouldComponentUpdate(nextState) {
@@ -133,6 +151,27 @@ class Table extends Component {
 			item.removeEventListener('drop', (e) => {
 			this.onDrop(e);
 			});
+			item.removeEventListener('mouseover', (e)=>{
+			this.onMouseOver(e);
+			})
+
+
+		})
+
+
+		const items = document.querySelectorAll('.items')
+		items.forEach((item, index)=> {
+			item.removeEventListener('mouseover', (e)=>{
+			this.onMouseOver(e);
+			})
+
+		})
+
+		const clicks = document.querySelectorAll('.cross_invisible')
+		clicks.forEach((item, index)=> {
+			item.removeEventListener('click', (e)=> {
+			this.onMouseClick(e);
+			})
 		})
 	}
 
@@ -149,6 +188,40 @@ class Table extends Component {
 		this.add_course(year,sem, course);
 	}
 
+	onMouseOver(event) {
+		if(event.target.className==="items")  {
+			console.log(event.target.lastChild.className);
+			if(event.target.lastChild.className === "cross_invisible") {
+				event.target.lastChild.className = "cross_visible";
+				this.state.last_item = event.target.lastChild;
+			}
+		}
+		else if(event.target.className==="cross_invisible") {
+			event.target.className ="cross_visible";
+		}
+		else {
+			try {
+				this.state.last_item.className = "cross_invisible";
+			}
+			catch(err) {
+				console.log(err);
+			}
+		}
+
+	}
+
+	onMouseClick(event) {
+		if(event.target.className="cross_visible") {
+			console.log(event.target);
+			try{
+				this.remove_course(event.target.year, event.target.sem, event.target.course)
+			}
+			catch(err) {
+				console.log(err);
+			}
+		}
+
+	}
 
 	check_course_alr_added(course) {
 		//return 1 if alr added
@@ -208,6 +281,18 @@ class Table extends Component {
 
 
 	}
+	/*
+	shows cross only if there is an item
+	*/
+
+	show_cross(course,sem, year) {
+		if (course !== "") {
+			return(
+				<img src="cross.png" sem={sem} year={year} course={course}/>
+			)
+
+		}
+	}
 
 	remove_course(year, sem, course) {
 		this.setState(state => {
@@ -225,6 +310,18 @@ class Table extends Component {
 			//else return old state
 			return neww;
 		})
+
+		axios.headers = {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type" : "application/json"
+        }
+        axios.post('http://localhost:8080/postCourses', {
+            data: {
+            	facebookId: window.localStorage.getItem('facebookId'),
+                courseData : this.state.data
+            }
+        })
+
 	}
 
 	render() {
@@ -258,21 +355,29 @@ class Table extends Component {
 										pass in year and onDragOver function
 									*/
 									item.sems.map(function(item, index){
+
 										return (
 												<div className="squares" onDragOver={(e)=>{this.onDragOver(e)}} sem={index+1} year={this.yr}>
 													{
-														item.courses.map((item, index) => {
-
+														item.courses.map(function(item, index) {
+												
 															return (
 																<div className="items" >
-																{item.course}
+																	<div className="texts">
+																		{item.course}
+																	</div>
+																
+																	<div className="cross_invisible" >
+																		{this.show_cross(item.course,this.sem,this.year)}
+																	</div>
+								
 																</div>
 															)
-														})
+														}, {show_cross: this.show_cross, onMouseOver: this.onMouseOver, sem: index+1, year: this.yr})
 													}
 												</div>
 											)
-									}, {yr: index+1, onDragOver: this.onDragOver})
+									}, {yr: index+1, onDragOver: this.onDragOver, show_cross: this.show_cross, onMouseOver: this.onMouseOver})
 
 								}
 							</li>
