@@ -5,7 +5,7 @@ import StudySpaceFinder from '../../pages/StudySpaceFinderPage/studySpaceFinder.
 import {link} from 'react-router-dom';
 
 
-import './studyBuddyFinder.css'
+//import './studyBuddyFinder.css'
 
 
 
@@ -47,3 +47,4 @@ function HomePage() {
 
     );    
 }
+export default HomePage()
