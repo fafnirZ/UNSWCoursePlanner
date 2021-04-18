@@ -256,7 +256,6 @@ class Table extends Component {
 
 	removeMouseOver(event) {
 		try{
-			console.log(event.target)
 			if(event.target.attributes.class.nodeValue !== "items" &&
 				event.target.attributes.class.nodeValue !== "texts" &&
 				 event.target.attributes.class.nodeValue !== "cross_visible")
