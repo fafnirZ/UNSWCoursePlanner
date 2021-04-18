@@ -41,39 +41,43 @@
 }
 
 
-
-
-
 .hBody {
 	grid-area: body;
 	display:grid;
 	grid-template-columns: 50% 50%;
 	grid-template-areas: "book welcome";
-	grid-gap: 1rem;
+	background-color: white;
 }
 
 .hBook {
 	grid-area:book;
 	display:flex;
-	justify-items: start;
+	justify-items: right;
+	height: 32rem;
 }
-.hBook >img {
-	object-fit: cover;
-	width:100%;
-	max-height: 50%;
 
+.hBook > img {
+	object-fit: contain;
+	/* width:100%; */
+	/* max-height: 78; */
 }
 
 .hWelcome {
 	grid-area:welcome;
-	height:100%;
-	display:flex;
-	justify-items: end;
-}
-.hWelcome >img {
-	object-fit: cover;
-	max-height:100%;
+	display:flex; 
+	width: 512;
+	flex-direction: row;
+	justify-content: flex-end;
+	/* background-color: blue; */
 
+}
+
+.semicircle {
+	display:flex;
+	background-color: lightgreen;
+	height: 32rem;
+	width: 16rem; 
+	border-radius: 256px 0px 0px 256px; 
 }
 
 
@@ -81,4 +85,3 @@
 	grid-area:footer;
 	background-color:#C1E8E0;
 }
-

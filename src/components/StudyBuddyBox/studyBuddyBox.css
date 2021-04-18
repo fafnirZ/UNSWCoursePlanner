@@ -109,6 +109,7 @@ button:active {
     color: rgba(0, 0, 0, 0.5);
     margin-left: 10px;
 }
+
 .comment-author {
     color: rgba(0, 0, 0, 0.85);
     font-size: 15px;
