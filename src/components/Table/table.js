@@ -158,6 +158,52 @@ class Table extends Component {
 
 	}
 	*/
+
+	/*
+	this handles the plus and minus -> expanding and contracting of table
+	*/
+	componentDidUpdate(prevProps,prevState) {
+		if(this.props.years != prevProps.years) {
+			this.setState({num_years: this.props.years})
+
+			if(this.props.years > prevProps.years) {
+				this.setState(state=>{
+
+
+					const sems = Array.from(Array(this.state.num_sems).keys());
+					const default_course = Array.from(Array(3).keys());
+
+					const additional_data = 
+					{year: state.num_years, 
+						sems:
+							sems.map((item, index) => {
+								return ({
+									sem : item+1,
+									courses : 
+										default_course.map((item, index)=> {
+											return ({
+													course: ""
+													})
+										})
+								})
+							})
+					}
+
+					return(state.data.years.push(additional_data));
+					
+					
+									
+				})
+			}
+			else if(this.props.years < prevProps.years) {
+
+				this.setState(state=> {
+					return state.data.years.pop();
+				})
+			}
+			
+		}
+	}
 	
 
 	componentWillUnmount() {
