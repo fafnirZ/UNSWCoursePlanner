@@ -1,0 +1,30 @@
+.StudyFinder {
+	display:grid;
+	grid-template-rows: 7rem auto 7rem;
+	grid-template-areas:
+	"header"
+	"body"
+	"footer"
+}
+
+.Header {
+	grid-area: header;
+	background-color:#C1E8E0;
+}
+
+.studyspaceBody {
+	grid-area:body;
+	padding: 6rem;
+	padding-left:21%;
+	padding-right:5%;
+	background-color:white;
+	display:grid;
+	grid-template-rows: 23rem 10rem auto 2rem;
+	grid-template-columns: 30% 70%;
+
+}
+
+.Footer {
+	grid-area:footer;
+	background-color:#C1E8E0;
+}

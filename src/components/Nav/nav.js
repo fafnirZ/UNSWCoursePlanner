@@ -1,5 +1,8 @@
 import react, {useEffect} from 'react'
 import { Link } from 'react-router-dom'
+import OurButton from '../Button/button.js'
+import { accountService } from '../../services/account_services.js'
+
 import './nav.css'
 
 function Navbar(props) {
@@ -11,11 +14,10 @@ function Navbar(props) {
 	*/
 
 	const [scrolled, setScrolled] = react.useState(false);
-	const [scrollY, setScrollY] = react.useState(window.scrollY);
+	
 
 	const handleScroll = () => {
 		const offset = window.scrollY;
-		setScrollY(offset);
 		//7rem = 112 px
 		if(offset > 112) {
 			setScrolled(true);
@@ -24,6 +26,7 @@ function Navbar(props) {
 			setScrolled(false);
 		}
 	}
+
 
 	//initialise on mount
 	//adds an event listener which handles scrolling and setting scrolled
@@ -38,25 +41,32 @@ function Navbar(props) {
 	
 	};
 
+
+	const buttons = props.contains();
+
+
+
 	return (
 		<nav id='navbar' className={navbarClasses.join(" ")}>
 			<div className="logo">
 				<img src="unswlogo.png"/>
 			</div>
 			<ul className="menu">
-				<li className="studySpace">
-					<button>
-						study space finder
-					</button>
+				<li className="buttonsContainer">
+				{buttons.map((item,index) => {
+					return (
+						<li >
+							{item}
+						</li>
+					)
+				})}
 				</li>
 				<li className="logout">
-					<button>
-						logout
-					</button>
+					<OurButton name="Logout" onClick={accountService.logout}/>
 				</li>
-				<li className="profile">
-					<img src="profile.png"/>
-				</li>
+				<a className="profile" href="/profile">
+					<img src="profile.png" />
+				</a>
 
 			</ul>
 		</nav>

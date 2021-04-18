@@ -7,13 +7,13 @@
 	"footer"
 }
 
-.Header {
+.dHeader {
 	grid-area: header;
 	background-color:#C1E8E0;
 }
 
 
-.Body {
+.dBody {
 	grid-area:body;
 	padding: 2rem;
 	padding-left:5%;
@@ -33,7 +33,7 @@
 
 .tags {
 	grid-area:tags;
-	background-color:#fffddd;
+	background-color:#ffffff;
 }
 
 .units {
@@ -41,9 +41,16 @@
 	/*background-color:#fffccc;*/
 }
 
+
 .search {
 	grid-area:search;
 	/*background-color:#fffbbb;*/
+	display:grid;
+	grid-template-rows: 30% auto;
+	grid-template-areas:
+	"searchbox"
+	"dropbox"
+	;
 
 }
 
@@ -59,11 +66,11 @@
 
 .years {
 	grid-area:years;
-	background-color:#fff888;
+	background-color:#ffffff;
 }
 
 
-.Footer {
+.dFooter {
 	grid-area:footer;
 	background-color:#C1E8E0;
 }

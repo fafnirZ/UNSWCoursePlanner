@@ -1,9 +1,43 @@
 
 .SearchContainer {
-	height:50%;
-	display:flex;
+	grid-area: searchbox;
 	background: #EBEBEB;
+
+	display:grid;
+	height:100%;
 	border-radius: 16px;
-	justify-content: center;
+	justify-items: center;
 	align-items: center;
+}
+
+
+
+.drop_visible {
+
+	grid-area: dropbox;
+	display:grid;
+	box-shadow: 5px 5px rgba(108, 122, 137, 1);
+	text-align: center;
+	overflow-y: scroll;
+	padding:0.5rem;
+}
+
+
+
+.drop_invisible {
+	display:none;
+}
+
+
+.results {
+	text-decoration: none;
+	color:black;
+	display:flex;
+	justify-content:center;
+	padding:0.3rem;
+
+}
+
+.results:hover {
+	background: #EBEBEB
 }

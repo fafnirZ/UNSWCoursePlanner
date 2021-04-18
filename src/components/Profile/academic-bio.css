@@ -1,0 +1,24 @@
+.academic-bio{
+    padding:1%;
+    display:grid;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: "bio-title" "bio-user";
+    height: auto;
+    row-gap:2rem;
+    grid-area:academic-bio;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 10px rgba(108, 122, 137, 1);
+    background-color: rgba(191, 191, 191, 1);
+}
+
+.user-bio-title {
+    grid-template-areas: bio-title;
+    font-size: 30px;
+}
+
+.user-bio {
+    grid-template-areas:bio-user;
+    height: auto;
+}

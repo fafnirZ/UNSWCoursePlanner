@@ -7,20 +7,20 @@ function Units(props) {
 
 	return (
 
-		<div className="Container">
+		<div className="uContainer">
 			<li className="Rows">
 				<div>Discipline</div>
-				<div>0 uoc </div>
+				<div>0 UOC </div>
 			</li>
 
 			<li className="Rows">
-				<div>General Ed</div>
-				<div>0 uoc </div>			
+				<div>General Education</div>
+				<div>0 UOC </div>			
 			</li>
 
 			<li className="Rows">
-				<div>OM</div>
-				<div>0 uoc </div>
+				<div>Optional Minors</div>
+				<div>0 UOC </div>
 			</li>
 		</div>
 	);

@@ -1,12 +1,12 @@
 
-.Container {
+.uContainer {
 	height:100%;
 	display: grid;
 	grid-template-rows: 32% 32% 32%;
 	grid-gap: 2%;
 
 }
-
+ 
 
 .Rows {
 	display:grid;
