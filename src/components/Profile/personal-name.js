@@ -1,4 +1,6 @@
 import react from 'react'
+import './personal-name.css'
+import EditProfile from './personal-details-edit.js'
 
 function NamePic () {
     return (
@@ -7,8 +9,10 @@ function NamePic () {
                 <img src='./profile.png'></img>
             </div>
             <div className="profileName">
-                <strong>Martin Le</strong>
+                <strong className="NAME">Martin Le</strong>
+                <EditProfile/>
             </div>
+
         </div>
     )
 }
