@@ -1,0 +1,107 @@
+[
+    {
+        "uid": 1,
+        "zid": "z5208859",
+        "name": "Martin Le",
+        "profilePic": null,
+        "pastcourses": {
+            "Year1": [{
+                "Term 1": ["COMP1511", "MATH1131", "MATH1041"]
+            }, {
+                "Term 2": ["COMP1521", "COMP2521", "MATH1231"]
+            }, {
+                "Term 3": ["COMP3311", "ENGG1000", "SENG2011"]
+            }]
+        },
+        "currentcourses": ["COMP2041", "SENG2021", "PHSL2121"],
+        "bio": "Hi my name is Martin and i'm a 4th year Software Engineering and Biomedical Engineering student.",
+        "gender": "Male",
+        "year": 4,
+        "degree": "3768 - Engineering(Honours)/Biomedical Engineering",
+        "email": "z5208859@ad.unsw.edu.au"
+    },
+    {
+        "uid": 2,
+        "zid": "z5208859",
+        "name": "Martin Le",
+        "profilePic": null,
+        "pastcourses": {
+            "Year1": [{
+                "Term 1": ["COMP1511", "MATH1131", "MATH1041"]
+            }, {
+                "Term 2": ["COMP1521", "COMP2521", "MATH1231"]
+            }, {
+                "Term 3": ["COMP3311", "COMP3331", "SENG2011"]
+            }]
+        },
+        "currentcourses": ["COMP2041", "SENG2021", "PHSL2121"],
+        "bio": "Hi my name is Martin and i'm a 4th year Software Engineering and Biomedical Engineering student.",
+        "gender": "Male",
+        "year": 4,
+        "degree": "3768 - Engineering(Honours)/Biomedical Engineering",
+        "email": "z5208859@ad.unsw.edu.au"
+    },
+    {
+        "uid": 3,
+        "zid": "z5208859",
+        "name": "Martin Le",
+        "profilePic": null,
+        "pastcourses": {
+            "Year1": [{
+                "Term 1": ["COMP1511", "MATH1131", "MATH1041"]
+            }, {
+                "Term 2": ["COMP1521", "COMP2521", "MATH1231"]
+            }, {
+                "Term 3": ["COMP3311", "COMP3331", "SENG2011"]
+            }]
+        },
+        "currentcourses": ["COMP2041", "SENG2021", "PHSL2121"],
+        "bio": "Hi my name is Martin and i'm a 4th year Software Engineering and Biomedical Engineering student.",
+        "gender": "Male",
+        "year": 4,
+        "degree": "3768 - Engineering(Honours)/Biomedical Engineering",
+        "email": "z5208859@ad.unsw.edu.au"
+    },
+    {
+        "uid": 4,
+        "zid": "z5208859",
+        "name": "Martin Le",
+        "profilePic": null,
+        "pastcourses": {
+            "Year1": [{
+                "Term 1": ["COMP1511", "MATH1131", "MATH1041"]
+            }, {
+                "Term 2": ["COMP1521", "COMP2521", "MATH1231"]
+            }, {
+                "Term 3": ["COMP3311", "COMP3331", "SENG2011"]
+            }]
+        },
+        "currentcourses": ["COMP2041", "SENG2021", "PHSL2121"],
+        "bio": "Hi my name is Martin and i'm a 4th year Software Engineering and Biomedical Engineering student.",
+        "gender": "Male",
+        "year": 4,
+        "degree": "3768 - Engineering(Honours)/Biomedical Engineering",
+        "email": "z5208859@ad.unsw.edu.au"
+    },
+    {
+        "uid": 5,
+        "zid": "z5208859",
+        "name": "Martin Le",
+        "profilePic": null,
+        "pastcourses": {
+            "Year1": [{
+                "Term 1": ["COMP1511", "MATH1131", "MATH1041"]
+            }, {
+                "Term 2": ["COMP1521", "COMP2521", "MATH1231"]
+            }, {
+                "Term 3": ["COMP3311", "COMP3331", "SENG2011"]
+            }]
+        },
+        "currentcourses": ["COMP2041", "SENG2021", "PHSL2121"],
+        "bio": "Hi my name is Martin and i'm a 4th year Software Engineering and Biomedical Engineering student.",
+        "gender": "Male",
+        "year": 4,
+        "degree": "3768 - Engineering(Honours)/Biomedical Engineering",
+        "email": "z5208859@ad.unsw.edu.au"
+    }
+]

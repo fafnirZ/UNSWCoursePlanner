@@ -1,0 +1,18 @@
+[
+    {
+        "rid": 1,
+        "uid": 1,
+        "code": "COMP2511",
+        "date": "2021-04-19T13:40:23.000Z",
+        "likes": 426,
+        "dislikes": 23,
+        "rating": 4.5,
+        "yearComplete": "T1 2020",
+        "lecturer": "John Smith",
+        "review": "Pretty good",
+        "replies": [{
+            
+        }]
+
+    }
+]
