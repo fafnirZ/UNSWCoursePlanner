@@ -20,7 +20,7 @@ const courseName = testCourse.c_title
 const courseCred = testCourse.c_uoc
 const courseDesc = testCourse.c_description.replace(/(<([^>]+)>)/gi, "")
 
-function ReviewPage(props) {
+function ReviewPageContent(props) {
     //const coursesMapped = courses.map(courseCodes => <Link key={courses.c_code} to={`/reviewpage/${courses.c_code}`}></Link> )
     const buttons = () => {
         return [
