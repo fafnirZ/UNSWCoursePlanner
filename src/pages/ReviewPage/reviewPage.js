@@ -4,9 +4,9 @@ import Navbar from '../../components/Nav/nav.js'
 //import Overview from '../../components/Overview/overview.js'
 import Review from '../../components/Review/review.js'
 import OurButton from '../../components/Button/button.js'
-import oldCourses from "../../data/oldCourseList.json"
-import courses from "../../data/courseList.json"
-import {Link, Route, Switch} from 'react-router-dom';
+import test from './reviewPageTemplate.js'
+import {Link, Switch, Route} from 'react-router-dom';
+import courseList from '../../data/oldCourseList.json'
 import './reviewPage.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '../../components/Course/course.css';
@@ -20,67 +20,29 @@ const courseName = testCourse.c_title
 const courseCred = testCourse.c_uoc
 const courseDesc = testCourse.c_description.replace(/(<([^>]+)>)/gi, "")
 
-function ReviewPage(props) {
-    //const coursesMapped = courses.map(courseCodes => <Link key={courses.c_code} to={`/reviewpage/${courses.c_code}`}></Link> )
+const ReviewPage = () => {
     const buttons = () => {
         return [
-            <OurButton name="Home"href="/dashboard"/>,
-            <OurButton name="study buddy finder" href="/studybuddyfinder"/>
+            <OurButton name="Home"href="/dashboard"/>
         ]
-    }
-    return (
-        <div className="ReviewPage">
+    }        
+        return (
+            <div className="ReviewPage">
             <div className="Header">
                 <Navbar contains={buttons}/>
             </div>
             <div className="ReviewBody">
-                <div className="course">
-                    <div className = "r_course">
-                        <div className="r_text">
-                            <div className="r_courseName">
-                                <strong>{courseName}</strong>
-                            </div>
-                            <div className="r_code">
-                                <p>{courseCode} | {courseCred} Units of Credit</p>
-                            </div>
-                            <span className="r_rating">
-                            <FontAwesomeIcon icon = "star"/>
-                            <FontAwesomeIcon icon = "star"/>
-                            <FontAwesomeIcon icon = "star"/>
-                            <FontAwesomeIcon icon = "star"/>
-                            </span>
-                            <div className="r_numOfReviews">
-                                <p> 4.0 average rating based on 200 reviews</p>
-                            </div>
-                        </div>
-                        <div className="r_buttons" >
-                            <div className="r_addTimetable">
-                                <button className="r_addTimetableButton">
-                                    Add to Timetable
-                                </button>
-                            </div>
-                            <div className="r_addReview">
-                                <Form />    
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="overview">
-                    <div className="overview_content">
-                        <h1>Overview</h1>
-                    <div>{
-                        <p>{courseDesc}</p>
-                    }</div>
-            </div>
-                </div>
-                <div className="review">
-                    <Review />
-                </div>
+                <h1>Page Not Found :(</h1>
+                <h3>The page you are looking for doesn't exist.</h3>
             </div>
             <div className="Footer">
             </div>
+            <Switch>
+                <Route path="/reviewpage/:courseCode" component = {test}/>
+            </Switch>
         </div>
+
     );
-}
+};
 
 export default ReviewPage;
