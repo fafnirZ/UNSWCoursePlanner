@@ -16,6 +16,15 @@ function DashBoard(props) {
 			<OurButton name="Study Space Finder"href="/studyspacefinder"/>,
 		]
 	}
+	const[years, setYears] = react.useState(4);
+
+	const handleChange = (newYears) => {
+		setYears(newYears);
+	}
+
+	react.useEffect(()=> {
+		
+	})
 
 
 	return (
@@ -39,13 +48,12 @@ function DashBoard(props) {
 				<div className="tree">
 					<Tree />
 				</div>
-
 				<div className="table">
-					<Table />
+					<Table years={years} />
 				</div>
 
 				<div className="years">
-					<Years />
+					<Years value={years} onChange={handleChange}/>
 				</div>
 
 			</div>
