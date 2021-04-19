@@ -4,35 +4,34 @@ import Course from '../../components/Course/course.js'
 import Overview from '../../components/Overview/overview.js'
 import Review from '../../components/Review/review.js'
 import OurButton from '../../components/Button/button.js'
+import test from './reviewPageTemplate.js'
+import {Link, Switch, Route} from 'react-router-dom';
+import courseList from '../../data/oldCourseList.json'
 import './reviewPage.css'
 
-function ReviewPage(props) {
+const ReviewPage = () => {
     const buttons = () => {
         return [
-            <OurButton name="Home"href="/dashboard"/>,
-            <OurButton name="study buddy finder" href="/studybuddyfinder"/>
+            <OurButton name="Home"href="/dashboard"/>
         ]
-    }
-    return (
-        <div className="ReviewPage">
+    }        
+        return (
+            <div className="ReviewPage">
             <div className="Header">
                 <Navbar contains={buttons}/>
             </div>
             <div className="ReviewBody">
-                <div className="course">
-                    <Course />
-                </div>
-                <div className="overview">
-                    <Overview />
-                </div>
-                <div className="review">
-                    <Review />
-                </div>
+                <h1>Page Not Found :(</h1>
+                <h3>The page you are looking for doesn't exist.</h3>
             </div>
             <div className="Footer">
             </div>
+            <Switch>
+                <Route path="/reviewpage/:courseCode" component = {test}/>
+            </Switch>
         </div>
+
     );
-}
+};
 
 export default ReviewPage;
