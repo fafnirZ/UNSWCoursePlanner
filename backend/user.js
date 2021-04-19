@@ -67,8 +67,17 @@ function add_user_course_data(facebookId, data) {
 }
 
 
+function edit_user_profile(facebookId, data) {
+	console.log(data);
+}
+
+
+
+
+
 
 exports.store_user_data = store_user_data;
 exports.get_all_user_data = get_all_user_data;
 exports.get_user_course_data = get_user_course_data;
 exports.add_user_course_data = add_user_course_data;
+exports.edit_user_profile = edit_user_profile;

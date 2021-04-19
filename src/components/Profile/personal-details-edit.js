@@ -11,106 +11,125 @@ import MenuItem from '@material-ui/core/menu';
 import React from 'react';
 
 
-export default function EditProfile(props) {
-    const [open, setOpen] = React.useState(false);
-    const handleClickOpen = () => {
-    	setOpen(true);
-  	};
+export default class extends React.Component{
+	constructor(props) {
+		super(props)
+		this.state = {
+			open: false,
+			email: "",
+			degree: "",
+			year: "",
+			gender: "",
+			about: "",
+			hobbies: ""
 
-	const handleDialogClose = () => {
-		setOpen(false);
-	};
-
-	const handleDialogSubmit = () => {
-		setOpen(false);
-		
+		}
+		this.handleChange = this.handleChange.bind(this);
 	}
 
 
-	const [anchorEl, setAnchorEl] = React.useState(null);
-	const handleClick = (event) => {
-		setAnchorEl(event.currentTarget);
-	};
-	const handleClose = () => {
-    	setAnchorEl(null);
+    handleClickOpen = (e) => {
+    	this.setState({open: true})
   	};
 
-	return(
-		[<button onClick={handleClickOpen}>
-			edit profile
-		</button>,
-		<Dialog open={open} onClose={handleDialogClose} aria-labelledby="form-dialog-title">
-            <DialogTitle id="form-dialog-title">
-                <strong>Edit profile</strong>
-            </DialogTitle>
-            <DialogContent>
+	handleDialogClose = (e) => {
+    	this.setState({open: false})
+	};
 
-                 <TextField
-                    autoFocus
-                    margin="dense"
-                    id="name"
-                    label="email"
-                    type="email"
-                    variant="outlined"
-                    fullWidth
-                />
-                 <TextField
-                    autoFocus
-                    margin="dense"
-                    id="name"
-                    label="Degree"
-                    type="degree"
-                    variant="outlined"
-                    fullWidth
-                />
-                 <TextField
-                    autoFocus
-                    margin="dense"
-                    id="name"
-                    label="year"
-                    type="year"
-                    variant="outlined"
-                />
-                 <TextField
-                    autoFocus
-                    margin="dense"
-                    id="name"
-                    label="Gender"
-                    type="gender"
-                    variant="outlined"
-                />
+	handleDialogSubmit = (e) => {
+    	this.setState({open: false})
 
-                <TextField
-                    autoFocus
-                    margin="dense"
-                    id="name"
-                    label="About me"
-                    type="about"
-                    variant="outlined"
-                    fullWidth
-                    multiline	
-                    rows={3}
-                /> 
-                <TextField
-                    aria-label="empty textarea" 
-                    placeholder="hobbies" 
-                    type="hobbies"
-                    fullWidth 
-                    multiline
-                    rows={5}
-                    variant="outlined"
-                
-                />
-            </DialogContent>
-            <DialogActions>
-                <Button onClick={handleDialogClose} color="primary">
-                     Cancel
-                </Button>
-                <Button onClick={handleDialogSubmit} color="primary">
-                    Submit
-                </Button>
-            </DialogActions>
-        </Dialog>]
+	}
+	handleChange = (e) => {
+		e.persist();
+		console.log(e.target.attributes.value)
+		this.setState(state=> {
+			state.email = e.target.attributes.value
+		})
+	}
+
+	render(){
+		return(
+			[<button onClick={this.handleClickOpen}>
+				edit profile
+			</button>,
+			<Dialog open={this.state.open} onClose={this.handleDialogClose} aria-labelledby="form-dialog-title">
+	            <DialogTitle id="form-dialog-title">
+	                <strong>Edit profile</strong>
+	            </DialogTitle>
+	            <DialogContent>
+		                 <TextField
+		                    autoFocus
+		                    margin="dense"
+		                    value={this.state.email}
+		                    label="email"
+		                    type="email"
+		                    variant="outlined"
+		                    fullWidth
+		                    onChange={this.handleChange}
+		                />
+		                 <TextField
+		                    autoFocus
+		                    margin="dense"
+		                    label="Degree"
+		                    type="degree"
+		                    value={this.state.degree}
+		                    variant="outlined"
+		                    fullWidth
+		                />
+		                 <TextField
+		                    autoFocus
+		                    margin="dense"
+
+		                    label="year"
+		                    type="year"
+		                    value={this.state.year}
+		                    variant="outlined"
+		                />
+		                 <TextField
+		                    autoFocus
+		                    margin="dense"
+
+		                    label="Gender"
+		                    type="gender"
+		                    value={this.state.gender}
+		                    variant="outlined"
+		                />
+
+		                <TextField
+		                    autoFocus
+		                    margin="dense"
+							value={this.state.about}
+		                    label="About me"
+		                    type="about"
+		                    variant="outlined"
+		                    fullWidth
+		                    multiline	
+		                    rows={3}
+		                /> 
+		                <TextField
+		                	value={this.state.hobbies}
+		                    aria-label="empty textarea" 
+		                    placeholder="hobbies" 
+		                    type="hobbies"
+		                    fullWidth 
+		                    multiline
+		                    rows={5}
+		                    variant="outlined"
+		                
+		                />
+	            </DialogContent>
+	            <DialogActions>
+	                <Button onClick={this.handleDialogClose} color="primary">
+	                     Cancel
+	                </Button>
+	                <Button onClick={this.handleDialogSubmit} color="primary">
+	                    Submit
+	                </Button>
+	            </DialogActions>
+	        </Dialog>]
 	);
-
+	
+	}
+	
 };

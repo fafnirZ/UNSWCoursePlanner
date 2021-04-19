@@ -52,6 +52,11 @@ app.post('/postCourses', (req, res)=> {
 	res.send({});
 })
 
+app.post('/editProfile', (req, res) => {
+	user.edit_user_profile(req.body.data.facebookId, req.body.data.data);
+	res.send({});
+})
+
 
 
 
