@@ -7,9 +7,7 @@ function Tags(props) {
 		<div className="tContainer">
 			<li className="Tags">
 				<div>3707</div>
-                <div>Discplinary</div>
                 <div>SENGAH</div>
-                <div>Lvl 1</div>
 			</li>
 		</div>
 	);

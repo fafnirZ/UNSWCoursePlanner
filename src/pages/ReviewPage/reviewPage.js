@@ -1,24 +1,10 @@
-import react, {useEffect} from 'react'
 import Navbar from '../../components/Nav/nav.js'
-//import Course from '../../components/Course/course.js'
-//import Overview from '../../components/Overview/overview.js'
-import Review from '../../components/Review/review.js'
 import OurButton from '../../components/Button/button.js'
 import test from './reviewPageTemplate.js'
-import {Link, Switch, Route} from 'react-router-dom';
-import courseList from '../../data/oldCourseList.json'
+import {Switch, Route} from 'react-router-dom';
 import './reviewPage.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '../../components/Course/course.css';
 import '../../components/Overview/overview.css';
-import Form from '../../components/Form/form.js';
-
-
-const testCourse = courses.MATH1131
-const courseCode = testCourse.c_code
-const courseName = testCourse.c_title
-const courseCred = testCourse.c_uoc
-const courseDesc = testCourse.c_description.replace(/(<([^>]+)>)/gi, "")
 
 const ReviewPage = () => {
     const buttons = () => {

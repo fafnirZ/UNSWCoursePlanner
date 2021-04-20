@@ -3,24 +3,6 @@ import './table.css'
 
 class Table extends Component {
 
-	/*
-	data: {
-		years: [
-			{year: 1
-			 sems: [
-				{sem: 1
-					courses:[{
-						course: 'COMP1511'
-					}]
-				}	
-			]}
-		]}
-
-
-	*/
-
-
-
 	constructor(props) {
 		super(props);
 
@@ -59,15 +41,6 @@ class Table extends Component {
 	}
 
 	componentDidMount() {
-		/*
-		this.add_course(1,2,'hello');
-		this.add_course(1,2, 'COMP1511');
-		this.add_course(1,2, 'comp1521');
-		this.add_course(1,2,'hel')
-		this.remove_course(1,2, 'COMP1511');
-		this.add_course(1,2, 'OCOMP1511');
-		*/
-		
 		const elements = document.querySelectorAll('.squares')
 		elements.forEach((item, index)=> {
 			item.addEventListener('dragover', (e)=> {
@@ -179,13 +152,13 @@ class Table extends Component {
 				<li className="rows">
 					<div />
 					<div className="title">
-						Semester 1
+						Term 1
 					</div>
 					<div className="title">
-						Semester 2
+						Term 2
 					</div>
 					<div className="title">
-						Semester 3
+						Term 3
 					</div>
 				</li>
 
