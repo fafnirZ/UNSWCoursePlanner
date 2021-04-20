@@ -80,9 +80,31 @@ button:active {
     justify-content: center;
 }
 
+.newComment {
+    line-height: 1cm;
+}
+
+.box-newComment {
+    display: flex;
+    background-color: white;
+    font-size: 18px;
+    width: 100%;
+    height: 2rem;
+    outline: none;
+    border-color: #C0C0C0;
+    padding-left: 10px;
+    
+}
+
+.space {
+    display: block;
+    margin-bottom: 10px;
+}
+
 .m-0 {
     margin: 0;
 }
+
 .sr-only {
     position: absolute;
     left: -10000px;
@@ -93,6 +115,10 @@ button:active {
 }
 
 /* Comment */
+
+.comments {
+    margin-left: 10px;
+}
 
 .comment {
     position: relative;
