@@ -4,10 +4,23 @@ import NamePic from '../Profile/personal-name.js'
 
 
 class StudyBuddy extends Component {
-    state = {
-        firstName: '',
-        inputVal: ''
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            firstName: '',
+            inputVal: '',
+            replies: []
+        } 
+
+
+        this.state.replies=[
+        {text: "hello this is a reply", 'id': 'comment-2', 'author': 'fishyyy'},
+        {text: "hello sup g", 'id': 'comment-2', 'author': 'fishyyy'}
+        ];
+
     }
+
 
     displayNameHandler = (e) => {
         this.setState({firstName: this.state.inputVal});
@@ -15,6 +28,7 @@ class StudyBuddy extends Component {
 
     componentDidMount() {
         window.addEventListener('click', this.handleClick);
+
     };
 
     handleClick(event) {
@@ -25,6 +39,58 @@ class StudyBuddy extends Component {
             replyForm.classList.toggle("d-none");
         }
     };
+
+
+
+
+    //text: comment
+    //id: comment-2
+    //author: Fishyy
+    lambda(item) {
+        const comment = item.text
+        const id = item.id
+        const author = item.author
+
+        return(
+            <details open class="comment" id={id}>
+                <a href={`#${id}`} class="comment-border-link">
+                    <span class="sr-only">Jump to comment-2</span>
+                </a>
+
+                <summary>
+                    <div class="comment-heading">
+                        <div class="comment-info">
+                            <a href="#" class="comment-author">{author}</a>
+                            <p class="m-0">
+                                &bull; 3 days ago
+                            </p>
+                        </div>
+                    </div>
+                </summary>
+
+                <div class="comment-body">
+                    <p>
+                        {comment}
+                    </p>
+                    <button type="button" data-toggle="reply-form" data-target={`${id}-reply-form`}>Reply</button>
+                    {/* Reply form start */}
+                    <form className="reply-form d-none" id={`${id}-reply-form`}>
+                        <textarea placeholder="Reply to comment" rows="4" value={this.state.inputVal}
+                            onChange={e => this.setState({inputVal: e.target.value})}/>
+                        <button type="button" onClick={e => this.displayNameHandler(e)}>Submit</button>
+                        <button type="button" data-toggle="reply-form" data-target={`${id}-reply-form`}>Cancel</button>
+                        <p>{this.state.firstName}</p>
+                    </form>
+                    {/* Reply form end */}
+                </div>
+            </details>
+        )
+
+    }
+
+
+
+
 
     render() {
         return (
@@ -76,38 +142,19 @@ class StudyBuddy extends Component {
                             </div>
 
                             <div class="replies">
-                                <details open class="comment" id="comment-2">
-                                    <a href="#comment-2" class="comment-border-link">
-                                        <span class="sr-only">Jump to comment-2</span>
-                                    </a>
 
-                                    <summary>
-                                        <div class="comment-heading">
-                                            <div class="comment-info">
-                                                <a href="#" class="comment-author">fishyyyy</a>
-                                                <p class="m-0">
-                                                    &bull; 3 days ago
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </summary>
+                                {
+                                
+                                this.state.replies.map((item, index)=> {
+                                    console.log(item)
+                                    return(this.lambda(item))
 
-                                    <div class="comment-body">
-                                        <p>
-                                            Count me in! I am only free from 3pm-5pm though.
-                                        </p>
-                                        <button type="button" data-toggle="reply-form" data-target="comment-2-reply-form">Reply</button>
-                                        {/* Reply form start */}
-                                        <form className="reply-form d-none" id="comment-2-reply-form">
-                                            <textarea placeholder="Reply to comment" rows="4" value={this.state.inputVal}
-                                                onChange={e => this.setState({inputVal: e.target.value})}/>
-                                            <button type="button" onClick={e => this.displayNameHandler(e)}>Submit</button>
-                                            <button type="button" data-toggle="reply-form" data-target="comment-2-reply-form">Cancel</button>
-                                            <p>{this.state.firstName}</p>
-                                        </form>
-                                        {/* Reply form end */}
-                                    </div>
-                                </details>
+                                })
+                                
+                                } 
+
+
+
                                 <details open class="comment" id="comment-3">
                                     <a href="#comment-3" class="comment-border-link">
                                         <span class="sr-only">Jump to comment-3</span>
