@@ -7,17 +7,21 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Menu from '@material-ui/core/menu';
 import MenuItem from '@material-ui/core/menu';
 import axios from 'axios'
+import SubmitContext from '../../helpers/submitContext.js'
 
 import React from 'react';
 
 
-export default class extends React.Component{
+export default class EditProfile extends React.Component{
+
+	static contextType = SubmitContext;
+
+
 	constructor(props) {
 		super(props)
 		this.state = {
 			open: false,
 			data: {
-				name: this.props.name,
 				email: this.props.email,
 				degree: this.props.degree,
 				year: this.props.year,
@@ -30,10 +34,37 @@ export default class extends React.Component{
 		}
 		this.handleChange = this.handleChange.bind(this);
 	}
+	componentDidMount() {
+		this.setState({
+			data: {
+				...this.state.data,
+				email: this.props.email,
+				degree: this.props.degree,
+				year: this.props.year,
+				gender: this.props.gender,
+				about: this.props.about,
+				hobbies: this.props.hobbies
+			}
+		})
+		
+
+
+	}
 
 
     handleClickOpen = (e) => {
-    	this.setState({open: true})
+
+    	const facebookID = window.localStorage.getItem('facebookId');
+    	//update info
+    	axios.get(`http://localhost:8080/getProfile?facebookId=${facebookID}`)
+        .then(response=> {
+        	this.setState({data: response.data})
+        	console.log(this.state.data)
+        })
+        .then(response=> {
+    		this.setState({open: true})
+        })
+
   	};
 
 	handleDialogClose = (e) => {
@@ -43,7 +74,6 @@ export default class extends React.Component{
 	handleDialogSubmit = (e) => {
     	this.setState({open: false})
 
-    	console.log(this.state)
     	
 		axios.headers = {
             "Access-Control-Allow-Origin": "*",
@@ -55,6 +85,8 @@ export default class extends React.Component{
                 data : this.state.data
             }
         })
+		const {submit, setSubmit} = this.context
+        setSubmit(!submit);
 		
 	}
 	/*
@@ -86,6 +118,8 @@ export default class extends React.Component{
 	}
 
 	render(){
+
+
 		return(
 			[<button onClick={this.handleClickOpen}>
 				edit profile
@@ -98,16 +132,18 @@ export default class extends React.Component{
 		                 <TextField
 		                    autoFocus
 		                    margin="dense"
-		                    label="email"
+		                    label={this.state.data.email===undefined?"email":""}
 		                    type="email"
 		                    variant="outlined"
 		                    fullWidth
+		                    value={this.state.data.email}
 		                    onChange={this.handleChange}
 		                />
 		                 <TextField
 		                    autoFocus
 		                    margin="dense"
-		                    label="Degree"
+		                    label={this.state.data.degree===undefined?"Degree":""}
+		                    value={this.state.data.degree}
 		                    type="degree"
 		                    variant="outlined"
 		                    fullWidth
@@ -116,15 +152,17 @@ export default class extends React.Component{
 		                 <TextField
 		                    autoFocus
 		                    margin="dense"
-		                    label="year"
+		                    label={this.state.data.year===undefined?"year":""}
+		                    value={this.state.data.year}
 		                    type="year"
 		                    variant="outlined"
 		                    onChange={this.handleChange}
 		                />
 		                 <TextField
 		                    autoFocus
+		                    value={this.state.data.gender}
 		                    margin="dense"
-		                    label="Gender"
+		                    label={this.state.data.gender===undefined?"Gender":""}
 		                    type="gender"
 		                    variant="outlined"
 		                    onChange={this.handleChange}
@@ -133,8 +171,9 @@ export default class extends React.Component{
 		                <TextField
 		                    autoFocus
 		                    margin="dense"
-		                    label="About me"
+		                    label={this.state.data.about===undefined?"About me":""}
 		                    placeholder="about"
+		                    value={this.state.data.about}
 		                    //type="about"
 		                    variant="outlined"
 		                    fullWidth
@@ -144,8 +183,9 @@ export default class extends React.Component{
 		                /> 
 		                <TextField
 		                    aria-label="empty textarea" 
+		                    value={this.state.data.hobbies}
 		                    placeholder="hobbies" 
-		                    label="Hobbies"
+		                    label={this.state.data.hobbies===undefined?"hobbies":""}
 		                    //type="hobbies"
 		                    fullWidth 
 		                    multiline
