@@ -73,18 +73,33 @@ class Table extends Component {
 		this.add_course(1,2, 'OCOMP1511');
 		*/
 		const facebookID = window.localStorage.getItem('facebookId');
-		axios.get(`http://localhost:8080/getCourses?facebookId=${facebookID}`, )
+		axios.get(`http://localhost:8080/getProfile?facebookId=${facebookID}`, )
 		.then(response => {
-			console.log(response)
-			if(response.data.data != null) {
+			if(response.data.data !== undefined ) {
 				console.log('not null');
-				//this.state.data = response.data.data;
+				//console.log(response.data.courseData)
+				//this.state.data = response.data.data
 				//console.log(this.state.data)
-				this.setState({data: response.data.data})
+				console.log(response)
+				this.setState({data: response.data.data.courseData})
+
 			}
+			return response
+
+		})
+		.then(response => {
+			axios.headers = {
+	            "Access-Control-Allow-Origin": "*",
+	            "Content-Type" : "application/json"
+	        }
+	        axios.post('http://localhost:8080/postCourses', {
+	            data: {
+	            	facebookId: window.localStorage.getItem('facebookId'),
+	                data : this.state.data
+	            }
+	        })
 		})
 
-		
 		const elements = document.querySelectorAll('.squares')
 		elements.forEach((item, index)=> {
 			item.addEventListener('dragover', (e)=> {
@@ -130,6 +145,8 @@ class Table extends Component {
 		})
 		
 		
+
+
 
 
 	}
@@ -201,6 +218,20 @@ class Table extends Component {
 					return state.data.years.pop();
 				})
 			}
+			/*
+			axios.headers = {
+		        "Access-Control-Allow-Origin": "*",
+		        "Content-Type" : "application/json"
+		    }
+		    axios.post('http://localhost:8080/postCourses', {
+		        data: {
+		        	facebookId: window.localStorage.getItem('facebookId'),
+		            courseData : this.state.data
+		        }
+		    })
+		    */
+
+
 			
 		}
 	}
@@ -245,6 +276,11 @@ class Table extends Component {
 			this.onMouseClick(e);
 			})
 		})
+
+
+
+
+
 		
 	}
 
@@ -373,7 +409,7 @@ class Table extends Component {
 			//else return old state
 			return prev;
 		})
-
+		console.log(this.state.data)
 		axios.headers = {
             "Access-Control-Allow-Origin": "*",
             "Content-Type" : "application/json"
@@ -381,10 +417,9 @@ class Table extends Component {
         axios.post('http://localhost:8080/postCourses', {
             data: {
             	facebookId: window.localStorage.getItem('facebookId'),
-                courseData : this.state.data
+                data : this.state.data
             }
         })
-
 
 	}
 	/*
@@ -427,7 +462,7 @@ class Table extends Component {
         axios.post('http://localhost:8080/postCourses', {
             data: {
             	facebookId: window.localStorage.getItem('facebookId'),
-                courseData : this.state.data
+                data : this.state.data
             }
         })
 
