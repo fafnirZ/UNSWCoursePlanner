@@ -57,6 +57,13 @@ app.post('/editProfile', (req, res) => {
 	res.send({});
 })
 
+app.get('/getProfile', (req, res) => {
+	user.get_user_profile(req.query.facebookId)
+	.then(response=> {
+		res.send({'data': response})
+	})
+})
+
 
 
 

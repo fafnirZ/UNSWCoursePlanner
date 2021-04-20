@@ -73,7 +73,7 @@ class Table extends Component {
 		this.add_course(1,2, 'OCOMP1511');
 		*/
 		const facebookID = window.localStorage.getItem('facebookId');
-		axios.get(`http://localhost:8080/getCourses?facebookId=${facebookID}`, )
+		axios.get(`http://localhost:8080/getProfile?facebookId=${facebookID}`, )
 		.then(response => {
 			console.log(response)
 			if(response.data.data != null) {
@@ -394,7 +394,7 @@ class Table extends Component {
         axios.post('http://localhost:8080/postCourses', {
             data: {
             	facebookId: window.localStorage.getItem('facebookId'),
-                courseData : this.state.data
+                data : this.state.data
             }
         })
 

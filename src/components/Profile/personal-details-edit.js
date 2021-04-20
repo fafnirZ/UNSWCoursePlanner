@@ -6,7 +6,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Menu from '@material-ui/core/menu';
 import MenuItem from '@material-ui/core/menu';
-
+import axios from 'axios'
 
 import React from 'react';
 
@@ -16,12 +16,16 @@ export default class extends React.Component{
 		super(props)
 		this.state = {
 			open: false,
-			email: "",
-			degree: "",
-			year: "",
-			gender: "",
-			about: "",
-			hobbies: ""
+			data: {
+				name: this.props.name,
+				email: this.props.email,
+				degree: this.props.degree,
+				year: this.props.year,
+				gender: this.props.gender,
+				about: this.props.about,
+				hobbies: this.props.hobbies
+			}
+
 
 		}
 		this.handleChange = this.handleChange.bind(this);
@@ -39,13 +43,46 @@ export default class extends React.Component{
 	handleDialogSubmit = (e) => {
     	this.setState({open: false})
 
+    	console.log(this.state)
+    	
+		axios.headers = {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type" : "application/json"
+        }
+        axios.post('http://localhost:8080/editProfile', {
+            data: {
+            	facebookId: window.localStorage.getItem('facebookId'),
+                data : this.state.data
+            }
+        })
+		
 	}
+	/*
+	handles update of dialog items
+	*/
 	handleChange = (e) => {
 		e.persist();
-		console.log(e.target.attributes.value)
-		this.setState(state=> {
-			state.email = e.target.attributes.value
-		})
+		//console.log(e.currentTarget.attributes.value)
+		//const type = e.currentTarget.attributes.type.value
+		//console.log(e.currentTarget.attributes)
+
+
+		if(e.currentTarget.attributes.rows !== undefined) {
+			//console.log(e.currentTarget.attributes.placeholder.value)
+			this.setState({data: {...this.state.data, 
+				[e.currentTarget.attributes.placeholder.value]: e.target.value}
+			})
+		}
+		else {
+			this.setState(state=> {
+				let neww = state.data
+				neww[e.target.attributes.type.value] = e.target.value
+				return neww
+			})
+
+		}
+		
+
 	}
 
 	render(){
@@ -61,7 +98,6 @@ export default class extends React.Component{
 		                 <TextField
 		                    autoFocus
 		                    margin="dense"
-		                    value={this.state.email}
 		                    label="email"
 		                    type="email"
 		                    variant="outlined"
@@ -73,50 +109,49 @@ export default class extends React.Component{
 		                    margin="dense"
 		                    label="Degree"
 		                    type="degree"
-		                    value={this.state.degree}
 		                    variant="outlined"
 		                    fullWidth
+		                    onChange={this.handleChange}
 		                />
 		                 <TextField
 		                    autoFocus
 		                    margin="dense"
-
 		                    label="year"
 		                    type="year"
-		                    value={this.state.year}
 		                    variant="outlined"
+		                    onChange={this.handleChange}
 		                />
 		                 <TextField
 		                    autoFocus
 		                    margin="dense"
-
 		                    label="Gender"
 		                    type="gender"
-		                    value={this.state.gender}
 		                    variant="outlined"
+		                    onChange={this.handleChange}
 		                />
 
 		                <TextField
 		                    autoFocus
 		                    margin="dense"
-							value={this.state.about}
 		                    label="About me"
-		                    type="about"
+		                    placeholder="about"
+		                    //type="about"
 		                    variant="outlined"
 		                    fullWidth
 		                    multiline	
 		                    rows={3}
+		                    onChange={this.handleChange}
 		                /> 
 		                <TextField
-		                	value={this.state.hobbies}
 		                    aria-label="empty textarea" 
 		                    placeholder="hobbies" 
-		                    type="hobbies"
+		                    label="Hobbies"
+		                    //type="hobbies"
 		                    fullWidth 
 		                    multiline
 		                    rows={5}
 		                    variant="outlined"
-		                
+		                    onChange={this.handleChange}
 		                />
 	            </DialogContent>
 	            <DialogActions>
