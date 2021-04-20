@@ -16,7 +16,8 @@ class StudyBuddy extends Component {
 
         this.state.replies=[
         {text: "hello this is a reply", 'id': 'comment-2', 'author': 'fishyyy'},
-        {text: "hello sup g", 'id': 'comment-2', 'author': 'fishyyy'}
+        {text: "hello sup g", 'id': 'comment-2', 'author': 'fishyyy'},
+        {text: 'sup ahmet', 'id': 'comment-2', 'author': 'ahmet'}
         ];
 
     }
@@ -37,8 +38,22 @@ class StudyBuddy extends Component {
         if (target.matches("[data-toggle='reply-form']")) {
             replyForm = document.getElementById(target.getAttribute("data-target"));
             replyForm.classList.toggle("d-none");
+
         }
+        
     };
+
+    handleSubmit = (e) => {
+
+        let replies = this.state.replies
+        replies.push({text: this.state.inputVal, id: e.currentTarget.attributes['data-target'].value})
+        this.setState({
+            replies : replies
+        })
+
+
+
+    }
 
 
 
@@ -77,9 +92,10 @@ class StudyBuddy extends Component {
                     <form className="reply-form d-none" id={`${id}-reply-form`}>
                         <textarea placeholder="Reply to comment" rows="4" value={this.state.inputVal}
                             onChange={e => this.setState({inputVal: e.target.value})}/>
-                        <button type="button" onClick={e => this.displayNameHandler(e)}>Submit</button>
+                        <button type="button" data-target={`${id}`}onClick={this.handleSubmit}>Submit</button>
                         <button type="button" data-toggle="reply-form" data-target={`${id}-reply-form`}>Cancel</button>
                         <p>{this.state.firstName}</p>
+
                     </form>
                     {/* Reply form end */}
                 </div>
@@ -146,7 +162,6 @@ class StudyBuddy extends Component {
                                 {
                                 
                                 this.state.replies.map((item, index)=> {
-                                    console.log(item)
                                     return(this.lambda(item))
 
                                 })
