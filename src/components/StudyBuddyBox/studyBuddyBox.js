@@ -63,7 +63,7 @@ class StudyBuddy extends Component {
         let id = this.state.comment_id
         // alert(id)
         let comments = this.state.comments
-        comments.push({'text': text, 'id': id, author: 'Ahmet', 'replies': []})
+        comments.push({'text': text, 'id': id, author: 'fishyyy', 'replies': []})
         this.setState({
             'comments': comments
         })
@@ -76,7 +76,7 @@ class StudyBuddy extends Component {
         let id = e.currentTarget.attributes['data-target'].value
         // alert(id)
         let replies = this.state.comments[id]['replies']
-        replies.push({'text': text, 'id': id, author: 'Ahmet'})
+        replies.push({'text': text, 'id': id, author: 'fishyyy'})
         this.setState({
             'replies': replies
         })
@@ -117,7 +117,7 @@ class StudyBuddy extends Component {
                     <div class="comment-heading">
                         <div class="comment-info">
                             {/* I've gotta grab the name from profile once it is portable */}
-                            <a href="#" class="comment-author">{author}</a>
+                            <a href="/profile" class="comment-author">{author}</a>
                             <p class="m-0">
                                 {/* Make the timestamp dynamic */}
                                 &bull; {timeCreated}
@@ -135,7 +135,7 @@ class StudyBuddy extends Component {
                     <form className="reply-form d-none" id={`${id}-reply-form`}>
                         <textarea placeholder="Reply to comment" rows="4" value={this.state.inputVal}
                             onChange={e => this.setState({inputVal: e.target.value})}/>
-                        <button type="button" data-target={`${id}`} onClick={this.handleReplySubmit}>Submit</button>
+                        <button type="button" data-target={`${id}`} onClick={this.handleReplySubmit}>Post</button>
                         <button type="button" data-toggle="reply-form" data-target={`${id}-reply-form`}>Cancel</button>
                     </form>
                     {/* Reply form end */}
@@ -183,7 +183,7 @@ class StudyBuddy extends Component {
                 <summary>
                     <div class="comment-heading">
                         <div class="comment-info">
-                            <a href="#" class="comment-author">{author}</a>
+                            <a href="/profile" class="comment-author">{author}</a>
                             <p class="m-0">
                                 &bull; {timeCreated}
                             </p>
@@ -214,11 +214,14 @@ class StudyBuddy extends Component {
                             Programming Fundamentals | COMP1511
                         </div>
 
-                        <form>
-                            <input className="box-newComment" placeholder="Type a new comment here" value={this.state.commentVal}
-                                onChange={e => this.setState({commentVal: e.target.value})}></input>
-                            <button type="button" data-target={`${this.id}`} onClick={this.handleCommentSubmit}>Submit</button>
-                        </form>
+                        <div className="newComment">
+                            <form>
+                                <input className="box-newComment" placeholder="Type a new comment here" value={this.state.commentVal}
+                                    onChange={e => this.setState({commentVal: e.target.value})} ></input>
+                                    
+                                <button type="button" data-target={`${this.id}`} onClick={this.handleCommentSubmit}>Post</button>
+                            </form>
+                        </div>
 
 
                         {/* Renders all the comments */}

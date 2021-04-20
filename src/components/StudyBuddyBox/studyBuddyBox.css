@@ -80,6 +80,10 @@ button:active {
     justify-content: center;
 }
 
+.newComment {
+    line-height: 1cm;
+}
+
 .box-newComment {
     display: flex;
     background-color: white;
@@ -90,6 +94,11 @@ button:active {
     border-color: #C0C0C0;
     padding-left: 10px;
     
+}
+
+.space {
+    display: block;
+    margin-bottom: 10px;
 }
 
 .m-0 {
