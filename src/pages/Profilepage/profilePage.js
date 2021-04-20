@@ -44,12 +44,13 @@ function ProfilePage(props) {
             response.data.data.about===undefined? setAbout(""): setAbout(response.data.data.about);
             response.data.data.hobbies===undefined? setHobbies(""):setHobbies(response.data.data.hobbies);
         })
-    },[submit])
+    },)
 
 
 
     return (
         <SubmitProvider value={{submit, setSubmit}}>
+
             <div className="ProfilePage">
                 <div className="Header">
                     <Navbar contains={buttons}/>
@@ -86,6 +87,7 @@ function ProfilePage(props) {
                 <div className="Footer">
                 </div>
             </div>
+
         </SubmitProvider>
     );
 }

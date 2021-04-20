@@ -47,8 +47,6 @@ export default class EditProfile extends React.Component{
 			}
 		})
 		
-
-
 	}
 
 

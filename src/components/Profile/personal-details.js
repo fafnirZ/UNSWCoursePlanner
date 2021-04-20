@@ -1,8 +1,10 @@
 import React from 'react'
 import './personal-details.css'
+import { SubmitConsumer } from '../../helpers/submitContext.js'
 
 function PersonalDetails (props) {
     return (
+
         <div className="details">
             <div className="details-gender">
                 <div className="details-gender-title">
