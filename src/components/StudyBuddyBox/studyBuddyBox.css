@@ -1,99 +1,195 @@
+/* 
+    Body, button, comment-thread, and utilities
+
+    Notes:
+        - This section sets some basic styles. You can ignore this part and 
+        go directly to the comment styles.
+*/
+
+
+* {
+    box-sizing: border-box;
+}
+body {
+    /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
+    line-height: 1.4;
+    color: rgba(0, 0, 0, 0.85);
+    background-color: #f9f9f9;
+    
+}
+button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    font-size: 14px;
+    padding: 4px 8px;
+    color: rgba(0, 0, 0, 0.85);
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+button:hover,
+button:focus,
+button:active {
+    cursor: pointer;
+    background-color: #ecf0f1;
+}
 
 .StudyBuddy-Frame {
-    display:grid;
+    display:flex;
     padding-bottom: 5%;
     padding-top: 2%;
     padding-right: 4%;
-    grid-template-rows: 15% 85%;
-    grid-template-areas: 
-    "StudyBuddy-Heading "
-    "StudyBuddy-Box"
 }
 
-.StudyBuddy-Heading {
-    padding-left: 1rem;
-    padding-top: 1rem;
-    text-indent: 1rem;
-    color: black;
-    /* background:  #d3d3d3; */
+.heading {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
+    font-size: 50px;
     font-weight: bold;
-    display:flex;
-    font-size: 28px;
-}
-
-.StudyBuddy-Box {
-    background-color: #d3d3d3;
-    color:#303030;
-    display: grid;
     width: 100%;
+}
+
+.comment-thread {
+    min-width: 100%;
+    margin: auto;
+    padding: 0 30px;
+    background-color: #fff;
+    border: 1px solid transparent; /* Removes margin collapse */
+}
+
+.box {
     padding: 1rem;
-
-    box-shadow: 8px 4px 10px grey;
-    /* text-indent: 20px; */
-    text-align: start;
-
-    grid-gap: 1rem;
-    grid-template-rows: 8% 74% 10%;
-    /* grid-template-columns: 95% 5%; */
-    grid-template-areas: 
-    "StudyBuddyBox-Heading"
-    "StudyBuddyBox-CommentBox"
-    "StudyBuddyBox-NewCommentBox";
-}
-.StudyBuddyBox-Heading {
-    font-weight: bold;
-    color: #202020;
-    column-width: 100%;
-    /* width: 100%; */
-    font-size: 22px;
-    text-indent: 15px;
-
+    background-color: #DCDCDC;
+    /* border-width: 3rem;
+    border-color: black; */
+    border: 12px solid #383838;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
-.StudyBuddyBox-CommentBox {
-    display:grid;
-    grid-template-columns: 88% 5% 5% 2%;
-    grid-template-rows: auto;
-    /* width: 95%; */
-    grid-template-areas:
-    "studyBuddyBox-Comments StudyBuddyBox-Like StudyBuddyBox-Reply";
+.box-heading {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    font-size: 30px;
+    font-family: bold;
+    justify-content: center;
 }
 
-.StudyBuddyBox-Comments {
-    color: black;
-    grid-area: StudyBuddyBox-Comments;
-    background:#d3d3d3;
-    display:flex;
+.m-0 {
+    margin: 0;
 }
-.StudyBuddyBox-Like {
-    /* display: flex;
-    grid-area: StudyBuddyBox-Like;
-    justify-content: right; */
-    background-color: white; 
-}
-
-.StudyBuddyBox-Reply {
-    /* display: flex;
-    grid-area: StudyBuddyBox-Reply;
-    justify-content: right; */
-    background-color: green;
+.sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
 }
 
-.StudybuddyBox-NewCommentBox {
-    /* background: #d3d3d3; */
-    color: #909090;
-    background-color: white;
-    display:flex;
-    justify-content: left;
+/* Comment */
+
+.comment {
+    position: relative;
+    margin: 20px auto;
+}
+.comment-heading {
+    display: flex;
     align-items: center;
-    text-indent: 5px;
-    /* text-size-adjust: 20px; */
-    /* justify-content: center; */
-    /* padding: 5%; */
+    height: 50px;
+    font-size: 14px;
 }
 
-.StudyBuddyBox-CommentReply {
-    color: black;
-    text-indent: 30px;
+.comment-info {
+    color: rgba(0, 0, 0, 0.5);
+    margin-left: 10px;
+}
+
+.comment-author {
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.comment-author:hover {
+    text-decoration: underline;
+}
+.replies {
+    margin-left: 20px;
+}
+
+/* Adjustments for the comment border links */
+.comment-border-link {
+    display: block;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 12px;
+    height: calc(100% - 50px);
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    background-color: rgba(0, 0, 0, 0.1);
+    background-clip: padding-box;
+}
+.comment-border-link:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.comment-body {
+    padding: 0 20px;
+    padding-left: 28px;
+}
+.replies {
+    margin-left: 28px;
+}
+
+/* Make Adjustments for the toggleable content */
+details.comment summary {
+    position: relative;
+    list-style: none;
+    cursor:pointer;
+}
+
+details.comment summary::-webkit-details-marker{
+    display: none;
+}
+
+details.comment:not([open]) .comment-heading {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.comment-heading::after {
+    display: inline-block;
+    position: absolute;
+    right: 5px;
+    align-self: center;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.55);
+}
+
+details.comment[open] .comment-heading::after {
+    content: "Click to hide";
+}
+
+details.comment:not([open]) .comment-heading::after {
+    content: "Click to show";
+}
+
+/* Styling the reply to comment form */
+.reply-form textarea {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    width: 100%;
+    max-width: 100%;
+    margin-top:  15px;
+    margin-bottom: 5px;
+}
+
+.d-none {
+    display: none;
 }
 

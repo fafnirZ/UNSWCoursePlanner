@@ -26,8 +26,10 @@ export default function HomePage() {
                     <img src="book.png"/>
                 </div>
                 <div className="hWelcome">
-                    <img src="welcome.png"/>
+                    <div className="semicircle"></div>
                 </div>
+
+
             </div>
 
             <div className="Footer">
