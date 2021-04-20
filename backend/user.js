@@ -61,10 +61,39 @@ function add_user_course_data(facebookId, data) {
 	//userdata[facebookId].courseData = data;
 	//userData.write_data();
 	userData.read_data().then(response=> {
-		response[facebookId].courseData = data;
+		response[facebookId]['courseData'] = data;
 		userData.write_data(response);
 	})
 }
+
+
+function edit_user_profile(facebookId, data) {
+	console.log(data);
+
+	userData.read_data().then(response=> {
+		for(let key in data) {
+			response[facebookId][key] = data[key];
+		}
+		return response
+	})
+	.then(response=> {
+		userData.write_data(response)
+	})
+
+
+}
+
+function get_user_profile(facebookId) {
+	return new Promise((resolve, reject) => {
+		userData.read_data().then(response=> {
+			resolve(response[facebookId])
+		})
+	})
+
+}
+
+
+
 
 
 
@@ -72,3 +101,5 @@ exports.store_user_data = store_user_data;
 exports.get_all_user_data = get_all_user_data;
 exports.get_user_course_data = get_user_course_data;
 exports.add_user_course_data = add_user_course_data;
+exports.edit_user_profile = edit_user_profile;
+exports.get_user_profile = get_user_profile;
