@@ -5,11 +5,12 @@ import './homePage.css'
 
 
 
+
 export default function HomePage() {
 
     return (
         <div className="Home">
-            <div className="Header">
+            <div className="hHeader">
                 <div className="logo">
                     <img src="unswlogo.png"/>
                 </div>

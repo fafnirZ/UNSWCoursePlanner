@@ -1,6 +1,20 @@
 import './LoginForm.css'
+import env from "react-dotenv";
+import react from 'react';
+import axios from 'axios';
+import { accountService } from '../../services/account_services.js'
+import { history } from '../../helpers/history.js'
 
 function LoginForm (props) {
+
+ 
+    react.useEffect(()=> {
+        // redirect to home if already logged in
+        if (accountService.accountValue) {
+            history.push('/dashboard');
+        }    
+    }, [history])
+
     return(
         <div className="LoginForm">
             <div className="login-logo">
@@ -12,7 +26,8 @@ function LoginForm (props) {
                 </div>
             </div>
             <div className="login-buttons">
-                <a className="login-buttons-fb" href="/dashboard">
+
+                <a className="login-buttons-fb" onClick={accountService.login}>
                     <div className="login-buttons-fb-logo">
                         <img src="facebook.png"/>
                     </div>
@@ -20,7 +35,8 @@ function LoginForm (props) {
                         Login with Facebook
                     </div>
                 </a>
-                <a className="login-buttons-google" href="/dashboard">
+
+                <a className="login-buttons-google">
                     <div className="login-buttons-google-logo">
                         <img src="google.png"/>
                     </div>

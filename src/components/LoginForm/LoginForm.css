@@ -37,6 +37,9 @@
     row-gap: 5%;
     grid-template-areas: "buttons-fb" "buttons-google";
 }
+.login-buttons:hover {
+    cursor:pointer;
+}
 
 .login-buttons-fb {
     display: grid;
@@ -49,6 +52,7 @@
     background-color: #4267B2;
     color: white;
     text-align: center;
+    text-decoration: none;
 }
 
 .login-buttons-fb-name {
@@ -76,6 +80,8 @@
     margin-right: auto;
     width: 70%;
     vertical-align: middle;
+    text-decoration: none;
+    color:grey;
 }
 
 .login-buttons-google-logo >img {
