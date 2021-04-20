@@ -90,6 +90,23 @@ class StudyBuddy extends Component {
         const comment = item.text
         const id = item.id
         const author = item.author
+    
+        var today = new Date();
+        let month = today.toLocaleString('en-us', { month: 'short' });
+        let hours = today.getHours()
+        let minutes = today.getMinutes()
+        var postfix
+        if (hours < 12) {
+            postfix = 'AM'
+        } else {
+            hours = 'PM'
+        }
+
+        if (minutes < 10) {
+            minutes = '0' + minutes
+        }
+        var time = hours + ':' + minutes + ' ' + postfix
+        const timeCreated = today.getDay() + ' ' + month + ', ' + time
 
         return (
             <details open class="comment" id={id}>
@@ -103,7 +120,7 @@ class StudyBuddy extends Component {
                             <a href="#" class="comment-author">{author}</a>
                             <p class="m-0">
                                 {/* Make the timestamp dynamic */}
-                                &bull; 4 days ago
+                                &bull; {timeCreated}
                             </p>
                         </div>
                     </div>
@@ -140,6 +157,22 @@ class StudyBuddy extends Component {
         const comment = item.text
         const id = item.id
         const author = item.author
+        var today = new Date();
+        let month = today.toLocaleString('en-us', { month: 'short' });
+        let hours = today.getHours()
+        let minutes = today.getMinutes()
+        var postfix
+        if (hours < 12) {
+            postfix = 'AM'
+        } else {
+            hours = 'PM'
+        }
+
+        if (minutes < 10) {
+            minutes = '0' + minutes
+        }
+        var time = hours + ':' + minutes + ' ' + postfix
+        const timeCreated = today.getDay() + ' ' + month + ', ' + time
 
         return(            
             <details open class="comment" id={id}>
@@ -152,7 +185,7 @@ class StudyBuddy extends Component {
                         <div class="comment-info">
                             <a href="#" class="comment-author">{author}</a>
                             <p class="m-0">
-                                &bull; 3 days ago
+                                &bull; {timeCreated}
                             </p>
                         </div>
                     </div>
@@ -181,19 +214,17 @@ class StudyBuddy extends Component {
                             Programming Fundamentals | COMP1511
                         </div>
 
-                        {/* <div className="box-newComment" placeholder="hi"> */}
                         <form>
                             <input className="box-newComment" placeholder="Type a new comment here" value={this.state.commentVal}
                                 onChange={e => this.setState({commentVal: e.target.value})}></input>
                             <button type="button" data-target={`${this.id}`} onClick={this.handleCommentSubmit}>Submit</button>
                         </form>
-                        {/* </div> */}
-                        <div className="comments">
-                            {/* Renders all the comments */}
-                            {this.state.comments.map((item)=> {
-                                return(this.commentRenderer(item))
-                            })}
-                        </div>
+
+
+                        {/* Renders all the comments */}
+                        {this.state.comments.map((item)=> {
+                            return(this.commentRenderer(item))
+                        })}
                     </div>
 
                 </div>

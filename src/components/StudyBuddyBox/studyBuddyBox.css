@@ -83,7 +83,9 @@ button:active {
 .box-newComment {
     display: flex;
     background-color: white;
+    font-size: 18px;
     width: 100%;
+    height: 2rem;
     outline: none;
     border-color: #C0C0C0;
     padding-left: 10px;
