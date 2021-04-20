@@ -3,7 +3,7 @@
     padding-left: 5%;
 }
 
-.Review1 {
+.rreview {
     display: grid;
     grid-template-rows: 8rem 6rem auto 2rem 3rem;
     grid-template-areas: "userProfile" "detail" "userReview" "comments" "reply";
@@ -16,7 +16,7 @@
     box-shadow: 5px 10px rgba(108, 122, 137, 1);
 }
 
-.userProfile {
+.ruserProfile {
     display: grid;
     height: 3rem;
     padding-top: 1rem;
@@ -25,7 +25,7 @@
 }
 
 
-.userPhoto >img {
+.ruserPhoto >img {
     display: grid;
 	height: 90px;
     width: 90px;
@@ -35,80 +35,40 @@
     margin-right: auto;
 }
 
-.name {
+.rname {
     display: grid;
     grid-template-rows: 60% 40%;
     grid-template-areas: "userName" "date";
     font-size: 20px;
 }
 
-.userName {
+.ruserName {
     font-size: 30px;
     vertical-align: 50%;
 }
 
-.date {
+.rdate {
     font-size: 20px;
 }
 
-.react {
+.rreact {
     display:grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 60% 40%;
     /*grid-template-areas: "like" "dislike" "likeCounter" "dislikeCounter";*/
 }
 
-.detail {
+.rdetail {
     display:grid;
     grid-template-rows: 2rem 2rem 2rem;
     grid-template-areas: "userRating" "completionDate" "lecturer";
 }
 
-.userReview {
+.ruserReview {
     height:auto;
     padding-bottom: 30px;
 }
-
-
-.reply {
-    width: 100%;
-    height: auto;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    font-size: 16px;
-    resize: none;
-}
-
-
-/*
-.userReply {
-    display: grid;
-    grid-template-rows: 10rem 6rem auto 3rem;
-    grid-template-areas: "userProfile" "userReview" "reply";
-    width: 1100;
-    height: auto;
-    background-color: #8d8d8d;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-*/
-/*
-.comments {
-    height:0.5rem;
-    background-color: #C1E8E0;
-    color: #444;
-    cursor: pointer;
-    padding: 1rem;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-}
-*/
-.like {
+.rlike {
     display:block;
     margin: auto;
     color: green;
@@ -116,7 +76,7 @@
     background-color: #C1E8E0;
 }
 
-.dislike {
+.rdislike {
     display:block;
     margin: auto;
     color: red;
@@ -124,10 +84,76 @@
     background-color: #C1E8E0;
 }
 
-.likeCounter {
+.rlikeCounter {
     text-align: center;
 }
 
-.dislikeCounter {
+.rdislikeCounter {
     text-align: center;
+}
+
+.review-form {
+    background-color: aliceblue;
+    border-radius: 0.25rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-rows: 1rem 10rem auto 3rem;
+    height:auto;
+}
+
+.review-form-title {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.review-form-fields {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-column-gap: 1rem;
+    grid-template-rows: 50% 50%;
+    grid-row-gap: 1rem;
+    width: 70%;
+    margin:auto;
+}
+
+.review-form-name {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.review-form-rating {
+    grid-column: 1/2;
+    grid-row: 2/2;
+}
+
+.review-form-date {
+    grid-column: 2/2;
+    grid-row: 1/2;
+}
+
+.review-form-lecturer {
+    grid-column: 2/2;
+    grid-row: 2/2;
+}
+
+.review-form-review {
+    resize: both;
+    margin-left: 9.7rem;
+    width: 71%;
+    height:auto;
+}
+
+.review-form-actions {
+    margin-top: 1rem;
+    margin-left: 37%;
+}
+
+.review-form-submit {
+    width:40%;
+    height: 2.5rem;
 }

@@ -1,9 +1,60 @@
 .Container {
-
+	display: grid;
+	grid-template-rows: 12% 26% 26% 26%;
+	grid-gap: 3.3%;
+	grid-template-areas: "title", "core", "elective", "higher";
 	width:100%;
 	height:100%;
-
 	background: #EBEBEB;
 	border-radius: 16px;
 
 }
+.dTitle {
+	padding-top: 5%;
+	font-size: 30px;
+	text-align: center;
+}
+
+.core {
+	display: grid;
+	grid-template-rows:30% 70%;
+	grid-template-areas: "cTitle", "cBar"
+}
+.coreTitle {
+	grid-area:"cTitle"
+}
+.coreGraph {
+	grid-area:"cBar";
+	width: 85%;
+	margin:auto;
+}
+
+.elective {
+	display: grid;
+	grid-template-rows:30% 70%;
+	grid-template-areas: "eTitle", "eBar"
+}
+.electiveTitle {
+	grid-area:"eTitle"
+}
+.electiveGraph {
+	grid-area:"eBar";
+	width: 85%;
+	margin:auto;
+}
+
+.higher {
+	display: grid;
+	grid-template-rows:30% 70%;
+	grid-template-areas: "hTitle", "hBar"
+}
+.higherTitle {
+	grid-area:"hTitle"
+}
+.higherGraph {
+	grid-area:"hBar";
+	width: 85%;
+	margin:auto;
+}
+
+

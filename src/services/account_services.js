@@ -4,7 +4,7 @@ import axios from 'axios';
 import { history } from '../helpers/history';
 import env from "react-dotenv";
 
-const baseUrl = `${env.facebook_client_id}/accounts`;
+const baseUrl = `5330495613659449/accounts`;
 const accountSubject = new BehaviorSubject(null);
 
 export const accountService = {
