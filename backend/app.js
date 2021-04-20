@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 
 
 app.post('/login', (req, res) => {
-	console.log('login');
+
 	user.store_user_data(req.body.data);
 	//user.get_all_user_data();
 
@@ -47,9 +47,22 @@ app.get('/getCourses', (req, res) => {
 
 app.post('/postCourses', (req, res)=> {
 
-	user.add_user_course_data(req.body.data.facebookId, req.body.data.courseData);
+
+	user.add_user_course_data(req.body.data.facebookId, req.body.data.data);
 	//user.get_all_user_data();
 	res.send({});
+})
+
+app.post('/editProfile', (req, res) => {
+	user.edit_user_profile(req.body.data.facebookId, req.body.data.data);
+	res.send({});
+})
+
+app.get('/getProfile', (req, res) => {
+	user.get_user_profile(req.query.facebookId)
+	.then(response=> {
+		res.send({'data': response})
+	})
 })
 
 
