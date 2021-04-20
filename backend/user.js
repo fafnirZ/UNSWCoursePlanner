@@ -61,7 +61,7 @@ function add_user_course_data(facebookId, data) {
 	//userdata[facebookId].courseData = data;
 	//userData.write_data();
 	userData.read_data().then(response=> {
-		response[facebookId].courseData = data;
+		response[facebookId]['courseData'] = data;
 		userData.write_data(response);
 	})
 }
