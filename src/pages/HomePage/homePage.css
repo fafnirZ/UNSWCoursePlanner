@@ -71,16 +71,17 @@
 
 .semicircle {
 	display:flex;
-	background-color: lightgreen;
+	background-color: #05ffa6;
 	height: 50rem;
 	width: 25rem; 
 	border-radius: 25rem 0px 0px 25rem; 
+	
 }
 
 .writing {
 	display: flex;
 	background-color: white;
-	width: 100% lightgreen;
+	width: 100%;
 
 }
 
