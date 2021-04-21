@@ -50,8 +50,12 @@ function DashBoard(props) {
 		console.log(newData)
 		setData(newData)
 	}
-
-
+	/*
+	const handleCourseChange = (newData) => {
+		console.log(0)
+		setData(6)
+	}
+	*/
 
 
 
