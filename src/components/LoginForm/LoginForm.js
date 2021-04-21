@@ -29,7 +29,7 @@ function LoginForm (props) {
 
                 <a className="login-buttons-fb" onClick={accountService.login}>
                     <div className="login-buttons-fb-logo">
-                        <img src="facebook.png"/>
+                        <img src="http://icon-library.com/images/facebook-f-icon/facebook-f-icon-7.jpg"/>
                     </div>
                     <div className="login-buttons-fb-name">
                         Login with Facebook
@@ -38,7 +38,7 @@ function LoginForm (props) {
 
                 <a className="login-buttons-google">
                     <div className="login-buttons-google-logo">
-                        <img src="google.png"/>
+                        <img src="whitegoogle.png"/>
                     </div>
                     <div className="login-buttons-google-name">
                         Login with Google
