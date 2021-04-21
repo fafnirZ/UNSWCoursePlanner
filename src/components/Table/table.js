@@ -281,6 +281,7 @@ class Table extends Component {
 		//adds course
 		this.add_course(year,sem, course);
 		this.add_credit();
+		this.add_bar();
 
 		//var neww = (this.props.credits.core - 6)
 		//console.log(neww)
@@ -355,6 +356,7 @@ class Table extends Component {
 
 		this.remove_course(year, sem, course)
 		this.minus_credit();
+		this.minus_bar();
 
 	}
 
@@ -389,6 +391,16 @@ class Table extends Component {
 	
 
 		this.props.onChange({...this.props.credit, coreUOC: neww });
+	}
+
+	add_bar() {
+		const neww = this.props.credit.currentCoreUOC + 6;
+		this.props.onChange({...this.props.credit, currentCoreUOC: neww});
+	}
+
+	minus_bar() {
+		const neww = eval(this.props.credit.currentCoreUOC - 6);
+		this.props.onChange({...this.props.credit, currentCoreUOC: neww})
 	}
 
 	//add course

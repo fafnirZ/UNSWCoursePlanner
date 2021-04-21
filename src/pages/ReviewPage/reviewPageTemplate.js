@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '../../components/Course/course.css';
 import '../../components/Overview/overview.css'
 import '../../components/Review/review.css'
-
+    
 const reviewPageTemplate = (props) => {
     
     let {courseCode} = props.match.params
@@ -61,7 +61,7 @@ const reviewPageTemplate = (props) => {
                     <ReviewBox />
                 </div>
             </div>
-            <div className="Footer"></div>
+            <div className="rFooter"></div>
         </div>
     )
 }

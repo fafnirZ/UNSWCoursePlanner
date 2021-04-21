@@ -29,8 +29,11 @@ function DashBoard(props) {
 	    dName: "Engineering (Honours)",
 	    dSpecialisation: "SENGAH",
 	    coreUOC: 126,
+		currentCoreUOC: 0,
 	    electiveUOC: 42,
+		currentElectiveUOC: 0,
 	    higherUOC:30,
+		currentHigherUOC: 0,
 	    coreCourses: {
 	        "lvlOne":["COMP1511", "COMP1521", "COMP1531", "MATH1081", "ENGG1000", "MATH1131", "MATH1231"],
 	        "lvlTwo": ["COMP2041", "COMP2511", "COMP2521", "DESN2000", "MATH2400", "MATH2859", "SENG2011", "SENG2021"],
@@ -43,7 +46,7 @@ function DashBoard(props) {
 		//console.log(window.localStorage.getItem('credit'))
 		
 		if(window.localStorage.getItem('uoc') !== null) {
-			setData({...data, coreUOC: window.localStorage.getItem('uoc')})
+			setData({...data, coreUOC: window.localStorage.getItem('uoc'), currentCoreUOC: window.localStorage.getItem('currentUOC')})
 		}
 		
 	},[])
@@ -61,12 +64,11 @@ function DashBoard(props) {
 		window.localStorage.setItem('uoc', newData['coreUOC'])
 
 	}
-	/*
-	const handleCourseChange = (newData) => {
-		console.log(0)
-		setData(6)
+	const handleCourseChange = (newBar) => {
+		setData(newBar)
+		window.localStorage.setItem('currentUOC', newBar['currentCoreUOC'])
 	}
-	*/
+
 
 
 
@@ -92,7 +94,7 @@ function DashBoard(props) {
 				</div>
 
 				<div className="tree">
-					<Tree />
+					<Tree value={years} onChange={handleCourseChange} credit={data}/>
 				</div>
 				<div className="table">
 					<Table years={years} onChange={handleCreditChange} credit={data}/>

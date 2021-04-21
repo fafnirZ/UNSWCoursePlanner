@@ -84,8 +84,6 @@ function ProfilePage(props) {
                         <AcademicHobbies hobbies={hobbies}/>
                     </div>
                 </div>
-                <div className="Footer">
-                </div>
             </div>
 
         </SubmitProvider>
