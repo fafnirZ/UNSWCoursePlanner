@@ -1,6 +1,7 @@
 import react, {useEffect} from 'react'
 import Navbar from '../../components/Nav/nav.js'
 import OurButton from '../../components/Button/button.js'
+import SimpleMap from '../../components/Maps/maps.js'
 import './studySpaceFinder.css'
 
 function StudySpaceFinder(props) {
@@ -16,7 +17,7 @@ function StudySpaceFinder(props) {
 			</div>
 
 			<div className="studyspaceBody">
-				<img src="studyspacemap.png"/>
+				<SimpleMap />
 			</div>
 
 			<div className="Footer">
