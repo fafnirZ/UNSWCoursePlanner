@@ -3,12 +3,10 @@ import Button from '@material-ui/core/Button'
 import './homePage.css'
 
 
-
-
 export default function HomePage() {
 
     return (
-        <div className="Home">
+        <div>
             <div className="hHeader">
                 <div className="logo">
                     <img src="unswlogo.png"/>
@@ -25,7 +23,10 @@ export default function HomePage() {
                     <img src="book.png"/>
                 </div>
                 <div className="hWelcome">
-                    <img src="welcome.png"/>
+                <div className="semicircle">
+                    {/* Welcome to UNSW Course Planner */}
+                </div>
+                    
                 </div>
             </div>
 

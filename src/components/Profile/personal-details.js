@@ -1,15 +1,17 @@
 import React from 'react'
 import './personal-details.css'
+import { SubmitConsumer } from '../../helpers/submitContext.js'
 
-function PersonalDetails () {
+function PersonalDetails (props) {
     return (
+
         <div className="details">
             <div className="details-gender">
                 <div className="details-gender-title">
                     <strong>Gender:</strong>
                 </div>
                 <div className="details-gender-user">
-                    Male
+                    {props.gender}
                 </div>
             </div>
             <div className="details-year">
@@ -17,7 +19,7 @@ function PersonalDetails () {
                     <strong>Year:</strong>
                 </div>
                 <div className="details-year-user">
-                    4th Year
+                    {`year ${props.year}`}
                 </div>
             </div>
             <div className="details-degree">
@@ -25,7 +27,8 @@ function PersonalDetails () {
                     <strong>Degree:</strong>
                 </div>
                 <div className="details-degree-user">
-                    3768 - Engineering(Honours)/Biomedical Engineering
+                    //3768 - Engineering(Honours)/Biomedical Engineering
+                    {props.degree}
                 </div>
             </div>
             <div className="details-email">
@@ -33,7 +36,7 @@ function PersonalDetails () {
                     <strong>Email:</strong>
                 </div>
                 <div className="details-email-user">
-                    z5208859@ad.unsw.edu.au
+                    {props.email}
                 </div>
             </div>
         </div>

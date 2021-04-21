@@ -31,6 +31,7 @@ async function login() {
         .then(response=> {
             //store cookie in localstorage
             window.localStorage.setItem('token', response.token);
+            window.localStorage.setItem('facebookId', response.facebookId);
             //TODO: send post request to backend to store token to backend char store
             //send facebookid, name, token
             //console.log(response)
@@ -66,8 +67,8 @@ async function login() {
         //history.push(from);
 
     }
-    else {
         //debugging purposes
+        /*
         const facebookId='2191101731019868';
         const name='Jacky Xie';
 
@@ -85,8 +86,9 @@ async function login() {
         .then (response => {
             console.log(response);
         })
- 
-    }
+        window.localStorage.setItem('facebookId', facebookId);
+        */
+    
 
 
 
@@ -110,7 +112,7 @@ function logout() {
     stopAuthenticateTimer();
     accountSubject.next(null);
     
-    //window.localStorage.removeItem('token');
+    window.localStorage.removeItem('token');
     history.push('/loginpage');
 }
 
