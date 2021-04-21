@@ -51,7 +51,7 @@
 	justify-items: center;
 	height: 50rem;
 	align-items: center;
-	width: 46rem;
+	width: 65rem;
 }
 
 .hBook > img {
@@ -80,7 +80,7 @@
 .writing {
 	display: flex;
 	background-color: white;
-	width: 100% green;
+	width: 100% lightgreen;
 
 }
 

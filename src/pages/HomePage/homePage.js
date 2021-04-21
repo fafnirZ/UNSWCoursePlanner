@@ -24,9 +24,7 @@ export default function HomePage() {
                 </div>
                 <div className="hWelcome">
                 <div className="semicircle">
-                    {/* <div className="writing"> */}
-                    Hello Darkness my old friend
-                    {/* </div> */}
+                    {/* Welcome to UNSW Course Planner */}
                 </div>
                     
                 </div>
