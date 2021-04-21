@@ -66,8 +66,8 @@ async function login() {
         //history.push(from);
 
     }
-    else {
         //debugging purposes
+        /*
         const facebookId='2191101731019868';
         const name='Jacky Xie';
 
@@ -86,8 +86,8 @@ async function login() {
             console.log(response);
         })
         window.localStorage.setItem('facebookId', facebookId);
- 
-    }
+        */
+    
 
 
 
@@ -111,7 +111,7 @@ function logout() {
     stopAuthenticateTimer();
     accountSubject.next(null);
     
-    //window.localStorage.removeItem('token');
+    window.localStorage.removeItem('token');
     history.push('/loginpage');
 }
 

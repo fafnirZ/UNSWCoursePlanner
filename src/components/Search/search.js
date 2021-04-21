@@ -39,7 +39,7 @@ function DropBox(props) {
 				return (
 					<a className="results" 
 					id={item}
-					href={'/reviewpage/'+ item.toString()}
+					href={'http://localhost:3000/reviewpage/'+ item.toString()}
 					draggable
 					onDragStart={
 						(e)=> {

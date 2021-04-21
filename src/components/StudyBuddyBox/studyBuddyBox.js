@@ -1,69 +1,238 @@
-import react from 'react'
+import react, {Component} from 'react';
 import './studyBuddyBox.css'
-import Toggle from '../Toggle/toggle.js'
+import NamePic from '../Profile/personal-name.js'
 
-function StudyBuddy() {
-    return (
-        <div className="StudyBuddy-Frame">
-            <div className="StudyBuddy-Heading">
-                Programming Fundamentals | COMP1511
-            </div>
+
+class StudyBuddy extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            firstName: '',
+            inputVal: '',
+            commentVal: '',
+            comments: [],
+            comment_id: 0,
+            reply_id: 0
+        } 
+
+        this.state.comments= [
+            // {
+            //     'text': 'sup jacky',
+            //     'id': 0,
+            //     'author': 'Ahmet',
+            //     'replies': [
+            //         {'text': 'sup ahmet', 'id': 1, 'author': 'Jacky'}
+            //     ]
+            // }
+        ];
+
+
+        // let numComments = this.state.comments.length
+        // for (let c = 0; i < numComments; i++) {
+        //     let numReplies = this.state.comments[c].length
+        //     for (let r = 0; r < numReplies; r++) {
+
+        //     }
+        //     //Do something
+        // }
+
         
-            <div className="StudyBuddy-Box">
-                <div className="StudyBuddyBox-Heading">
-                    Study Buddy Finder
+    }
+
+    // displayNameHandler = (e) => {
+    //     this.setState({firstName: this.state.inputVal});
+    // }
+
+    componentDidMount() {
+        window.addEventListener('click', this.handleClick);
+
+    };
+
+    handleClick(event) {
+        var target = event.target;
+        var replyForm;
+        if (target.matches("[data-toggle='reply-form']")) {
+            replyForm = document.getElementById(target.getAttribute("data-target"));
+            replyForm.classList.toggle("d-none");
+        }  
+    };
+
+    handleCommentSubmit = (e) => {
+        let text = this.state.commentVal
+        let id = this.state.comment_id
+        // alert(id)
+        let comments = this.state.comments
+        comments.push({'text': text, 'id': id, author: 'fishyyy', 'replies': []})
+        this.setState({
+            'comments': comments
+        })
+        this.state.comment_id = this.state.comment_id + 1
+        this.state.commentVal = ''
+    }
+
+    handleReplySubmit = (e) => {
+        let text = this.state.inputVal
+        let id = e.currentTarget.attributes['data-target'].value
+        // alert(id)
+        let replies = this.state.comments[id]['replies']
+        replies.push({'text': text, 'id': id, author: 'fishyyy'})
+        this.setState({
+            'replies': replies
+        })
+        this.state.reply_id = this.state.reply_id + 1
+        this.state.inputVal = ''
+
+    }
+
+
+    commentRenderer(item) {
+        const comment = item.text
+        const id = item.id
+        const author = item.author
+    
+        var today = new Date();
+        let month = today.toLocaleString('en-us', { month: 'short' });
+        let hours = today.getHours()
+        let minutes = today.getMinutes()
+        var postfix
+        if (hours < 12) {
+            postfix = 'AM'
+        } else {
+            hours = 'PM'
+        }
+
+        if (minutes < 10) {
+            minutes = '0' + minutes
+        }
+        var time = hours + ':' + minutes + ' ' + postfix
+        const timeCreated = today.getDay() + ' ' + month + ', ' + time
+
+        return (
+            <details open class="comment" id={id}>
+                <a href={`#${id}`} class="comment-border-link">
+                    <span class="sr-only">Jump to comment-{id}</span>
+                </a>
+                <summary>
+                    <div class="comment-heading">
+                        <div class="comment-info">
+                            {/* I've gotta grab the name from profile once it is portable */}
+                            <a href="/profile" class="comment-author">{author}</a>
+                            <p class="m-0">
+                                {/* Make the timestamp dynamic */}
+                                &bull; {timeCreated}
+                            </p>
+                        </div>
+                    </div>
+                </summary>
+
+                <div class="comment-body">
+                    <p>
+                        {comment}
+                    </p>
+                    <button type="button" data-toggle="reply-form" data-target={`${id}-reply-form`}>Reply</button>
+                    {/* Reply form start */}
+                    <form className="reply-form d-none" id={`${id}-reply-form`}>
+                        <textarea placeholder="Reply to comment" rows="4" value={this.state.inputVal}
+                            onChange={e => this.setState({inputVal: e.target.value})}/>
+                        <button type="button" data-target={`${id}`} onClick={this.handleReplySubmit}>Post</button>
+                        <button type="button" data-toggle="reply-form" data-target={`${id}-reply-form`}>Cancel</button>
+                    </form>
+                    {/* Reply form end */}
                 </div>
 
-                <div className="StudyBuddyBox-CommentBox">
-                    <Toggle render={({on, toggle}) => (
-                        <div>
-                            <div className="StudyBuddyBox-Comments" onClick={toggle}> @akaratas commented: Looking for a study buddy who is free on tuesday afternoons.
-                            <br></br>
-                            Contact me via email on z5311022@ad.unsw.edu.au (Click to show/hide replies)</div>
-                            {on && 
-                            <div className="StudyBuddyBox-CommentReply">
-                                &#8627; @jxie replied: I sent you an email
-                            !</div>
-                        }
-                        </div> 
-                    )} />
-                    
-                    <div className="StudyBoxLike">
-                        Like
-                    </div>
-                    <div className="StudyBoxReply">
-                        Reply
-                    </div>
-
-                    <br></br>
-
-                    <Toggle render={({on, toggle}) => (
-                        <div>
-                            <div className="StudyBuddyBox-Comments" onClick={toggle}> @hsaeed commented: Looking to some study buddies to work on homework questions with.
-                            <br></br>
-                            My email is z5311025@ad.unsw.edu.au (Click to show/hide replies)</div>
-                            {on && 
-                            <div className="StudyBuddyBox-CommentReply">&#8627; @douyang replied: I would love to work on homework questions. Sent you an email!</div>
-                        }
-                        </div> 
-                    )} />
-                    <div className="StudyBoxLike">
-                        Like
-                    </div>
-                    <div className="StudyBoxReply">
-                        Reply
-                    </div>
+                <div class="replies">
+                    {this.state.comments[id]['replies'].map((item)=> {
+                        return(this.replyRenderer(item))
+                    })} 
                 </div>
+            </details>
+        )
+    }
 
-                <div className="StudybuddyBox-NewCommentBox">
-                    Type a new comment here...
+    //text: comment
+    //id: comment-2
+    //author: Fishyy
+    replyRenderer(item) {
+        const comment = item.text
+        const id = item.id
+        const author = item.author
+        var today = new Date();
+        let month = today.toLocaleString('en-us', { month: 'short' });
+        let hours = today.getHours()
+        let minutes = today.getMinutes()
+        var postfix
+        if (hours < 12) {
+            postfix = 'AM'
+        } else {
+            hours = 'PM'
+        }
+
+        if (minutes < 10) {
+            minutes = '0' + minutes
+        }
+        var time = hours + ':' + minutes + ' ' + postfix
+        const timeCreated = today.getDay() + ' ' + month + ', ' + time
+
+        return(            
+            <details open class="comment" id={id}>
+                <a href={`#${id}`} class="comment-border-link">
+                    <span class="sr-only">Jump to comment-{id}</span>
+                </a>
+
+                <summary>
+                    <div class="comment-heading">
+                        <div class="comment-info">
+                            <a href="/profile" class="comment-author">{author}</a>
+                            <p class="m-0">
+                                &bull; {timeCreated}
+                            </p>
+                        </div>
+                    </div>
+                </summary>
+
+                <div class="comment-body">
+                    <p>
+                        {comment}
+                    </p>
+                </div>
+            </details>
+        )
+    }
+
+    render() {
+        return (
+            <div className="StudyBuddy-Frame">
+                <div class="comment-thread">
                     
+                    <div className="heading">
+                        Study Buddy Finder
+                    </div> 
+
+                    <div className="box">
+                        <div className="box-heading">
+                            Programming Fundamentals | COMP1511
+                        </div>
+
+                        <div className="newComment">
+                            <form>
+                                <input className="box-newComment" placeholder="Type a new comment here" value={this.state.commentVal}
+                                    onChange={e => this.setState({commentVal: e.target.value})} ></input>
+                                    
+                                <button type="button" data-target={`${this.id}`} onClick={this.handleCommentSubmit}>Post</button>
+                            </form>
+                        </div>
+
+
+                        {/* Renders all the comments */}
+                        {this.state.comments.map((item)=> {
+                            return(this.commentRenderer(item))
+                        })}
+                    </div>
+
                 </div>
             </div>
-        </div>
-
-
-    )
+        )
+    }
 }
-
 export default StudyBuddy;
