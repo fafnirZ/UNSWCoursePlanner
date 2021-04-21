@@ -18,6 +18,10 @@
 
 }
 
+span {
+
+}
+
 .logo {
 	display:flex;
 	justify-self:start;
@@ -71,7 +75,7 @@
 
 .semicircle {
 	display:flex;
-	background-color: #05ffa6;
+	background-color: lightblue;
 	height: 50rem;
 	width: 25rem; 
 	border-radius: 25rem 0px 0px 25rem; 
@@ -80,9 +84,14 @@
 
 .writing {
 	display: flex;
-	background-color: white;
-	width: 100%;
-
+	width: 90%;
+	position: absolute;
+	padding-left: 50rem;
+	font-size: 55px;
+	transform: translate(-50%,-50%);
+	left: 50%;
+	top: 50%;
+	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .Footer {

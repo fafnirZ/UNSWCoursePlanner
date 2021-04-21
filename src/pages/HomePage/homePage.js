@@ -24,7 +24,9 @@ export default function HomePage() {
                 </div>
                 <div className="hWelcome">
                 <div className="semicircle">
-                    Welcome to UNSW Course Planner
+                    <div classname="writing">
+                        <span className="writing">Welcome to UNSW Course Planner</span>
+                    </div>
                 </div>
                     
                 </div>
