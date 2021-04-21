@@ -20,8 +20,6 @@ function StudySpaceFinder(props) {
 				<SimpleMap />
 			</div>
 
-			<div className="Footer">
-			</div>
 		</div>
 	);
 }

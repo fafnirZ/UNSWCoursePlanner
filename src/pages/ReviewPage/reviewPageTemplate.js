@@ -2,12 +2,11 @@ import React, {useEffect} from 'react'
 import courses from '../../data/oldCourseList.json'
 import Navbar from '../../components/Nav/nav.js'
 import OurButton from '../../components/Button/button.js'
-import Form from '../../components/Form/form.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '../../components/Course/course.css';
 import '../../components/Overview/overview.css'
 import '../../components/Review/review.css'
-
+    
 const reviewPageTemplate = (props) => {
     
     let {courseCode} = props.match.params
@@ -62,7 +61,7 @@ const reviewPageTemplate = (props) => {
                     <ReviewBox />
                 </div>
             </div>
-            <div className="Footer"></div>
+            <div className="rFooter"></div>
         </div>
     )
 }

@@ -23,8 +23,6 @@ function StudyBuddyFinder() {
                 <StudyBuddy />
             </div>
             
-            <div className="Footer">
-            </div>
         </div>
 
     );    

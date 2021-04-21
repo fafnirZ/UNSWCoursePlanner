@@ -22,7 +22,7 @@
 
 .PersonalArea {
     display:grid;
-    grid-template-rows: 40% 60%;
+    grid-template-rows: 53% 47%;
     grid-template-areas: "personal-pic" "personal-details";
     grid-area:personal;
     row-gap: 5rem;
@@ -34,7 +34,7 @@
     padding: 5rem;
     height: auto;
     grid-column:2/2;
-    grid-template-rows: 30% 40% 30%;
+    grid-template-rows: 30% 50% 20%;
     grid-template-areas: "academic-bio" "academic-course" "academic-hobbies";
     row-gap:2rem;
     

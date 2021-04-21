@@ -27,7 +27,6 @@ function PersonalDetails (props) {
                     <strong>Degree:</strong>
                 </div>
                 <div className="details-degree-user">
-                    //3768 - Engineering(Honours)/Biomedical Engineering
                     {props.degree}
                 </div>
             </div>
