@@ -24,8 +24,6 @@ function DashBoard(props) {
 	}
 	const[years, setYears] = react.useState(4);
 
-
-
 	const [data, setData] = react.useState({
 		dCode: 3707,
 	    dName: "Engineering (Honours)",
@@ -41,14 +39,27 @@ function DashBoard(props) {
 		}
 	});
 
+	react.useEffect(()=> {
+		//console.log(window.localStorage.getItem('credit'))
+		
+		if(window.localStorage.getItem('uoc') !== null) {
+			setData({...data, coreUOC: window.localStorage.getItem('uoc')})
+		}
+		
+	},[])
+
+
+
 	const handleChange = (newYears) => {
 		setYears(newYears);
 
 	}
 
 	const handleCreditChange= (newData)=> {
-		console.log(newData)
 		setData(newData)
+		//newData['coreUOC']
+		window.localStorage.setItem('uoc', newData['coreUOC'])
+
 	}
 	/*
 	const handleCourseChange = (newData) => {
