@@ -9,6 +9,12 @@ import Years from '../../components/Years/years.js'
 import Tags from '../../components/Tags/tags.js'
 import './dashBoard.css'
 
+
+
+
+
+
+
 function DashBoard(props) {
 
 	const buttons = () => {
@@ -18,13 +24,38 @@ function DashBoard(props) {
 	}
 	const[years, setYears] = react.useState(4);
 
+
+
+	const [data, setData] = react.useState({
+		dCode: 3707,
+	    dName: "Engineering (Honours)",
+	    dSpecialisation: "SENGAH",
+	    coreUOC: 126,
+	    electiveUOC: 42,
+	    higherUOC:30,
+	    coreCourses: {
+	        "lvlOne":["COMP1511", "COMP1521", "COMP1531", "MATH1081", "ENGG1000", "MATH1131", "MATH1231"],
+	        "lvlTwo": ["COMP2041", "COMP2511", "COMP2521", "DESN2000", "MATH2400", "MATH2859", "SENG2011", "SENG2021"],
+	        "lvlThree": ["SENG3011", "COMP3311", "COMP3141", "COMP3331"],
+	        "lvlFour": ["COMP4920", "COMP4951", "COMP4952", "COMP4953"]
+		}
+	});
+
 	const handleChange = (newYears) => {
 		setYears(newYears);
+
 	}
 
-	react.useEffect(()=> {
-		
-	})
+	const handleCreditChange= (newData)=> {
+		console.log(newData)
+		setData(newData)
+	}
+
+
+
+
+
+
 
 
 	return (
@@ -37,8 +68,8 @@ function DashBoard(props) {
 					<Tags />
 				</div>
 
-				<div className="units">
-					<Units />
+				<div className="units" data={data}>
+					<Units data={data}/>
 				</div>
 
 				<div className="search">
@@ -49,11 +80,11 @@ function DashBoard(props) {
 					<Tree />
 				</div>
 				<div className="table">
-					<Table years={years} />
+					<Table years={years} onChange={handleCreditChange} credit={data}/>
 				</div>
 
 				<div className="years">
-					<Years value={years} onChange={handleChange}/>
+					<Years value={years} onChange={handleChange} />
 				</div>
 
 			</div>

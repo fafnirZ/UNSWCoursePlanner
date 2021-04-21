@@ -11,8 +11,7 @@ class Table extends Component {
 			num_years : 4,
 			num_sems : 3,
 			last_item: null,
-			hover:true
-
+			hover:true,
 		};
 
 		const yrs = Array.from(Array(this.state.num_years).keys());
@@ -81,6 +80,10 @@ class Table extends Component {
 	            }
 	        })
 		})
+
+
+		//this.setState({onChange:this.props.onChange});
+
 
 		const elements = document.querySelectorAll('.squares')
 		elements.forEach((item, index)=> {
@@ -261,10 +264,10 @@ class Table extends Component {
 
 
 
-
-
 		
 	}
+
+
 
 
 	onDragOver(event) {
@@ -277,6 +280,13 @@ class Table extends Component {
 		const sem = event.currentTarget.getAttribute('sem');
 		//adds course
 		this.add_course(year,sem, course);
+		this.add_credit();
+
+		//var neww = (this.props.credits.core - 6)
+		//console.log(neww)
+
+		//this.props.onChange(this.state.num_years, {...this.props.credits, core: neww})
+
 	}
 
 	onMouseOver(event) {
@@ -344,6 +354,7 @@ class Table extends Component {
 		const course = event.target.attributes.course.nodeValue
 
 		this.remove_course(year, sem, course)
+		this.minus_credit();
 
 	}
 
@@ -366,8 +377,19 @@ class Table extends Component {
 		return 0;
 	}
 
+	add_credit() {
 
+		const neww = this.props.credit.coreUOC-6;
+	
 
+		this.props.onChange({...this.props.credit, coreUOC: neww });
+	}
+	minus_credit() {
+		const neww = this.props.credit.coreUOC+6;
+	
+
+		this.props.onChange({...this.props.credit, coreUOC: neww });
+	}
 
 	//add course
 	add_course(year, sem, course) {
