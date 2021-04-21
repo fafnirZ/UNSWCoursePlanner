@@ -2,6 +2,11 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './course.css';
 import Form from '../../components/Form/form.js';
+import courses from "../../data/courseList.json"
+const testCourse = courses.MATH1131
+const courseCode = testCourse.c_code
+const courseName = testCourse.c_title
+const courseCred = testCourse.c_uoc
 
 function Course (props) {
 
@@ -9,10 +14,10 @@ function Course (props) {
         <div className="Course">
             <div className="text">
                 <div className="courseName">
-                    <strong>Requirements and Design Workshop</strong>
+                    <strong>{courseName}</strong>
                 </div>
                 <div className="code">
-                    <p>SENG2021 | 6 Units of Credit</p>
+                    <p>{courseCode} | {courseCred} Units of Credit</p>
                 </div>
                 <span className="rating">
                 <FontAwesomeIcon icon = "star"/>

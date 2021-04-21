@@ -1,13 +1,10 @@
-import react, {useEffect} from 'react'
 import Navbar from '../../components/Nav/nav.js'
-import Course from '../../components/Course/course.js'
-import Overview from '../../components/Overview/overview.js'
-import Review from '../../components/Review/review.js'
 import OurButton from '../../components/Button/button.js'
 import test from './reviewPageTemplate.js'
-import {Link, Switch, Route} from 'react-router-dom';
-import courseList from '../../data/oldCourseList.json'
+import {Switch, Route} from 'react-router-dom';
 import './reviewPage.css'
+import '../../components/Course/course.css';
+import '../../components/Overview/overview.css';
 
 const ReviewPage = () => {
     const buttons = () => {
