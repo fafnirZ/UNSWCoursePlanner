@@ -1,6 +1,7 @@
 import react, {Component} from 'react';
 import './studyBuddyBox.css'
 import NamePic from '../Profile/personal-name.js'
+import axios from 'axios'
 
 
 class StudyBuddy extends Component {
@@ -14,7 +15,12 @@ class StudyBuddy extends Component {
             comments: [],
             comment_id: 0,
             reply_id: 0
-        } 
+        }
+
+
+
+
+
 
         this.state.comments= [
             // {
@@ -47,6 +53,14 @@ class StudyBuddy extends Component {
     componentDidMount() {
         window.addEventListener('click', this.handleClick);
 
+
+        const facebookID = window.localStorage.getItem('facebookId')
+        axios.get(`http://localhost:8080/getProfile?facebookId=${facebookID}`, )
+        .then(response => {
+            //console.log(response.data.data.name)
+            this.setState({firstName: response.data.data.name})
+        })
+
     };
 
     handleClick(event) {
@@ -63,7 +77,7 @@ class StudyBuddy extends Component {
         let id = this.state.comment_id
         // alert(id)
         let comments = this.state.comments
-        comments.push({'text': text, 'id': id, author: 'fishyyy', 'replies': []})
+        comments.push({'text': text, 'id': id, author: this.state.firstName, 'replies': []})
         this.setState({
             'comments': comments
         })
