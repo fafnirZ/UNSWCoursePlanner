@@ -385,7 +385,7 @@ class Table extends Component {
 		this.props.onChange({...this.props.credit, coreUOC: neww });
 	}
 	minus_credit() {
-		const neww = this.props.credit.coreUOC+6;
+		const neww = eval(this.props.credit.coreUOC+6);
 	
 
 		this.props.onChange({...this.props.credit, coreUOC: neww });
