@@ -1,84 +1,95 @@
+
+* {
+    box-sizing: border-box;
+}
+
 .Home {
-	display:grid;
-	grid-template-rows: 7rem auto 7rem;
-	grid-template-areas:
-	"header"
-	"body"
-	"footer";
+    display:flex;
 }
 
 .hHeader {
-	grid-area: header;
-	background-color:#C1E8E0;
-
-	display:grid;
-	grid-template-columns: 15rem 1fr 15rem;
-	grid-template-areas: "logo . login";
+    display: flex;
+    background-color:#C1E8E0;
+    position: fixed;
+    display:flex;
+    width: 100%;
+    height: 7rem;
 
 }
 
 .logo {
-	grid-area: logo;
-	display:flex;
-	justify-self:start;
-	background-color: #C1E8E0;
+    display:flex;
+    justify-self:start;
+    background-color: #C1E8E0;
 
 }
 
 .logo > img {
-	object-fit: contain;
-	width:100%;
-	max-height: 100%;
-	background: #C1E8E0;
-	padding:0.3rem;
+    object-fit: contain;
+    width:100%;
+    max-height: 100%;
+    background: #C1E8E0;
+    /* padding:0.3rem; */
 }
 
 .login {
-	grid-area:login;
-	display:flex;
-	align-items: center;
-	justify-self: center;
+    display:flex;
+    align-items: center;
+    justify-self: center;
 }
-
-
-
 
 
 .hBody {
-	grid-area: body;
-	display:grid;
-	grid-template-columns: 50% 50%;
-	grid-template-areas: "book welcome";
-	grid-gap: 1rem;
+    display:flex;
+    max-height: 43rem;
+    background-color: white;
 }
 
 .hBook {
-	grid-area:book;
-	display:flex;
-	justify-items: start;
+    display:flex;
+    justify-items: center;
+    height: 50rem;
+    align-items: center;
+    width: 65rem;
 }
-.hBook >img {
-	object-fit: cover;
-	width:100%;
-	max-height: 50%;
+
+.hBook > img {
+    object-fit: contain;
 
 }
 
 .hWelcome {
-	grid-area:welcome;
-	height:100%;
-	display:flex;
-	justify-items: end;
-}
-.hWelcome >img {
-	object-fit: cover;
-	max-height:100%;
+    display:flex; 
+    width: 600;
+    flex-direction: row;
 
 }
 
+.semicircle {
+    display:flex;
+    background-color: lightblue;
+    height: 50rem;
+    width: 25rem; 
+    border-radius: 25rem 0px 0px 25rem; 
+    
+}
+
+.writing {
+    display: flex;
+    width: 90%;
+    position: absolute;
+    padding-left: 50rem;
+    font-size: 55px;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 .Footer {
-	grid-area:footer;
-	background-color:#C1E8E0;
+    height: 7rem;
+    width: 100%;
+    background-color:#C1E8E0;
+    position: fixed;
+    overflow:hidden;
 }
-
