@@ -1,5 +1,19 @@
 .LoginPage{
-    background-color: cadetblue;
+    /* background-color: rgb(0, 247, 255); */
+    /* background: url(https://www.studyandgoabroad.com/wp-content/uploads/2016/10/unsw00.jpg); */
+    background-size: cover;
+    background-position: center;
+    background-repeat:no-repeat;
+    transition: 5s;
+
+    animation-name: fishandchips;
+    animation-direction:alternate-reverse;
+    animation-duration: 30s;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
     height: 100vh;
     display:grid;
     grid-template-rows: 10% 80% 10%;
@@ -13,4 +27,30 @@
     margin: auto;
     height: auto;
     vertical-align: center;
+}
+@keyframes fishandchips{
+    0%{
+        background-image: url(https://www.studyandgoabroad.com/wp-content/uploads/2016/10/unsw00.jpg);
+        
+    }
+    20%{
+        background-image: url(https://www.timeshighereducation.com/sites/default/files/unsw_sydney_campus.jpg);
+        
+    }
+    40%{
+        background-image: url(https://3er1viui9wo30pkxh1v2nh4w-wpengine.netdna-ssl.com/wp-content/uploads/prod/sites/66/2019/02/Key-Campus-Summer-Holidays-2019-Louise-Reily-2.jpg);
+        
+    }
+    60%{
+        background-image: url(https://www.inside.unsw.edu.au/sites/default/files/article/2020-04-15-Kensington-Campus%200049%20750x400.jpg);
+        
+    }
+    80%{
+        background-image: url(https://www.inside.unsw.edu.au/sites/default/files/article/academic%20promotions%20750%20x%20400.jpg);
+        
+    }
+    100%{
+        background-image: url(https://www.inside.unsw.edu.au/sites/default/files/article/australia-day-750x400.jpg);
+        
+    }
 }

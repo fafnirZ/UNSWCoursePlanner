@@ -40,31 +40,7 @@
     
 }
 
-.NamePic {
-    height: auto;
-    display: grid;
-    grid-area: personal-pic;
-    grid-template-rows: 80% 20%;
-    grid-template-areas: "npPic" "npName";
 
-}
-
-.profilePic >img {
-    grid-area:npPic;
-    display: block;
-    margin: auto;
-    object-fit: cover;
-	width:50%;
-	padding:2rem;
-	border-radius:50%;
-	padding-top:1.5rem;
-}
-
-.profileName {
-    grid-area: npName;
-    text-align: center;
-    font-size: 30px;
-}
 
 .Header {
 	grid-area: header;

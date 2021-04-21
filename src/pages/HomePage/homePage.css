@@ -54,15 +54,13 @@
 }
 
 .hBook > img {
-    object-fit: contain;
-
+	object-fit: contain;
 }
 
 .hWelcome {
     display:flex; 
     width: 600;
     flex-direction: row;
-
 }
 
 .semicircle {
