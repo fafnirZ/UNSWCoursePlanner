@@ -6,7 +6,7 @@ import './homePage.css'
 export default function HomePage() {
 
     return (
-        <div>
+        <div className="home">
             <div className="hHeader">
                 <div className="logo">
                     <img src="unswlogo.png"/>
@@ -16,7 +16,7 @@ export default function HomePage() {
                         login
                     </Button>
                 </div>
-			</div>
+            </div>
         
             <div className="hBody">
                 <div className="hBook">
@@ -24,7 +24,9 @@ export default function HomePage() {
                 </div>
                 <div className="hWelcome">
                 <div className="semicircle">
-                    {/* Welcome to UNSW Course Planner */}
+                    <div classname="writing">
+                        <span className="writing">Welcome to UNSW Course Planner</span>
+                    </div>
                 </div>
                     
                 </div>
