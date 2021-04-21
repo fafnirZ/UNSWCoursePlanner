@@ -58,7 +58,7 @@ function DashBoard(props) {
 	const handleCreditChange= (newData)=> {
 		setData(newData)
 		//newData['coreUOC']
-		//window.localStorage.setItem('uoc', newData['coreUOC'])
+		window.localStorage.setItem('uoc', newData['coreUOC'])
 
 	}
 
