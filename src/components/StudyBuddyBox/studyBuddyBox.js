@@ -17,11 +17,6 @@ class StudyBuddy extends Component {
             reply_id: 0
         }
 
-
-
-
-
-
         this.state.comments= [
             // {
             //     'text': 'sup jacky',
@@ -96,7 +91,6 @@ class StudyBuddy extends Component {
         })
         this.state.reply_id = this.state.reply_id + 1
         this.state.inputVal = ''
-
     }
 
 
