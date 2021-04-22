@@ -4,7 +4,7 @@ import axios from 'axios';
 import { history } from '../helpers/history';
 import env from "react-dotenv";
 
-const baseUrl = `5330495613659449/accounts`;
+const baseUrl = `env.Facebook_Id/accounts`;
 const accountSubject = new BehaviorSubject(null);
 
 export const accountService = {
@@ -68,27 +68,7 @@ async function login() {
 
     }
         //debugging purposes
-        /*
-        const facebookId='2191101731019868';
-        const name='Jacky Xie';
 
-        axios.headers = {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type" : "application/json"
-        }
-        axios.post('http://localhost:8080/login/', {
-            data: {
-                token : token,
-                facebookId: facebookId,
-                name: name
-            }
-        })
-        .then (response => {
-            console.log(response);
-        })
-        window.localStorage.setItem('facebookId', facebookId);
-        */
-    
 
 
 

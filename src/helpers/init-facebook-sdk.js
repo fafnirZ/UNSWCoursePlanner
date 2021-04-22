@@ -1,6 +1,6 @@
 import { accountService } from '../services/account_services.js'
 import env from 'react-dotenv'
-const facebookAppId = 5330495613659449;
+const facebookAppId = env.facebook_id;
 
 export function initFacebookSdk() {
     return new Promise(resolve => {
